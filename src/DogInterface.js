@@ -34,8 +34,7 @@ import './DogInterface.css';
 
             return (
               <div style={{color: bgColor}} onClick={this.changeColor.bind(this)}>
-                <h1>Hello, world!</h1>
-                <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+                <h1>It is {this.state.date.toLocaleTimeString()}</h1>
               </div>
             );
         }
