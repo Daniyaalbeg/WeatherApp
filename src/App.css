@@ -1,8 +1,8 @@
-body{
+html{
   margin: 0px;
   background-image: linear-gradient(to right top, #3969b0, #0089c8, #00a6cd, #00c1c3, #35d8ae);
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .App {
