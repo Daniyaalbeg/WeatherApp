@@ -6,7 +6,7 @@ import './DogInterface.css';
             super(props);
             this.state = {
                 date: new Date(),
-                color_red: true
+                color_lightsalmon: true
             };
 
         }
@@ -26,11 +26,11 @@ import './DogInterface.css';
         }
 
         changeColor(){
-            this.setState({color_red: !this.state.color_red})
+            this.setState({color_lightsalmon: !this.state.color_lightsalmon})
         }
 
         render() {
-            let bgColor = this.state.color_red ? "white" : "red";
+            let bgColor = this.state.color_lightsalmon ? "white" : "lightsalmon";
 
             return (
               <div style={{color: bgColor}} onClick={this.changeColor.bind(this)}>
