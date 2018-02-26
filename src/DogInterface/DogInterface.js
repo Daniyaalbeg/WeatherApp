@@ -40,6 +40,10 @@ import './DogInterface.css';
                         <p id="wind">8 mph</p>
                         <p id="pol">Pollen: Low</p>
                     </div>
+                    <div class="dogarea">
+                    </div>
+                    <div class="weathercomment">
+                    </div>
                 </div>
 
             );

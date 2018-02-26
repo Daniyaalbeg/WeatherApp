@@ -5,20 +5,42 @@
 
 .di{
     height: 100%;
+    width: 100%;
+    text-align: center;
 }
 
 .info{
-    padding-top: 10vw;
+    height: 20%;
+    width: 30%;
+    margin:auto;
     font-family: 'Lanenar';
-    font-size: 16pt;
+    background-color: purple;
 }
 
 #city{
-    font-size: 14pt;
+    padding-top: 10px;
+    font-size: 3vh;
 }
 #temp{
-    font-size: 40pt;
+    font-size: 5vh;
+}
+#wind{
+    font-size: 2vh;
 }
 #pol{
-    font-size: 14pt;
+    font-size: 2vh;
+}
+
+.dogarea{
+    height: 70%;
+    width: 90%;
+    background-color: brown;
+    margin: auto;
+}
+
+.weathercomment{
+    height: 10%;
+    width: 90%;
+    background-color: yellow;
+    margin: auto;
 }

@@ -26,7 +26,7 @@ body{
 
 .doginterface{
     height: 80vh;
-    width: 60vw;
+    width: 100vw;
     clear: both;
     margin: auto;
 }
@@ -39,8 +39,8 @@ body{
 }
 
 .settings{
-    height: 80vh;
-    width: 50vw;
+    height: 100vh;
+    width: 100vw;
     clear:both;
     margin:auto;
 }
