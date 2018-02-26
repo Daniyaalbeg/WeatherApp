@@ -1,0 +1,11 @@
+.se{
+    height: 100%;
+    background-color: #FFFAF0;
+}
+
+.heading{
+    padding-top: 6vh;
+}
+#title{
+    font-size: 20pt;
+}

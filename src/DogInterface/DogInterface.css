@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Lanenar";
+    src: url("../fonts/LANENAR_.ttf");
+}
+
+.di{
+    height: 100%;
+}
+
+.info{
+    padding-top: 10vw;
+    font-family: 'Lanenar';
+    font-size: 16pt;
+}
+
+#city{
+    font-size: 14pt;
+}
+#temp{
+    font-size: 40pt;
+}
+#pol{
+    font-size: 14pt;
+}

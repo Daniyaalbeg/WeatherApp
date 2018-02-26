@@ -1,30 +1,46 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 html{
   margin: 0px;
   background-image: linear-gradient(to right top, #3969b0, #0089c8, #00a6cd, #00c1c3, #35d8ae);
   width: 100%;
-  height: 100%;
+  height: 200%;
+}
+body{
 }
 
 .App {
-  text-align: center;
+    height: 200%;
+    text-align: center;
 }
 
-.App-header {
-  background-color: #222;
-  height: 40px;
-  padding: 3px;
-  color: white;
+.doginterface{
+    height: 80vh;
+    width: 60vw;
+    clear: both;
+    margin: auto;
 }
 
-.App-title {
-  font-size: 1.5em;
+.weatherbar{
+    height: 20vh;
+    width: 100vw;
+    clear:both;
+    margin:auto;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.settings{
+    height: 80vh;
+    width: 50vw;
+    clear:both;
+    margin:auto;
 }
