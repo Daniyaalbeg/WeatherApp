@@ -1,0 +1,11 @@
+.bar{
+    height: 100%;
+    width: 20vw;
+    display: inline-block;
+    background-color: purple;
+    box-shadow:inset 0px 0px 0px 1px black;
+}
+
+#time{
+    font-size: 3vh;
+}
