@@ -9,7 +9,7 @@ class FiveDay extends Component {
 
         var rows = [];
         for (var i = 0; i < 5; i++){
-            rows.push(<Bar className="bar" key={i}/>);
+            rows.push(<Bar className="bar" cata="Day" key={i}/>);
         }
 
         return (

@@ -9,7 +9,7 @@ class FiveHour extends Component {
 
         var rows = [];
         for (var i = 0; i < 5; i++){
-            rows.push(<Bar class="bar" key={i}/>);
+            rows.push(<Bar class="bar" cata="Time" key={i}/>);
         }
 
         return (
@@ -19,7 +19,5 @@ class FiveHour extends Component {
             );
         }
     }
-
-    
 
     export default FiveHour;

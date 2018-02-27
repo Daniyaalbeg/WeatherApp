@@ -3,9 +3,16 @@
     width: 20vw;
     display: inline-block;
     box-shadow:inset 0px 0px 0px 1px black;
-    border-radius: 10px;
+    position: relative;
 }
 
-#time{
-    font-size: 3vh;
+#bartime{
+    font-size: 4vh;
+    color: white;
+    position: absolute;
+}
+
+#imgtest{
+    height: 100%;
+    width: 100%;
 }

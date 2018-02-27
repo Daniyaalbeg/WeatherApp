@@ -10,14 +10,15 @@
 }
 
 .info{
-    height: 20%;
+    height: 25%;
     width: 30%;
     margin:auto;
     font-family: 'Lanenar';
+    /*background-color: green;*/
 }
 
 #city{
-    padding-top: 10px;
+    padding-top: 10vh;
     font-size: 3vh;
 }
 #temp{
@@ -31,7 +32,7 @@
 }
 
 .dogarea{
-    height: 70%;
+    height: 65%;
     width: 90%;
     /*background-color: brown;*/
     margin: auto;
