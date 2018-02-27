@@ -14,7 +14,6 @@
     width: 30%;
     margin:auto;
     font-family: 'Lanenar';
-    background-color: purple;
 }
 
 #city{
@@ -34,13 +33,13 @@
 .dogarea{
     height: 70%;
     width: 90%;
-    background-color: brown;
+    /*background-color: brown;*/
     margin: auto;
 }
 
 .weathercomment{
     height: 10%;
     width: 90%;
-    background-color: yellow;
+    /*background-color: yellow;*/
     margin: auto;
 }

@@ -3,9 +3,11 @@ import './Bar.css';
 
 class Bar extends Component {
     render() {
+
+
         return (
             <div className="bar">
-                <p>TIME</p> 
+                <p id="bartime"></p>
             </div>
             );
         }
