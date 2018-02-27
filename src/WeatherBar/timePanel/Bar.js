@@ -5,7 +5,7 @@ class Bar extends Component {
     render() {
         return (
             <div className="bar">
-                <div id="time">TIME</div>
+                <p>TIME</p> 
             </div>
             );
         }

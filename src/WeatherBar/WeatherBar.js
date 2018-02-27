@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import './WeatherBar.css';
-import Bar from './timePanel/Bar.js';
+import FiveDay from './timePanel/FiveDay/FiveDay.js';
+import FiveHour from './timePanel/FiveHour/FiveHour.js';
 
 class WeatherBar extends Component {
+
     render() {
         return (
             <div className="wb">
-                <Bar/>
-                <Bar/>
-                <Bar/>
-                <Bar/>
-                <Bar/>
+                <FiveHour/>
+                <FiveDay/>
             </div>
             );
         }
