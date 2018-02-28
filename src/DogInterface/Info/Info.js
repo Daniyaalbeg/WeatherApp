@@ -7,12 +7,15 @@ import './Info.css';
         }
 
         render() {
+
+            let weatherInfo = this.props.weatherInfo;
+
             return (
                 <div class="info">
-                    <p id="city">LONDON</p>
-                    <p id="temp">18°C</p>
-                    <p id="wind">8 mph</p>
-                    <p id="pol">Pollen: Low</p>
+                    <p id="city">{weatherInfo.city}</p>
+                    <p id="temp">{weatherInfo.temp}°C</p>
+                    <p id="wind">{weatherInfo.wind} mph</p>
+                    <p id="pol">Pollen: {weatherInfo.pol}</p>
                 </div>
             );
         }

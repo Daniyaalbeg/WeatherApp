@@ -6,9 +6,12 @@ import FiveHour from './timePanel/FiveHour/FiveHour.js';
 class WeatherBar extends Component {
 
     render() {
+
+        let fiveHourInfo = this.props.fiveHourInfo;
+
         return (
             <div className="wb">
-                <FiveHour/>
+                <FiveHour fiveHourInfo={fiveHourInfo}/>
                 <FiveDay/>
             </div>
             );

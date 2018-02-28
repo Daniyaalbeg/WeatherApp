@@ -4,7 +4,6 @@ import Bar from '../Bar.js';
 
 class FiveDay extends Component {
 
-
     render() {
 
         var rows = [];

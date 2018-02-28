@@ -8,9 +8,12 @@ import Info from './Info/Info.js';
         }
 
         render() {
+
+            let weatherInfo = this.props.weatherInfo;
+
             return (
                 <div class="di">
-                    <Info/>
+                    <Info weatherInfo={weatherInfo}/>
                     <div class="dogarea"></div>
                     <div class="weathercomment"></div>
                 </div>
