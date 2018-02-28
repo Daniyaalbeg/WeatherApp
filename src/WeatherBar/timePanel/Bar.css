@@ -6,7 +6,7 @@
     position: relative;
 }
 
-#bartime, #barweather, #bartemp{
+#bartime, #barweather, #bartemp, #bardate{
     font-size: 4vh;
     color: white;
     position: absolute;
@@ -20,7 +20,7 @@
     padding-top: 10vh;
 }
 
-#imgtest{
+#weatheranimation{
     height: 100%;
     width: 100%;
 }

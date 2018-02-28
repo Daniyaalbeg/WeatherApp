@@ -4,7 +4,6 @@ import Bar from '../Bar.js';
 
 class FiveHour extends Component {
 
-
     render() {
 
         let fiveHourInfo = this.props.fiveHourInfo;

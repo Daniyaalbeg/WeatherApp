@@ -6,10 +6,11 @@ class FiveDay extends Component {
 
     render() {
 
-        var rows = [];
-        for (var i = 0; i < 5; i++){
-            rows.push(<Bar className="bar" cata="Day" key={i}/>);
-        }
+        let fiveDayInfo = this.props.fiveDayInfo;
+
+        let rows = fiveDayInfo.map((weatherObj) => {
+            return <Bar day={weatherObj.day} weather={weatherObj.weather} tHigh={weatherObj.tHigh} tAvg={weatherObj.tAvg} tLow={weatherObj.tLow}/>;
+        });
 
         return (
             <div class="fvdy">
