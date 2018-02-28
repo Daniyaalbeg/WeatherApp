@@ -17,25 +17,15 @@
     /*background-color: green;*/
 }
 
-#city{
-    padding-top: 10vh;
-    font-size: 3vh;
-}
-#temp{
-    font-size: 5vh;
-}
-#wind{
-    font-size: 2vh;
-}
-#pol{
-    font-size: 2vh;
-}
-
 .dogarea{
     height: 65%;
     width: 90%;
     /*background-color: brown;*/
     margin: auto;
+}
+#weathergif{
+    padding-top: 10vh;
+    width: 50vw;
 }
 
 .weathercomment{

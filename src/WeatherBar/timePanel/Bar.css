@@ -8,7 +8,7 @@
 
 #bartime, #barweather, #bartemp, #bardate{
     font-size: 4vh;
-    color: white;
+    color: black;
     position: absolute;
 }
 #barweather{

@@ -56,13 +56,13 @@ class Bar extends Component {
         // More weathers need to be added into the switch case.
         switch(this.props.weather){
             case "sunny":
-                weatherGif="https://image.freepik.com/free-photo/nature-design-with-bokeh-effect_1048-1882.jpg";
+                weatherGif="";
                 break;
             case "snow":
-                weatherGif="https://image.freepik.com/free-photo/nature-design-with-bokeh-effect_1048-1882.jpg";
+                weatherGif="";
                 break;
             case "cloud":
-                weatherGif="https://image.freepik.com/free-photo/nature-design-with-bokeh-effect_1048-1882.jpg";
+                weatherGif="";
                 break;
         }
 

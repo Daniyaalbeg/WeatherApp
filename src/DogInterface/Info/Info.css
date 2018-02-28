@@ -1,2 +1,13 @@
-body{
+#city{
+    padding-top: 10vh;
+    font-size: 3vh;
+}
+#temp{
+    font-size: 5vh;
+}
+#wind{
+    font-size: 2vh;
+}
+#pol{
+    font-size: 2vh;
 }

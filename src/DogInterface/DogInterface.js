@@ -10,11 +10,32 @@ import Info from './Info/Info.js';
         render() {
 
             let weatherInfo = this.props.weatherInfo;
+            var weatherGif;
+
+            // More weathers need to be added into the switch case.
+            switch(weatherInfo.weather){
+                case "sunny":
+                    weatherGif="";
+                    break;
+                case "snow":
+                    weatherGif="";
+                    break;
+                case "cloud":
+                    weatherGif="";
+                    break;
+                case "rain":
+                    weatherGif="https://media.giphy.com/media/127FZEzX7wnPmU/giphy.gif";
+                    break;
+            }
 
             return (
                 <div class="di">
                     <Info weatherInfo={weatherInfo}/>
-                    <div class="dogarea"></div>
+                    <div class="dogarea">
+                        <div>
+                            <img id="weathergif" src={weatherGif}/>
+                        </div>
+                    </div>
                     <div class="weathercomment"></div>
                 </div>
             );
