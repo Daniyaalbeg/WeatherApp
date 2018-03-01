@@ -13,7 +13,7 @@ class FiveHour extends Component {
         });
 
         return (
-            <div class="fvhr">
+            <div className="fvhr">
                 {rows}
             </div>
             );

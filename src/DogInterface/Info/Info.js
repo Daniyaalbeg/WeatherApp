@@ -11,7 +11,7 @@ import './Info.css';
             let weatherInfo = this.props.weatherInfo;
 
             return (
-                <div class="info">
+                <div className="info">
                     <p id="city">{weatherInfo.city}</p>
                     <p id="temp">{weatherInfo.temp}°C</p>
                     <p id="wind">{weatherInfo.wind} mph</p>

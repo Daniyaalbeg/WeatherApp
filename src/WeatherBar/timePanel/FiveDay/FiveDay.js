@@ -13,7 +13,7 @@ class FiveDay extends Component {
         });
 
         return (
-            <div class="fvdy">
+            <div className="fvdy">
                 {rows}
             </div>
             );
