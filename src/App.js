@@ -17,6 +17,14 @@ class App extends Component {
         else document.body.classList.add('bgnight');
     }
 
+    child(percentage){
+        return(
+            <div style={{position: "absolute", top: 10, left: 10}}>
+                {percentage}
+            </div>
+        )
+    }
+
     render() {
 
         // Some data that will update the GUI, right now just for testing.
@@ -37,6 +45,14 @@ class App extends Component {
             {day: 3, weather: "rain", tHigh: 6, tAvg:5, tLow:1},
             {day: 4, weather: "sun", tHigh: 9, tAvg:3, tLow:-1}
         ];
+
+        var element = document.getElementById("test2");
+        if(element){
+            var element = document.getElementById("test");
+            if(element)
+            var percentage = Math.round(Math.max(0,Math.min(1,-element.getBoundingClientRect().top/(element.clientHeight/2)))*100);
+            // console.log(Math.round(percentage));
+        }
 
         return (
             <div className="App">

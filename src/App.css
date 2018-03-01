@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+*{
     margin: 0;
     padding: 0;
     border: 0;
@@ -17,21 +17,25 @@ html{
 }
 .bgdawn{
     background-image: linear-gradient(to right top, #ffee7e, #ffcd7a, #ffac95, #ff95c0, #ff92ec);
+    background-attachment: fixed;
     height: 200%;
     text-align: center;
 }
 .bgnoon{
     background-image: linear-gradient(to right top, #7effb0, #00f1e5, #00dbff, #00bbff, #a092ff);
+    background-attachment: fixed;
     height: 200%;
     text-align: center;
 }
 .bgevening{
     background-image: linear-gradient(to right top, #ff9a7e, #ff8a99, #fb82bc, #da86e1, #9b92ff);
+    background-attachment: fixed;
     height: 200%;
     text-align: center;
 }
 .bgnight{
     background-image: linear-gradient(to right top, #000000, #151515, #232323, #323232, #414141);
+    background-attachment: fixed;
     height: 200%;
     text-align: center;
 }
