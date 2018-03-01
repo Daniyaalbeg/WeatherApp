@@ -79,7 +79,7 @@ class WeatherData extends Component {
             <DogInterface weatherInfo={this.state.today} />
         </div>
         <div className="weatherbar">
-            <WeatherBar fiveHourInfo={this.state.hourly} fiveDayInfo={fiveDayInfo} Big={this.state.today}/>
+            <WeatherBar fiveHourInfo={this.state.hourly} fiveDayInfo={fiveDayInfo} Big={this.state.fiveday}/>
         </div>
       </div>
     );
