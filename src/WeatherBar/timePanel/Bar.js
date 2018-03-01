@@ -23,7 +23,6 @@ class Bar extends Component {
             this.dayOfWeek(dayToDisplay);
             this.tLow=this.props.tLow + "°C";
             this.tHigh=this.props.tHigh + "°C";
-            this.tAvg=this.props.tAvg + "°C";
         }
     }
 

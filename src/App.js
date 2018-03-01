@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import DogInterface from './DogInterface/DogInterface.js'
-import WeatherBar from './WeatherBar/WeatherBar.js'
+import WeatherData from './WeatherData.js'
 import Settings from './Settings/Settings.js'
 import './App.css';
 
@@ -41,12 +40,7 @@ class App extends Component {
 
         return (
             <div className="App">
-                <div className="doginterface">
-                    <DogInterface weatherInfo={weatherInfo}/>
-                </div>
-                <div className="weatherbar">
-                    <WeatherBar fiveHourInfo={fiveHourInfo} fiveDayInfo={fiveDayInfo}/>
-                </div>
+            <WeatherData/>
                 <div className="settings">
                     <Settings/>
                 </div>
