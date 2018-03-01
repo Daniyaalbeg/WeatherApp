@@ -64,6 +64,9 @@ class Bar extends Component {
             case "cloud":
                 weatherGif="";
                 break;
+            case "rain":
+                weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
+                break;
         }
 
         return (
@@ -71,8 +74,10 @@ class Bar extends Component {
                 <p id="bartime">{this.timeOD}</p>
                 <p id="bardate">{this.dayOW}</p>
                 <p id="bartemp">{this.props.temp}°C</p>
-                <img id="weatheranimation" src={weatherGif} alt="Missing"/>
-                <img id="barbackground" src=""/>
+                <img id="weatheranimation" src={weatherGif}/>
+                <div id="barbackground">
+                    <img id="bgimage" src="https://cdn.dribbble.com/users/1895433/screenshots/4007015/jarecki-wallpaper-material-moutains-2_1x.png"/>
+                </div>
             </div>
             );
         }

@@ -35,7 +35,7 @@ class App extends Component {
             {day: 0, weather: "sunny", tHigh: 0, tAvg:0, tLow:0},
             {day: 1, weather: "sunny", tHigh: 0, tAvg:0, tLow:0},
             {day: 2, weather: "sunny", tHigh: 0, tAvg:0, tLow:0},
-            {day: 3, weather: "sunny", tHigh: 0, tAvg:0, tLow:0},
+            {day: 3, weather: "rain", tHigh: 0, tAvg:0, tLow:0},
             {day: 4, weather: "sunny", tHigh: 0, tAvg:0, tLow:0}
         ];
 
