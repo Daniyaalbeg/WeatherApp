@@ -62,8 +62,8 @@ class WeatherData extends Component {
 
   child(percentage){
       return(
-          <div style={{position: "absolute", top: 10, left: 10}}>
-              {percentage}
+          <div style={{position: "absolute", top: 10, left: 10, backgroundColor: "white"}}>
+              {percentage}% scroll
           </div>
       )
   }
@@ -81,9 +81,16 @@ class WeatherData extends Component {
         {day: 4, weather: "sunny", tHigh: 0, tLow:0}
     ];
 
+    var element = document.getElementById("data");
+    if(element){
+        var percentage = Math.round(Math.max(0,Math.min(1,-element.getBoundingClientRect().top/(element.clientHeight/2)))*100);
+        // console.log(Math.round(percentage));
+    }
+
     return (
-      <div style={{height: "200vh"}}>
+      <div style={{height: "200vh"}} id="data">
         <div style={{position: "sticky", top: 0, bottom: 0}}>
+            {this.child(percentage)}
             <div className="doginterface" >
                 <DogInterface weatherInfo={this.state.today} />
             </div>

@@ -38,14 +38,6 @@ class App extends Component {
             {day: 4, weather: "sun", tHigh: 9, tAvg:3, tLow:-1}
         ];
 
-        var element = document.getElementById("test2");
-        if(element){
-            var element = document.getElementById("test");
-            if(element)
-            var percentage = Math.round(Math.max(0,Math.min(1,-element.getBoundingClientRect().top/(element.clientHeight/2)))*100);
-            // console.log(Math.round(percentage));
-        }
-
         return (
             <div className="App">
                 <WeatherData/>
