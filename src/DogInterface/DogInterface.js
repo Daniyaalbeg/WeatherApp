@@ -29,14 +29,14 @@ import Info from './Info/Info.js';
             }
 
             return (
-                <div class="di">
+                <div className="di">
                     <Info weatherInfo={weatherInfo}/>
-                    <div class="dogarea">
+                    <div className="dogarea">
                         <div>
                             <img id="weathergif" src={weatherGif}/>
                         </div>
                     </div>
-                    <div class="weathercomment"></div>
+                    <div className="weathercomment"></div>
                 </div>
             );
         }
