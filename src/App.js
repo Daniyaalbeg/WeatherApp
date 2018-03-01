@@ -17,14 +17,6 @@ class App extends Component {
         else document.body.classList.add('bgnight');
     }
 
-    child(percentage){
-        return(
-            <div style={{position: "absolute", top: 10, left: 10}}>
-                {percentage}
-            </div>
-        )
-    }
-
     render() {
 
         // Some data that will update the GUI, right now just for testing.
@@ -56,7 +48,7 @@ class App extends Component {
 
         return (
             <div className="App">
-            <WeatherData/>
+                <WeatherData/>
                 <div className="settings">
                     <Settings/>
                 </div>

@@ -60,6 +60,14 @@ class WeatherData extends Component {
 
   }
 
+  child(percentage){
+      return(
+          <div style={{position: "absolute", top: 10, left: 10}}>
+              {percentage}
+          </div>
+      )
+  }
+
   render(){
     //console.log(this.state.today);
     //console.log(this.state.hourly);
@@ -74,12 +82,14 @@ class WeatherData extends Component {
     ];
 
     return (
-      <div>
-        <div className="doginterface" >
-            <DogInterface weatherInfo={this.state.today} />
-        </div>
-        <div className="weatherbar">
-            <WeatherBar fiveHourInfo={this.state.hourly} fiveDayInfo={fiveDayInfo} Big={this.state.fiveday}/>
+      <div style={{height: "200vh"}}>
+        <div style={{position: "sticky", top: 0, bottom: 0}}>
+            <div className="doginterface" >
+                <DogInterface weatherInfo={this.state.today} />
+            </div>
+            <div className="weatherbar">
+                <WeatherBar fiveHourInfo={this.state.hourly} fiveDayInfo={fiveDayInfo} Big={this.state.fiveday}/>
+            </div>
         </div>
       </div>
     );
