@@ -79,7 +79,7 @@ class Bar extends Component {
                 <p id="bartAvg">{this.temp}</p>
                 <p id="bartLow">{this.tLow}</p>
                 <img id="weatheranimation" src={weatherGif}/>
-                <div id="barbackground">
+                <div className="barbackground">
                     <img id="bgimage" src="https://cdn.dribbble.com/users/1895433/screenshots/4007015/jarecki-wallpaper-material-moutains-2_1x.png"/>
                 </div>
             </div>
