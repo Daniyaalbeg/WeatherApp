@@ -4,20 +4,29 @@
     display: inline-block;
     box-shadow:inset 0px 0px 0px 1px black;
     position: relative;
+    font-size: 4vh;
 }
 
-#bartime, #barweather, #bartemp, #bardate{
+#bartime, #bardate{
     font-size: 4vh;
     color: black;
     position: absolute;
 }
-#barweather{
+
+#bartAvg{
+    color: white;
+    padding-top: 9vh;
+    position: absolute;
+}
+#bartHigh{
     color: red;
     padding-top: 5vh;
+    position: absolute;
 }
-#bartemp{
+#bartLow{
     color: blue;
-    padding-top: 10vh;
+    padding-top: 13vh;
+    position: absolute;
 }
 
 #weatheranimation{

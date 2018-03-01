@@ -13,16 +13,17 @@ class Bar extends Component {
         if(this.props.time != null){
             var currentTime = new Date().getHours();
             var timeToDisplay = currentTime + this.props.time + 1;
-            this.timeOD=timeToDisplay;
+            this.timeOD=timeToDisplay + ":00";
+            this.temp=this.props.temp+"°C";
         }
         else{
             var currentDay = new Date().getDay();
             var dayToDisplay = currentDay + this.props.day;
             if(dayToDisplay>=7) dayToDisplay=dayToDisplay-7;
             this.dayOfWeek(dayToDisplay);
-            this.tLow=this.props.tLow;
-            this.tHigh=this.props.tHigh;
-            this.tAvg=this.props.tHigh;
+            this.tLow=this.props.tLow + "°C";
+            this.tHigh=this.props.tHigh + "°C";
+            this.tAvg=this.props.tAvg + "°C";
         }
     }
 
@@ -58,7 +59,7 @@ class Bar extends Component {
 
         // More weathers need to be added into the switch case.
         switch(this.props.weather){
-            case "sunny":
+            case "sun":
                 weatherGif="https://media.giphy.com/media/3ov9jLYWb4zCjGfqIE/giphy.gif";
                 break;
             case "snow":
@@ -71,14 +72,13 @@ class Bar extends Component {
                 weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
                 break;
         }
-
         return (
             <div className="bar">
                 <p id="bartime">{this.timeOD}</p>
                 <p id="bardate">{this.dayOW}</p>
-                <p id="bartemp">{this.props.temp}°C</p>
-                <p id="bartemp">{this.props.tHigh}°C</p>
-                <p id="bartemp">{this.props.tLow}°C</p>
+                <p id="bartHigh">{this.tHigh}</p>
+                <p id="bartAvg">{this.temp}</p>
+                <p id="bartLow">{this.tLow}</p>
                 <img id="weatheranimation" src={weatherGif}/>
                 <div id="barbackground">
                     <img id="bgimage" src="https://cdn.dribbble.com/users/1895433/screenshots/4007015/jarecki-wallpaper-material-moutains-2_1x.png"/>
