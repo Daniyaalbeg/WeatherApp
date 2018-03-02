@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DogInterface from './DogInterface/DogInterface.js';
 import WeatherBar from './WeatherBar/WeatherBar.js';
-import {getWeatherData} from './WeatherAPI.js';
+import {UpdateHourly, UpdateDay} from './WeatherAPI.js';
 
 
 class WeatherData extends Component {
@@ -15,54 +15,12 @@ class WeatherData extends Component {
     }
 
     callBack(data){
-        console.log("works");
-        console.log(data);
-    }
-
-    UpdateHourly(){
-        fetch('http://api.wunderground.com/api/d36721c0718840e5/hourly/q/UK/Northwood.json')
-        .then(results => {
-            return results.json();
-        }).then( data => {
-            this.props.hourly;
-            let weatherdata = data.hourly_forecast.map(function(item){
-                return(
-                    {time: item.FCTTIME.civil,
-                        weather: item.condition,
-                        temp: parseInt(item.temp.metric),
-                        wind: parseInt(item.wspd.metric)
-                    }
-                )
-            })
-            let today = weatherdata[0];
-            today.city = 'Northwood';
-            today.pol = 'High';
-            this.setState({today : today, hourly : weatherdata.splice(0, 5)});
-        });
-    }
-
-    Update5Day(){
-        fetch('http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/UK/Northwood.json')
-        .then(forecast => {
-            return forecast.json();
-        }).then( data => {
-            this.props.weatherdata;
-            let weatherdata = data.forecast.simpleforecast.forecastday.map(function(item, i){
-                return(
-                    {day: i,
-                        weather: item.conditions,
-                        tHigh: parseInt(item.high.celsius),
-                        tLow: parseInt(item.low.celsius)
-                    }
-                )
-            })
-            this.setState({fiveday : weatherdata.splice(0, 5)});
-        });
+        this.setState(data);
     }
 
     componentDidMount(){
-        this.Update5Day();
-        this.UpdateHourly();
+        UpdateDay(this.callBack.bind(this));
+        UpdateHourly(this.callBack.bind(this));
 
     }
 
@@ -75,10 +33,9 @@ class WeatherData extends Component {
     }
 
     render(){
-        getWeatherData(this.callBack.bind(this));
-        console.log(this.state.today);
-        console.log(this.state.hourly);
-        console.log(this.state.fiveday);
+        //console.log(this.state.today);
+        //console.log(this.state.hourly);
+      //  console.log(this.state.fiveday);
 
         var element = document.getElementById("data");
         if(element){

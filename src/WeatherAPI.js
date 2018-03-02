@@ -1,30 +1,5 @@
-var dataMerged = {};
-var hourly = false;
-var daily = false;
 
-export function getWeatherData(callBack){
-  let finaldata = {};
-  let hourly = UpdateHourly(merge, callBack);
-  let day = UpdateDay(merge, callBack);
-  console.log(hourly);
-  console.log(day);
-  finaldata.today = hourly.today;
-  finaldata.hourly = hourly.hourly;
-  finaldata.day = day.day;
-  console.log(finaldata);
-  return finaldata;
-  //return {"Hello World"};
-//  return {today: hourly.today, hourly: hourly.hourly, fiveday: fiveday.fiveday};
-}
-
-function merge(data, callBack){
-    dataMerged = {...data, ...dataMerged};
-    if(hourly && daily){
-        callBack(dataMerged);
-    }
-}
-
-function UpdateHourly(callBack, ret){
+export function UpdateHourly(callBack){
   let datam = {};
     var a = fetch('http://api.wunderground.com/api/d36721c0718840e5/hourly/q/UK/Northwood.json')
     .then(results => {
@@ -42,18 +17,14 @@ function UpdateHourly(callBack, ret){
         let today = weatherdata[0];
         today.city = 'Northwood';
         today.pol = 'High';
-
-
         datam.today = today;
         datam.hourly = weatherdata.splice(0, 10);
-        hourly = true;
-        callBack(datam, ret);
+        callBack(datam);
     });
-    console.log(a);
-  return datam;
+  return true;
 }
 
-function UpdateDay(callBack, ret){
+export function UpdateDay(callBack){
   var datam = {};
     fetch('http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/UK/Northwood.json')
     .then(forecast => {
@@ -69,8 +40,7 @@ function UpdateDay(callBack, ret){
             )
         })
         datam.day = weatherdata;
-        daily = true;
-        callBack(datam, ret);
+        callBack(datam);
     });
-  return datam;
+  return true;
 }
