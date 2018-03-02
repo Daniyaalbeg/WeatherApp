@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DogInterface from './DogInterface/DogInterface.js';
 import WeatherBar from './WeatherBar/WeatherBar.js';
+import {getWeatherData} from './WeatherAPI.js';
 
 
 class WeatherData extends Component {
@@ -11,6 +12,11 @@ class WeatherData extends Component {
             hourly: [],
             fiveDay: []
         };
+    }
+
+    callBack(data){
+        console.log("works");
+        console.log(data);
     }
 
     UpdateHourly(){
@@ -69,6 +75,7 @@ class WeatherData extends Component {
     }
 
     render(){
+        getWeatherData(this.callBack.bind(this));
         console.log(this.state.today);
         console.log(this.state.hourly);
         console.log(this.state.fiveday);
