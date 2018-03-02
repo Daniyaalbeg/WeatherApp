@@ -8,22 +8,38 @@
 .heading{
     padding-top: 6vh;
 }
+
+.location{
+    padding-left: 9vw;
+    padding-top: 6vh;
+}
+#locationTag{
+    float: left;
+    font-size: 15pt;
+}
+.switch{
+    background-color: white;
+}
+.locationInput{
+    height: 10%;
+    padding-top: 2vh;
+    font-size: 10pt;
+    width: 80%;
+    margin: auto;
+}
+
 .settingSection{
-    height: 80%;
+    height: 40%;
     float: left;
     width: 50%;
+    font-size: 15pt;
+    text-align: left;
 }
 .settingLabelLeft{
-    padding-top: 5vh;
     padding-left: 5vh;
-    font-size: 15pt;
-    text-align: left;
 }
 .settingLabelRight{
-    padding-top: 5vh;
     padding-left: 10vh;
-    font-size: 15pt;
-    text-align: left;
 }
 .settingLabelLeft:after{
     content: "";
