@@ -17,10 +17,13 @@
     position: absolute;
 }
 
-#bartAvg{
+#bartemp{
     color: white;
-    padding-top: 9vh;
+    padding-left: 1vw;
+    padding-bottom: 0vh;
     position: absolute;
+    bottom: 0;
+    font-size: 4vh;
 }
 #bartHigh{
     color: red;
