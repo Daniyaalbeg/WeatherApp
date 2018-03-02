@@ -22,7 +22,7 @@ class WeatherData extends Component {
             let weatherdata = data.hourly_forecast.map(function(item){
                 return(
                     {time: item.FCTTIME.civil,
-                        weather: item.dewpoint.condition,
+                        weather: item.condition,
                         temp: parseInt(item.temp.metric),
                         wind: parseInt(item.wspd.metric)
                     }
@@ -69,9 +69,9 @@ class WeatherData extends Component {
     }
 
     render(){
-        //console.log(this.state.today);
-        //console.log(this.state.hourly);
-        //console.log(this.state.fiveday);
+        console.log(this.state.today);
+        console.log(this.state.hourly);
+        console.log(this.state.fiveday);
 
         var element = document.getElementById("data");
         if(element){

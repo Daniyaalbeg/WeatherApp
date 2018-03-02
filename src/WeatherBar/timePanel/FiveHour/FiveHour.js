@@ -7,6 +7,7 @@ class FiveHour extends Component {
     render() {
 
         let fiveHourInfo = this.props.fiveHourInfo;
+        console.log(fiveHourInfo);
         let rows = fiveHourInfo.map((weatherObj) => {
             return <Bar time={weatherObj.time} weather={weatherObj.weather} temp={weatherObj.temp}/>;
         });
