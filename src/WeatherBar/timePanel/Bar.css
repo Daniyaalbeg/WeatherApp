@@ -11,8 +11,9 @@
 }
 
 #bartime, #bardate{
-    font-size: 4vh;
+    font-size: 2vh;
     color: black;
+    padding-left: 0.5vh;
     position: absolute;
 }
 

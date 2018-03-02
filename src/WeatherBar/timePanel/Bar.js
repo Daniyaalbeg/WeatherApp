@@ -11,9 +11,9 @@ class Bar extends Component {
         this.tHigh = null;
 
         if(this.props.time != null){
-            var currentTime = new Date().getHours();
-            var timeToDisplay = currentTime + this.props.time + 1;
-            this.timeOD=timeToDisplay + ":00";
+            //var currentTime = new Date().getHours();
+            //var timeToDisplay = currentTime + this.props.time + 1;
+            //this.timeOD=timeToDisplay + ":00";
             this.temp=this.props.temp+"°C";
         }
         else{
@@ -61,19 +61,19 @@ class Bar extends Component {
             case "sun":
                 weatherGif="https://media.giphy.com/media/3ov9jLYWb4zCjGfqIE/giphy.gif";
                 break;
-            case "snow":
+            case "Snow":
                 weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";
                 break;
-            case "cloud":
+            case "Cloud":
                 weatherGif="https://media.giphy.com/media/xT9IgrpsPQ6MONfO3C/giphy.gif";
                 break;
-            case "rain":
+            case "Rain":
                 weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
                 break;
         }
         return (
             <div className="bar">
-                <p id="bartime">{this.timeOD}</p>
+                <p id="bartime">{this.props.time}</p>
                 <p id="bardate">{this.dayOW}</p>
                 <p id="bartHigh">{this.tHigh}</p>
                 <p id="bartAvg">{this.temp}</p>
