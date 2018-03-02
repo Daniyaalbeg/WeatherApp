@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import WeatherData from './WeatherData.js'
-import Settings from './Settings/Settings.js'
+import WeatherData from './WeatherData.js';
+import Settings from './Settings/Settings.js';
 import './App.css';
 
 class App extends Component {
