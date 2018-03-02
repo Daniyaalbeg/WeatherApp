@@ -8,11 +8,11 @@ class WeatherBar extends Component {
     render() {
         let fiveHourInfo = this.props.fiveHourInfo;
         let fiveDayInfo = this.props.fiveDayInfo;
-
+        //<FiveDay fiveDayInfo={fiveDayInfo}/>
         return (
             <div className="wb">
                 <FiveHour fiveHourInfo={fiveHourInfo}/>
-                <FiveDay fiveDayInfo={fiveDayInfo}/>
+
             </div>
         );
     }
