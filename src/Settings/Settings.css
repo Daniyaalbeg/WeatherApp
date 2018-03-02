@@ -6,16 +6,18 @@
 }
 
 .heading{
+    font-size: 10vw;
     padding-top: 6vh;
 }
 
 .location{
-    padding-left: 9vw;
-    padding-top: 6vh;
+    margin: auto;
+    display: inline-flex;
+    padding-top: 5vh;
 }
-#locationTag{
-    float: left;
+.locationTag{
     font-size: 15pt;
+    padding-right: 38vw;
 }
 .switch{
     background-color: white;
@@ -45,7 +47,4 @@
     content: "";
     display: table;
     clear: both;
-}
-#title{
-    font-size: 20pt;
 }

@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import './Settings.css';
 import Switch from 'react-toggle-switch';
 
+// Tom has commandeered this section.
 class Settings extends Component {
     constructor(props){
         super(props);
-        var el = "yup";
+        this.locMsg="We use your location to provide you with a uptodate service when you're on the go! Don't fret, we only use this data to get the most accurate data to you 24/7";
         this.state = {
             switched: true
         };
@@ -13,10 +14,11 @@ class Settings extends Component {
 
     togSwitch(){
         if(!this.state.switched){
-            this.el = "yup";
+            this.locMsg = "We use your location to provide you with a uptodate service when you're on the go! Don't fret, we only use this data to get the most accurate data to you 24/7";
         }
         else{
-            this.el = "nope";
+            this.locMsg = "";
+
         }
     }
 
@@ -34,11 +36,13 @@ class Settings extends Component {
             <div className="se">
                 <div className="heading"><p id="title">Settings</p></div>
                 <div className="location">
-                    <div id="locationTag"><p>Use my location</p></div>
-                    <Switch class="switch" onClick={this.toggleSwitch} on={this.state.switched}/>
+                    <div className="locationTag"><p>Use my location</p></div>
+                    <div className="switch">
+                        <Switch onClick={this.toggleSwitch} on={this.state.switched}/>
+                    </div>
                 </div>
-                <div className="locationInput"><p>We use your location to provide you with a uptodate service when you're
-                on the go! Don't fret, we only use this data to get the most accurate data to you 24/7</p></div>
+                <div className="locationInput"><p>{this.locMsg}</p></div>
+
                 <div className="settingSection">
                     <div className="settingLabelLeft"><p>User's name</p></div>
                     <div className="settingLabelLeft"><p>Dog's name</p></div>

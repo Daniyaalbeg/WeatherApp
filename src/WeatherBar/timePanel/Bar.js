@@ -70,8 +70,14 @@ class Bar extends Component {
             case this.checkForWeather("cloud"):
                 weatherGif="https://media.giphy.com/media/xT9IgrpsPQ6MONfO3C/giphy.gif";
                 break;
+            case this.checkForWeather("overcast"):
+                weatherGif="https://media.giphy.com/media/xT9IgrpsPQ6MONfO3C/giphy.gif";
+                break;
             case this.checkForWeather("rain"):
                 weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
+                break;
+            case this.checkForWeather("fog"):
+                weatherGif="http://img5.dreamies.de/img/165/b/bglp5bduszk.gif";
                 break;
         }
         return (
