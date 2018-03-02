@@ -9,13 +9,12 @@ class FiveDay extends Component {
 
     render() {
         let fiveDayInfo = this.props.fiveDayInfo;
-        let Buggy = this.props.Bigg;
-        if (Buggy == null) {
+
+        if (fiveDayInfo == null) {
           return (null);
         }
-        console.log(Buggy);
 
-        let rows = Buggy.map((weatherObj) => {
+        let rows = fiveDayInfo.map((weatherObj) => {
             return <Bar day={weatherObj.day} weather={weatherObj.weather} tHigh={weatherObj.tHigh} tLow={weatherObj.tLow}/>;
         });
 

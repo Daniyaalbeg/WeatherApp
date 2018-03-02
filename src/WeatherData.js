@@ -73,14 +73,6 @@ class WeatherData extends Component {
         //console.log(this.state.hourly);
         //console.log(this.state.fiveday);
 
-        let fiveDayInfo = [
-            {day: 0, weather: "sunny", tHigh: 0, tLow:0},
-            {day: 1, weather: "sunny", tHigh: 0, tLow:0},
-            {day: 2, weather: "sunny", tHigh: 0, tLow:0},
-            {day: 3, weather: "sunny", tHigh: 0, tLow:0},
-            {day: 4, weather: "sunny", tHigh: 0, tLow:0}
-        ];
-
         var element = document.getElementById("data");
         if(element){
             var percentage = Math.round(Math.max(0,Math.min(1,-element.getBoundingClientRect().top/(element.clientHeight/2)))*100);
@@ -95,7 +87,7 @@ class WeatherData extends Component {
             <DogInterface weatherInfo={this.state.today} />
             </div>
             <div className="weatherbar">
-            <WeatherBar fiveHourInfo={this.state.hourly} fiveDayInfo={fiveDayInfo} Big={this.state.fiveday}/>
+            <WeatherBar fiveHourInfo={this.state.hourly} fiveDayInfo={this.state.fiveday} />
             </div>
             </div>
             </div>

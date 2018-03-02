@@ -12,7 +12,7 @@ class WeatherBar extends Component {
         return (
             <div className="wb">
                 <FiveHour fiveHourInfo={fiveHourInfo}/>
-                <FiveDay fiveDayInfo={fiveDayInfo} Bigg={this.props.Big}/>
+                <FiveDay fiveDayInfo={fiveDayInfo} />
             </div>
             );
         }
