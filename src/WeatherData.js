@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DogInterface from './DogInterface/DogInterface.js';
 import WeatherBar from './WeatherBar/WeatherBar.js';
 import {UpdateHourly, UpdateDay} from './WeatherAPI.js';
+import Loader from './Loader/Loader.js';
 
 
 class WeatherData extends Component {
@@ -10,12 +11,17 @@ class WeatherData extends Component {
         this.state = {
             today: [],
             hourly: [],
-            fiveDay: []
+            fiveDay: [],
+            updates: 0
         };
     }
 
     callBack(data){
         this.setState(data);
+        this.setState(prevState => {
+          return {updates: prevState.updates + 1}
+        });
+        console.log(this.state.updates);
     }
 
     componentDidMount(){
@@ -43,19 +49,25 @@ class WeatherData extends Component {
             // console.log(Math.round(percentage));
         }
 
+        if(this.state.updates > 1){
+          return (
+              <div style={{height: "200vh"}} id="data">
+                <div style={{position: "sticky", top: 0, bottom: 0}}>
+                  {this.child(percentage)}
+                  <div className="doginterface" >
+                    <DogInterface weatherInfo={this.state.today} />
+                  </div>
+                  <div className="weatherbar">
+                    <WeatherBar fiveHourInfo={this.state.hourly} fiveDayInfo={this.state.fiveday} />
+                  </div>
+                </div>
+              </div>
+          );
+      } else {
         return (
-            <div style={{height: "200vh"}} id="data">
-            <div style={{position: "sticky", top: 0, bottom: 0}}>
-            {this.child(percentage)}
-            <div className="doginterface" >
-            <DogInterface weatherInfo={this.state.today} />
-            </div>
-            <div className="weatherbar">
-            <WeatherBar fiveHourInfo={this.state.hourly} fiveDayInfo={this.state.fiveday} />
-            </div>
-            </div>
-            </div>
+          <Loader />
         );
+      }
     }
 
 }

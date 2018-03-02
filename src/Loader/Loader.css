@@ -1,9 +1,6 @@
 #loader{
     width: 100vw;
     height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
     background: linear-gradient(to right top, #7effb0, #00f1e5, #00dbff, #00bbff, #a092ff);
     background-size: cover;
 }
