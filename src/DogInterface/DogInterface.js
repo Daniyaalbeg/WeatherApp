@@ -17,7 +17,6 @@ import Info from './Info/Info.js';
             let weatherInfo = this.props.weatherInfo;
             // This is a transparent image, used as a placeholder for the weather gif.
             var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
-            weatherInfo.weather="fog";
             // More weathers need to be added into the switch case.
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):
