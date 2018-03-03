@@ -1,7 +1,10 @@
 #loader{
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to right top, #7effb0, #00f1e5, #00dbff, #00bbff, #a092ff);
+    background: #457fca;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5691c8, #457fca);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     background-size: cover;
 }
 

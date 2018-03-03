@@ -5,36 +5,48 @@ import Info from './Info/Info.js';
     class DogInterface extends Component {
         constructor(props) {
             super(props);
+            console.log(this.props.weatherInfo);
+        }
+
+        // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)
+        checkForWeather(weather){
+            if(this.props.weatherInfo.weather.toUpperCase().includes(weather.toUpperCase())) return this.props.weatherInfo.weather;
         }
 
         render() {
-
             let weatherInfo = this.props.weatherInfo;
-            var weatherGif;
+            // This is a transparent image, used as a placeholder for the weather gif.
+            var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
 
             // More weathers need to be added into the switch case.
             switch(weatherInfo.weather){
-                case "sunny":
-                    weatherGif="";
+                case this.checkForWeather("sun"):
+                    weatherGif="https://media.giphy.com/media/3ov9jLYWb4zCjGfqIE/giphy.gif";
                     break;
-                case "snow":
-                    weatherGif="";
+                case this.checkForWeather("snow"):
+                    weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";
                     break;
-                case "cloud":
-                    weatherGif="";
+                case this.checkForWeather("cloud"):
+                    weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
                     break;
-                case "rain":
-                    weatherGif="https://media.giphy.com/media/127FZEzX7wnPmU/giphy.gif";
+                case this.checkForWeather("overcast"):
+                    weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
+                    break;
+                case this.checkForWeather("rain"):
+                    weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
+                    break;
+                case this.checkForWeather("fog"):
+                    weatherGif="https://media.giphy.com/media/XNtWtTrOzvWRa/giphy.gif";
                     break;
             }
-
             return (
                 <div className="di">
                     <Info weatherInfo={weatherInfo}/>
                     <div className="dogarea">
-                        <div>
+                        <div className="weatheranimation">
                             <img id="weathergif" src={weatherGif}/>
                         </div>
+                        <div class="grass"></div>
                     </div>
                     <div className="weathercomment"></div>
                 </div>

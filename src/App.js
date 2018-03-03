@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import WeatherData from './WeatherData.js';
 import Settings from './Settings/Settings.js';
 import './App.css';
+import './StyleSheets/backgroundStyles.css';
 
 class App extends Component {
     constructor(props){
         super(props);
         this.changeBackground(props);
     }
-
+    
     changeBackground(props){
         var currentTime = new Date().getHours();
         if(currentTime >= 5 && currentTime < 11) document.body.classList.add('bgdawn');
@@ -27,7 +28,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <WeatherData/>
+                <WeatherData className="weatherData"/>
                 <div className="settings">
                     <Settings/>
                 </div>

@@ -10,27 +10,43 @@
 }
 
 .info{
-    height: 25%;
+    height: 35%;
     width: 30%;
     margin:auto;
     font-family: 'Lanenar';
-    /*background-color: green;*/
 }
 
 .dogarea{
     height: 65%;
-    width: 90%;
-    /*background-color: brown;*/
+    width: 100%;
     margin: auto;
+    position: relative;
+}
+
+.weatheranimation{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+    height: 100%;
 }
 #weathergif{
-    padding-top: 10vh;
-    width: 50vw;
+    height: 40%;
+}
+
+.grass{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    background-image: url(https://opengameart.org/sites/default/files/forum-attachments/grasstest_1.png);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
 }
 
 .weathercomment{
-    height: 10%;
+    height: 0%;
     width: 90%;
-    /*background-color: yellow;*/
     margin: auto;
 }

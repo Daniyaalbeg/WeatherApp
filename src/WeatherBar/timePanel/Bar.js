@@ -4,11 +4,6 @@ import './Bar.css';
 class Bar extends Component {
     constructor(props){
         super(props);
-        this.timeOD = null;
-        this.dayOW = null;
-        this.weather = null;
-        this.tLow = null;
-        this.tHigh = null;
 
         // If the time is not null, the bar component should be the 5 hour forecast, else, 5 day forecast.
         if(this.props.time != null){
@@ -58,7 +53,6 @@ class Bar extends Component {
     render() {
         // This is a transparent image, used as a placeholder for the weather gif.
         var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
-
         // More weathers need to be added into the switch case.
         switch(this.props.weather){
             case this.checkForWeather("sun"):
@@ -68,26 +62,29 @@ class Bar extends Component {
                 weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";
                 break;
             case this.checkForWeather("cloud"):
-                weatherGif="https://media.giphy.com/media/xT9IgrpsPQ6MONfO3C/giphy.gif";
+                weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
                 break;
             case this.checkForWeather("overcast"):
-                weatherGif="https://media.giphy.com/media/xT9IgrpsPQ6MONfO3C/giphy.gif";
+                weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
                 break;
             case this.checkForWeather("rain"):
                 weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
                 break;
             case this.checkForWeather("fog"):
-                weatherGif="http://img5.dreamies.de/img/165/b/bglp5bduszk.gif";
+                weatherGif="https://media.tnh.me/551ac5ba5ccacf1b837ebc21/5523d7cd5ccacf4f41a895f3";
                 break;
         }
         return (
-            <div className="bar">
-                <p id="bartime">{this.props.time}</p>
-                <p id="bardate">{this.dayOW}</p>
-                <p id="bartHigh">{this.tHigh}</p>
-                <p id="bartemp">{this.temp}</p>
-                <p id="bartLow">{this.tLow}</p>
-                <img id="weatheranimation" src={weatherGif}/>
+            <div class="bar">
+                <div class="bartime">
+                    <p>{this.props.time}</p>
+                </div>
+                <div class="barweathergif">
+                    <img id="barweatheranimation" src={weatherGif}/>
+                </div>
+                <div class="bartemp">
+                    <p>{this.temp}</p>
+                </div>
             </div>
         );
     }
