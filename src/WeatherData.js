@@ -41,7 +41,7 @@ class WeatherData extends Component {
     }
 
     render(){
-        console.log(this.state);
+        //console.log(this.state);
         //console.log(this.state.hourly);
       //  console.log(this.state.fiveday);
 

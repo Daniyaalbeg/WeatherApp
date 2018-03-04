@@ -5,7 +5,6 @@
     position: relative;
     box-shadow:inset 0px 0px 0px 1px black;
     font-size: 4vh;
-    background-image: url(https://i.imgur.com/au23Xdo.png);
     /* Old Image: https://cdn.dribbble.com/users/1895433/screenshots/4007015/jarecki-wallpaper-material-moutains-2_1x.png */
     background-size: cover;
     background-position: center;
@@ -14,7 +13,7 @@
 .bartime{
     height: 15%;
     width:100%;
-    font-size: .65em;
+    font-size: .59em;
     color: white;
 }
 

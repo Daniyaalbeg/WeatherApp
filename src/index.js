@@ -21,7 +21,7 @@ function animateScrollTo(){
     var diff = toPos - fromPos;
     var target = fromPos + diff*(-Math.cos(progress*Math.PI)+1)/2;
     window.scrollTo(0, target);
-    console.log(scrollingTime + " " + scrolling + " " + from + " " + window.pageYOffset + " " + target);
+    //console.log(scrollingTime + " " + scrolling + " " + from + " " + window.pageYOffset + " " + target);
     if(scrollingTime == scrollTime){
         //finished
     }else{
@@ -36,7 +36,7 @@ function scrollTo(fromP, snipP){
 }
 
 window.addEventListener('scroll', function(e){
-    console.log(scrolling);
+    //console.log(scrolling);
     if(!scrolling){
         scrolling = true;
         var snip = Math.round(window.pageYOffset/window.innerHeight);

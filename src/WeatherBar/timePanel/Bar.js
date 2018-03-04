@@ -4,7 +4,6 @@ import './Bar.css';
 class Bar extends Component {
     constructor(props){
         super(props);
-
         // If the time is not null, the bar component should be the 5 hour forecast, else, 5 day forecast.
         if(this.props.time != null){
             this.temp=this.props.temp+"°C";
@@ -74,15 +73,34 @@ class Bar extends Component {
                 weatherGif="https://media.tnh.me/551ac5ba5ccacf1b837ebc21/5523d7cd5ccacf4f41a895f3";
                 break;
         }
+        const time = this.props.time.split(":");
+        var hours = 0;
+        if (time[1].includes("PM")) {
+            hours = parseInt(time[0]) + 12;
+        } else if (time[1].includes("AM") && time[0] == 12) {
+            hours = parseInt(time[0]) + 12;
+        } else {
+            hours = parseInt(time[0]);
+        }
+        console.log(hours);
+        var imgURL = null;
+        if (hours>5 && hours<19) {
+            imgURL = "https://i.imgur.com/doBAMm7.png";
+        } else {
+            imgURL = "https://i.imgur.com/yR14rdR.png";
+        }
+        let divStyle = {
+            backgroundImage: 'url('+imgURL+')'
+        };
         return (
-            <div class="bar">
-                <div class="bartime">
+            <div className="bar" style={divStyle}>
+                <div className="bartime">
                     <p>{this.props.time}</p>
                 </div>
-                <div class="barweathergif">
-                    <img id="barweatheranimation" src={weatherGif}/>
+                <div className="barweathergif">
+                     <img id="barweatheranimation" src={weatherGif}/>
                 </div>
-                <div class="bartemp">
+                <div className="bartemp">
                     <p>{this.temp}</p>
                 </div>
             </div>
