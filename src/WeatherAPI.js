@@ -1,7 +1,7 @@
 
 export function UpdateHourly10Day(City, callBack){
   let datam = {0 : [], 1 : [], 2 : [], 3 : [], 4 : [], 5 : [], 6 : [], 7 : [], 8 : [], 9 : [], 10 : []};
-  var curentdate = new Date();
+  var currentdate = new Date();
     var a = fetch('http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/UK/'+City+'.json')
     .then(results => {
         return results.json();
@@ -19,15 +19,28 @@ export function UpdateHourly10Day(City, callBack){
         })
         let daycount = 0;
         for (let i = 0; i < weatherdata.length; i++) {
+
           if(weatherdata[i].time == "12:00 AM"){
             daycount++;
           }
-          if(i % 2 == 0){
+
+          if(daycount != 0){
+            if(i % 2 == 0){
+              datam[daycount].push(weatherdata[i]);
+            }
+            
+          } else {
+            if(currentdate.getHours() > 0 && currentdate.getHours() < 5){
+              if(i % 2 == 0){
+                datam[daycount].push(weatherdata[i]);
+              }
+            } else {
             datam[daycount].push(weatherdata[i]);
+            }
           }
         }
 
-        if(datam[0].length < 5){
+        if(datam[0].length < 12){
           for(let i=0; i<= (datam[daycount].length - 5); i++){
             datam[0].push(datam[1][i]);
           }

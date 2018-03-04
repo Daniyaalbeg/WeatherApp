@@ -31,7 +31,12 @@ class WeatherData extends Component {
         //UpdateDay('Northwood', this.callBack.bind(this));
         //UpdateHourly10Day('Northwood', this.callBack.bind(this));
         //console.log(this.props.geo);
-        GeoUpdateWeather(this.props.geo.latitude, this.props.geo.longitude, this.callBack.bind(this));
+        if(this.props.geo.city != undefined){
+          UpdateDay(this.props.geo.city, this.callBack.bind(this));
+          UpdateHourly10Day(this.props.geo.city, this.callBack.bind(this));
+        } else {
+          GeoUpdateWeather(this.props.geo.latitude, this.props.geo.longitude, this.callBack.bind(this));
+        }    
 
     }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import WeatherData from './WeatherData.js';
 import Settings from './Settings/Settings.js';
 import {geolocated} from 'react-geolocated';
+import Loader from './Loader/Loader.js';
 import './App.css';
 import './StyleSheets/backgroundStyles.css';
 
@@ -28,18 +29,32 @@ class App extends Component {
 
     render() {
      //console.log(this.props.coords);
-       if(this.props.coords){
-        return (
-            <div className="App">
-                <WeatherData geo={this.props.coords} className="weatherData"/>
-                <div className="settings">
-                    <Settings/>
-                </div>
-            </div>
-        );
+     if(this.props.isGeolocationAvailable && this.props.isGeolocationEnabled){
+        if(this.props.coords){
+          return (
+              <div className="App">
+                  <WeatherData geo={this.props.coords} className="weatherData"/>
+                  <div className="settings">
+                      <Settings/>
+                  </div>
+              </div>
+          );
+        } else {
+          return (
+              <div className="App">
+                  <Loader />
+              </div>
+          );
+
+        }
       } else {
         return (
-          <div>Geolocation is not enabled</div>
+          <div className="App">
+              <WeatherData geo={{city: 'Northwood'}} className="weatherData"/>
+              <div className="settings">
+                  <Settings/>
+              </div>
+          </div>
         );
       }
 
