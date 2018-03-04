@@ -1,25 +1,34 @@
 
-export function UpdateHourly(callBack){
-  let datam = {};
-    var a = fetch('http://api.wunderground.com/api/d36721c0718840e5/hourly/q/UK/Northwood.json')
+export function UpdateHourly10Day(callBack){
+  let datam = {0 : [], 1 : [], 2 : [], 3 : [], 4 : [], 5 : [], 6 : [], 7 : [], 8 :  [], 9 : [], 10 : []};
+  var curentdate = new Date();
+    var a = fetch('http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/UK/Northwood.json')
     .then(results => {
         return results.json();
     }).then( data => {
-        let weatherdata = data.hourly_forecast.map(function(item){
+        let weatherdata = data.hourly_forecast.map(function(item, i){
             return(
-                {time: item.FCTTIME.civil,
-                    weather: item.condition,
-                    temp: parseInt(item.temp.metric),
-                    wind: parseInt(item.wspd.metric)
+                {
+                  debug: item.FCTTIME.pretty,
+                  time: item.FCTTIME.civil,
+                  weather: item.condition,
+                  temp: parseInt(item.temp.metric),
+                  wind: parseInt(item.wspd.metric)
                 }
             )
         })
-        let today = weatherdata[0];
+        let daycount = 0;
+        for (let i = 0; i < weatherdata.length; i++) {
+          if(weatherdata[i].time == "12:00 AM"){
+            daycount++;
+          }
+          datam[daycount].push(weatherdata[i]);
+        }
+
+        let today = datam[0].splice(0,1)[0];
         today.city = 'Northwood';
         today.pol = 'High';
-        datam.today = today;
-        datam.hourly = weatherdata.splice(0, 10);
-        callBack(datam);
+        callBack({today: today, hour : datam});
     });
   return true;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DogInterface from './DogInterface/DogInterface.js';
 import WeatherBar from './WeatherBar/WeatherBar.js';
-import {UpdateHourly, UpdateDay} from './WeatherAPI.js';
+import {UpdateDay, UpdateHourly10Day} from './WeatherAPI.js';
 import Loader from './Loader/Loader.js';
 
 
@@ -11,7 +11,8 @@ class WeatherData extends Component {
         this.state = {
             today: [],
             hourly: [],
-            fiveDay: [],
+            hour: {0 : [], 1 : [], 2 : [], 3 : [], 4 : [], 5 : [], 6 : [], 7 : [], 8 :  [], 9 : [], 10 : []},
+            viewday: 0,
             updates: 0
         };
     }
@@ -21,12 +22,13 @@ class WeatherData extends Component {
         this.setState(prevState => {
           return {updates: prevState.updates + 1}
         });
-        console.log(this.state.updates);
+        //console.log(this.state.updates);
+        //console.log(data);
     }
 
     componentDidMount(){
         UpdateDay(this.callBack.bind(this));
-        UpdateHourly(this.callBack.bind(this));
+        UpdateHourly10Day(this.callBack.bind(this));
 
     }
 
@@ -39,9 +41,12 @@ class WeatherData extends Component {
     }
 
     render(){
-        //console.log(this.state.today);
+        console.log(this.state);
         //console.log(this.state.hourly);
       //  console.log(this.state.fiveday);
+
+        //console.log(this.state.hour[this.state.viewday]);
+        //console.log(this.state.hourly);
 
         var element = document.getElementById("data");
         if(element){
@@ -58,7 +63,7 @@ class WeatherData extends Component {
                     <DogInterface weatherInfo={this.state.today} />
                   </div>
                   <div className="weatherbar">
-                    <WeatherBar fiveHourInfo={this.state.hourly} fiveDayInfo={this.state.fiveday} />
+                    <WeatherBar hourly={this.state.hour[this.state.viewday]} />
                   </div>
                 </div>
               </div>
