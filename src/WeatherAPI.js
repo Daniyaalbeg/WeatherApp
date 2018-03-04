@@ -22,7 +22,15 @@ export function UpdateHourly10Day(callBack){
           if(weatherdata[i].time == "12:00 AM"){
             daycount++;
           }
-          datam[daycount].push(weatherdata[i]);
+          if(i % 2 == 0){
+            datam[daycount].push(weatherdata[i]);
+          }
+        }
+
+        if(datam[0].length < 5){
+          for(let i=0; i<= (datam[daycount].length - 5); i++){
+            datam[0].push(datam[1][i]);
+          }
         }
 
         let today = datam[0].splice(0,1)[0];
