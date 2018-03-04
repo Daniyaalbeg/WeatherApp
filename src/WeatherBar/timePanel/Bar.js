@@ -83,10 +83,12 @@ class Bar extends Component {
             hours = parseInt(time[0]);
         }
         var imgURL = null;
-        if (hours>5 && hours<19) {
-            imgURL = "https://i.imgur.com/doBAMm7.png";
+        if (hours == 19 || hours == 7) {
+            imgURL = "https://i.imgur.com/4s2zUAw.png";
+        } else if (hours>5 && hours<19) {
+            imgURL = "https://i.imgur.com/ZBkJtVD.png";
         } else {
-            imgURL = "https://i.imgur.com/yR14rdR.png";
+            imgURL = "https://i.imgur.com/d0h64Nu.png";
         }
         let divStyle = {
             backgroundImage: 'url('+imgURL+')'
