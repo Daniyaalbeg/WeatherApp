@@ -20,11 +20,12 @@ import Message from './Message/Message.js';
             // This is a transparent image, used as a placeholder for the weather gif.
             var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
             let message = null;
+            let windSpeed = weatherInfo.wind;
             // More weathers need to be added into the switch case.
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):
                     weatherGif="https://media.giphy.com/media/3ov9jLYWb4zCjGfqIE/giphy.gif";
-                    message="Now is a great time to walk your dog.";
+                    message="The sun is out, now is a great time to walk your dog.";
                     break;
                 case this.checkForWeather("snow"):
                     weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";
@@ -32,11 +33,11 @@ import Message from './Message/Message.js';
                     break;
                 case this.checkForWeather("cloud"):
                     weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
-                    message="Now is an ok time to walk your dog.";
+                    message="Its a bit cloudy, now is an ok time to walk your dog.";
                     break;
                 case this.checkForWeather("overcast"):
                     weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
-                    message="Now is an ok time to walk your dog.";
+                    message="Its a bit gloomy, now is an ok time to walk your dog.";
                     break;
                 case this.checkForWeather("rain"):
                     weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
@@ -49,6 +50,15 @@ import Message from './Message/Message.js';
                 default:
                     message="Well shit...";
                     break;
+            }
+            if (windSpeed < 24) {
+                message += " There is a gentle breeze.";
+            } else if (windSpeed < 38) {
+                message += " There is a strong breeze.";
+            } else if (windSpeed < 38) {
+                message += " There is a moderate gale.";
+            } else {
+                message += " The wind... God help us all.";
             }
             return (
                 <div className="di">
