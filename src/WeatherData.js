@@ -47,8 +47,8 @@ class WeatherData extends Component {
       //console.log(this.props.GEO);
         //console.log(this.state);
         //console.log(this.state.hourly);
-      //  console.log(this.state.fiveday);
-
+        //console.log(this.state.fiveday);
+        // console.log(this.state.daysimple);
         //console.log(this.state.hour[this.state.viewday]);
         //console.log(this.state.hourly);
 
@@ -64,7 +64,7 @@ class WeatherData extends Component {
                 <div style={{position: "sticky", top: 0, bottom: 0}}>
                   {this.child(percentage)}
                   <div className="doginterface" >
-                    <DogInterface weatherInfo={this.state.today} />
+                    <DogInterface weatherInfo={this.state.today} daysimple={this.state.daysimple}/>
                   </div>
                   <div className="weatherbar">
                     <WeatherBar hourly={this.state.hourly[this.state.viewday]} />

@@ -6,6 +6,7 @@ import Message from './Message/Message.js';
     class DogInterface extends Component {
         constructor(props) {
             super(props);
+            console.log(this.props.daysimple[0]);
             console.log(this.props.weatherInfo);
         }
 
@@ -18,7 +19,7 @@ import Message from './Message/Message.js';
             let weatherInfo = this.props.weatherInfo;
             // This is a transparent image, used as a placeholder for the weather gif.
             var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
-            let message = null;
+            let message = "";
             let windSpeed = weatherInfo.wind;
             // More weathers need to be added into the switch case.
             switch(weatherInfo.weather){
@@ -59,6 +60,7 @@ import Message from './Message/Message.js';
             } else {
                 message += " The wind... God help us all.";
             }
+            message += " The high today is " + this.props.simpleday;
             return (
                 <div className="di">
                     <Info weatherInfo={weatherInfo}/>
