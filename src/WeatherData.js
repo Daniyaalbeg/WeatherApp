@@ -11,7 +11,7 @@ class WeatherData extends Component {
         this.state = {
             today: [],
             hourly: [],
-            hour: {0 : [], 1 : [], 2 : [], 3 : [], 4 : [], 5 : [], 6 : [], 7 : [], 8 :  [], 9 : [], 10 : []},
+            daysimple: {},
             viewday: 0,
             updates: 0
         };
@@ -63,7 +63,7 @@ class WeatherData extends Component {
                     <DogInterface weatherInfo={this.state.today} />
                   </div>
                   <div className="weatherbar">
-                    <WeatherBar hourly={this.state.hour[this.state.viewday]} />
+                    <WeatherBar hourly={this.state.hourly[this.state.viewday]} />
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 
 export function UpdateHourly10Day(callBack){
-  let datam = {0 : [], 1 : [], 2 : [], 3 : [], 4 : [], 5 : [], 6 : [], 7 : [], 8 :  [], 9 : [], 10 : []};
+  let datam = {0 : [], 1 : [], 2 : [], 3 : [], 4 : [], 5 : [], 6 : [], 7 : [], 8 : [], 9 : [], 10 : []};
   var curentdate = new Date();
     var a = fetch('http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/UK/Northwood.json')
     .then(results => {
@@ -28,7 +28,7 @@ export function UpdateHourly10Day(callBack){
         let today = datam[0].splice(0,1)[0];
         today.city = 'Northwood';
         today.pol = 'High';
-        callBack({today: today, hour : datam});
+        callBack({today: today, hourly : datam});
     });
   return true;
 }
@@ -41,15 +41,14 @@ export function UpdateDay(callBack){
     }).then( data => {
         let weatherdata = data.forecast.simpleforecast.forecastday.map(function(item, i){
             return(
-                {day: i,
+                {
                     weather: item.conditions,
                     tHigh: parseInt(item.high.celsius),
                     tLow: parseInt(item.low.celsius)
                 }
             )
         })
-        datam.day = weatherdata;
-        callBack(datam);
+        callBack({daysimple: weatherdata});
     });
-  return true;
+  return datam;
 }
