@@ -36,7 +36,7 @@ class WeatherData extends Component {
           UpdateHourly10Day(this.props.geo.city, this.callBack.bind(this));
         } else {
           GeoUpdateWeather(this.props.geo.latitude, this.props.geo.longitude, this.callBack.bind(this));
-        }    
+        }
 
     }
 
@@ -49,7 +49,7 @@ class WeatherData extends Component {
     }
 
     render(){
-      //console.log(this.props.GEO);
+       console.log(this.state);
         //console.log(this.state);
         //console.log(this.state.hourly);
         //console.log(this.state.fiveday);
@@ -69,7 +69,7 @@ class WeatherData extends Component {
                 <div style={{position: "sticky", top: 0, bottom: 0}}>
                   {this.child(percentage)}
                   <div className="doginterface" >
-                    <DogInterface weatherInfo={this.state.today} daysimple={this.state.daysimple}/>
+                    <DogInterface weatherInfo={this.state.today} daysimple={this.state.daysimple[this.state.viewday]}/>
                   </div>
                   <div className="weatherbar">
                     <WeatherBar hourly={this.state.hourly[this.state.viewday]} />

@@ -6,7 +6,7 @@ import Message from './Message/Message.js';
     class DogInterface extends Component {
         constructor(props) {
             super(props);
-            console.log(this.props.daysimple[0]);
+            console.log(this.props.daysimple);
             console.log(this.props.weatherInfo);
         }
 
@@ -60,7 +60,7 @@ import Message from './Message/Message.js';
             } else {
                 message += " The wind... God help us all.";
             }
-            message += " The high today is " + this.props.simpleday;
+            message += " The high today is " + this.props.daysimple.tHigh;
             return (
                 <div className="di">
                     <Info weatherInfo={weatherInfo}/>
