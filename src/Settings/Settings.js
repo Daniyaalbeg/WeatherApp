@@ -32,7 +32,7 @@ class Settings extends Component {
 
     getEle(){
         return(
-            <input id="locationf" class="locationBox" type="text" placeholder={this.getInputHolder("Location")}/>
+            <input id="locationf" className="locationBox" type="text" placeholder={this.getInputHolder("Location")}/>
         );
     }
 
@@ -41,7 +41,7 @@ class Settings extends Component {
             if(document.getElementById("locationf").value){
                 this.location=document.getElementById("locationf").value;
             }
-            if(this.location == "") this.location=null;
+            if(this.location === "") this.location=null;
         }
         else this.location=null;
         if(document.getElementById("usernamef").value){
@@ -53,9 +53,9 @@ class Settings extends Component {
         if(document.getElementById("dogbreedf").value){
             this.dogbreed=document.getElementById("dogbreedf").value;
         }
-        if(this.username == "") this.username=null;
-        if(this.dogname == "") this.dogname=null;
-        if(this.dogbreed == "") this.dogbreed=null;
+        if(this.username === "") this.username=null;
+        if(this.dogname === "") this.dogname=null;
+        if(this.dogbreed === "") this.dogbreed=null;
         document.getElementById("settingForm").reset();
         this.forceUpdate();
 
@@ -67,19 +67,19 @@ class Settings extends Component {
     }
 
     getInputHolder(holder){
-        if(holder=="Location"){
+        if(holder==="Location"){
             if(this.location != null) return this.location;
             else return holder;
         }
-        else if(holder=="User name"){
+        else if(holder==="User name"){
             if(this.username != null) return this.username;
             else return holder;
         }
-        else if(holder=="Dog name"){
+        else if(holder==="Dog name"){
             if(this.dogname != null) return this.dogname;
             else return holder;
         }
-        else if(holder=="Dog breed"){
+        else if(holder==="Dog breed"){
             if(this.dogbreed != null) return this.dogbreed;
             else return holder;
         }
@@ -87,30 +87,30 @@ class Settings extends Component {
 
     render() {
         return (
-            <div class="se">
-                <div class="heading"><p id="title">Settings</p></div>
+            <div className="se">
+                <div className="heading"><p id="title">Settings</p></div>
                 <form id="settingForm">
-                    <div class="loc">
-                        <div class="location">
-                            <div class="locationTag"><p>Use my location</p></div>
-                            <div class="togg">
-                                <label class="switch">
+                    <div className="loc">
+                        <div className="location">
+                            <div className="locationTag"><p>Use my location</p></div>
+                            <div className="togg">
+                                <label className="switch">
                                     <input id="locationSwitch" type="checkbox" onClick={this.handleClick} checked={this.state.isChecked}/>
-                                    <span class="slider round"></span>
+                                    <span className="slider round"></span>
                                 </label>
                             </div>
 
                         </div>
-                        <div class="locationInput">{this.state.isToggleOn ? this.locMsg : this.getEle()}</div>
+                        <div className="locationInput">{this.state.isToggleOn ? this.locMsg : this.getEle()}</div>
                     </div>
-                    <div class="userInfo">
-                        <div class="headingTwo"><p>User Info</p></div>
-                        <div class="userData"><input id="usernamef" class="locationBox" type="text" placeholder={this.getInputHolder("User name")}/></div>
-                        <div class="userData"><input id="dognamef" class="locationBox" type="text" placeholder={this.getInputHolder("Dog name")}/></div>
-                        <div class="userData"><input id="dogbreedf" class="locationBox" type="text" placeholder={this.getInputHolder("Dog breed")}/></div>
-                        <div class="buttonarea">
-                            <button class="saveDataButton" type="button" onClick={this.saveSettings}>Save Settings</button>
-                            <div class="saveMessage"><p id="saq"></p></div>
+                    <div className="userInfo">
+                        <div className="headingTwo"><p>User Info</p></div>
+                        <div className="userData"><input id="usernamef" className="locationBox" type="text" placeholder={this.getInputHolder("User name")}/></div>
+                        <div className="userData"><input id="dognamef" className="locationBox" type="text" placeholder={this.getInputHolder("Dog name")}/></div>
+                        <div className="userData"><input id="dogbreedf" className="locationBox" type="text" placeholder={this.getInputHolder("Dog breed")}/></div>
+                        <div className="buttonarea">
+                            <button className="saveDataButton" type="button" onClick={this.saveSettings}>Save Settings</button>
+                            <div className="saveMessage"><p id="saq"></p></div>
                         </div>
                     </div>
                 </form>

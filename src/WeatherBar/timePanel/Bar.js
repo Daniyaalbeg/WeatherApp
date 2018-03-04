@@ -41,6 +41,9 @@ class Bar extends Component {
             case 6:
                 this.dayOW="Sun";
                 return;
+            default:
+                this.dayOW="Error";
+                return;
         }
     }
 
@@ -72,20 +75,24 @@ class Bar extends Component {
             case this.checkForWeather("fog"):
                 weatherGif="https://media.tnh.me/551ac5ba5ccacf1b837ebc21/5523d7cd5ccacf4f41a895f3";
                 break;
+            default:
+                weatherGif="https://media.giphy.com/media/11s4W2s2rNA17W/giphy.gif";
         }
         const time = this.props.time.split(":");
         var hours = 0;
-        if (time[1].includes("PM")) {
+        if (time[1].includes("PM") && parseInt(time[0]) === 12) {
+            hours = parseInt(time[0]);
+        } else if (time[1].includes("AM") && parseInt(time[0]) === 12) {
             hours = parseInt(time[0]) + 12;
-        } else if (time[1].includes("AM") && time[0] == 12) {
+        } else if (time[1].includes("PM")) {
             hours = parseInt(time[0]) + 12;
         } else {
             hours = parseInt(time[0]);
         }
         var imgURL = null;
-        if (hours == 19 || hours == 7) {
+        if (hours === 19 || hours === 18 || hours === 6 || hours === 7) {
             imgURL = "https://i.imgur.com/4s2zUAw.png";
-        } else if (hours>5 && hours<19) {
+        } else if (hours >= 6 && hours <= 20) {
             imgURL = "https://i.imgur.com/ZBkJtVD.png";
         } else {
             imgURL = "https://i.imgur.com/d0h64Nu.png";

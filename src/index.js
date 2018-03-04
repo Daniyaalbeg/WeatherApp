@@ -22,7 +22,7 @@ function animateScrollTo(){
     var target = fromPos + diff*(-Math.cos(progress*Math.PI)+1)/2;
     window.scrollTo(0, target);
     //console.log(scrollingTime + " " + scrolling + " " + from + " " + window.pageYOffset + " " + target);
-    if(scrollingTime == scrollTime){
+    if(scrollingTime === scrollTime){
         //finished
     }else{
         window.requestAnimationFrame(animateScrollTo);
@@ -40,14 +40,14 @@ window.addEventListener('scroll', function(e){
     if(!scrolling){
         scrolling = true;
         var snip = Math.round(window.pageYOffset/window.innerHeight);
-        if(Math.floor(window.pageYOffset/window.innerHeight) == snip){
+        if(Math.floor(window.pageYOffset/window.innerHeight) === snip){
             // console.log(snip+1);
             scrollTo(snip, snip+1);
         }else{
             scrollTo(snip, snip-1);
         }
     }
-    if(scrollingTime == scrollTime){
+    if(scrollingTime === scrollTime){
         //finished
         scrolling=false;
         scrollingTime = 0;

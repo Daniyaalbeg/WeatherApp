@@ -7,7 +7,6 @@ import Message from './Message/Message.js';
         constructor(props) {
             super(props);
             console.log(this.props.weatherInfo);
-            var message = null;
         }
 
         // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)
@@ -65,11 +64,11 @@ import Message from './Message/Message.js';
                     <Info weatherInfo={weatherInfo}/>
                     <div className="dogarea">
                         <div className="weatheranimation">
-                            <img id="weathergif" src={weatherGif}/>
+                            <img id="weathergif" src={weatherGif} alt="Error"/>
                         </div>
-                        <div className="weatherComment"> <Message message={message}/> </div>
+                        <div className="weatherComment"> <Message id="message" message={message}/> </div>
                     </div>
-                    // <div className="weathercomment"></div>
+                     <div className="weathercomment"></div>
                 </div>
             );
         }
