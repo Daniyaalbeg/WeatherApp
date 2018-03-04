@@ -1,0 +1,12 @@
+.info{
+    color: white;
+}
+
+#message{
+    font-size: 5vh;
+    text-align: center;
+    width: 80%;
+    height: 50%;
+    padding-top: 6vh;
+    display: inline-block;
+}
