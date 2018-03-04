@@ -1,8 +1,8 @@
 
-export function UpdateHourly10Day(callBack){
+export function UpdateHourly10Day(City, callBack){
   let datam = {0 : [], 1 : [], 2 : [], 3 : [], 4 : [], 5 : [], 6 : [], 7 : [], 8 : [], 9 : [], 10 : []};
   var curentdate = new Date();
-    var a = fetch('http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/UK/Northwood.json')
+    var a = fetch('http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/UK/'+City+'.json')
     .then(results => {
         return results.json();
     }).then( data => {
@@ -34,16 +34,16 @@ export function UpdateHourly10Day(callBack){
         }
 
         let today = datam[0].splice(0,1)[0];
-        today.city = 'Northwood';
+        today.city = City;
         today.pol = 'High';
         callBack({today: today, hourly : datam});
     });
   return true;
 }
 
-export function UpdateDay(callBack){
+export function UpdateDay(City, callBack){
   var datam = {};
-    fetch('http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/UK/Northwood.json')
+    fetch('http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/UK/'+City+'.json')
     .then(forecast => {
         return forecast.json();
     }).then( data => {
@@ -59,4 +59,26 @@ export function UpdateDay(callBack){
         callBack({daysimple: weatherdata});
     });
   return datam;
+}
+
+export function GeoUpdateWeather(latitude, longitude, callBack){
+  var datam = {};
+  var fetchurl = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCk1yHtfieheD4x3BW2O17pdShv0LaMPX0';
+    fetch(fetchurl)
+    .then(results => {
+        return results.json();
+    }).then( data => {
+        let geodata = data.results[1].address_components.map(function(item, i){
+            return(
+                {
+                    name: item.long_name,
+                }
+            )
+        })
+        UpdateDay(geodata[0].name, callBack);
+        UpdateHourly10Day(geodata[0].name, callBack);
+        //console.log(geodata[0].name);
+        //callBack({daysimple: weatherdata});
+    });
+  return true;
 }

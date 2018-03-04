@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WeatherData from './WeatherData.js';
 import Settings from './Settings/Settings.js';
+import {geolocated} from 'react-geolocated';
 import './App.css';
 import './StyleSheets/backgroundStyles.css';
 
@@ -9,7 +10,7 @@ class App extends Component {
         super(props);
         this.changeBackground(props);
     }
-    
+
     changeBackground(props){
         var currentTime = new Date().getHours();
         if(currentTime >= 5 && currentTime < 11) document.body.classList.add('bgdawn');
@@ -26,15 +27,30 @@ class App extends Component {
     // - wind speed
 
     render() {
+     //console.log(this.props.coords);
+       if(this.props.coords){
         return (
             <div className="App">
-                <WeatherData className="weatherData"/>
+                <WeatherData geo={this.props.coords} className="weatherData"/>
                 <div className="settings">
                     <Settings/>
                 </div>
             </div>
         );
+      } else {
+        return (
+          <div>Geolocation is not enabled</div>
+        );
+      }
+
     }
 }
 
-    export default App;
+//export default App;
+
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: false,
+  },
+  userDecisionTimeout: 5000,
+})(App);

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import DogInterface from './DogInterface/DogInterface.js';
 import WeatherBar from './WeatherBar/WeatherBar.js';
-import {UpdateDay, UpdateHourly10Day} from './WeatherAPI.js';
+import {GeoUpdateWeather, UpdateDay, UpdateHourly10Day} from './WeatherAPI.js';
+import {geolocated} from 'react-geolocated';
 import Loader from './Loader/Loader.js';
 
 
@@ -27,8 +28,10 @@ class WeatherData extends Component {
     }
 
     componentDidMount(){
-        UpdateDay(this.callBack.bind(this));
-        UpdateHourly10Day(this.callBack.bind(this));
+        //UpdateDay('Northwood', this.callBack.bind(this));
+        //UpdateHourly10Day('Northwood', this.callBack.bind(this));
+        //console.log(this.props.geo);
+        GeoUpdateWeather(this.props.geo.latitude, this.props.geo.longitude, this.callBack.bind(this));
 
     }
 
@@ -41,6 +44,7 @@ class WeatherData extends Component {
     }
 
     render(){
+      //console.log(this.props.GEO);
         //console.log(this.state);
         //console.log(this.state.hourly);
       //  console.log(this.state.fiveday);
@@ -76,4 +80,5 @@ class WeatherData extends Component {
     }
 
 }
-export default WeatherData;
+
+export  default WeatherData;
