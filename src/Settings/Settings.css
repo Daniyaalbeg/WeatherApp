@@ -1,50 +1,130 @@
-@import "../../node_modules/react-toggle-switch/dist/css/switch.min.css";
-
 .se{
     height: 100%;
     background-color: #FFFAF0;
+    font-size: 14pt;
 }
 
 .heading{
-    font-size: 10vw;
+    font-size: 32pt;
     padding-top: 6vh;
+}
+
+.loc{
+    width: 71%;
+    max-width: 450px;
+    padding-top: 8vh;
+    min-width: 200px;
+    margin: auto;
 }
 
 .location{
     margin: auto;
-    display: inline-flex;
-    padding-top: 5vh;
+    display: inline-block;
+    width: 100%;
 }
 .locationTag{
-    font-size: 15pt;
-    padding-right: 38vw;
+    font-size: 115%;
+    float: left;
 }
-.switch{
-    background-color: white;
+.togg{
+    float: right;
 }
+
 .locationInput{
     height: 10%;
     padding-top: 2vh;
     font-size: 10pt;
-    width: 80%;
+    width: 100%;
+    max-width:100%;
     margin: auto;
 }
+.locationBox{
+    width: 100%;
+    height: 4vh;
+    font-size: 14pt;
+    background-color: inherit;
+    border-bottom: 1px solid black;
+}
+.locationBox:focus{
+    border-bottom: 2px solid #2196F3;
+}
 
-.settingSection{
-    height: 40%;
-    float: left;
-    width: 50%;
-    font-size: 15pt;
-    text-align: left;
+.userInfo{
+    padding-top: 10vh;
+    font-size: 20pt;
+    width: 71%;
+    max-width: 450px;
+    min-width: 200px;
+    margin: auto;
 }
-.settingLabelLeft{
-    padding-left: 5vh;
+.headingTwo{
+    font-size: 24pt;
+    padding-bottom: 1vh;
 }
-.settingLabelRight{
-    padding-left: 10vh;
+.userData{
+    padding-bottom: 0.8vh;
 }
-.settingLabelLeft:after{
-    content: "";
-    display: table;
-    clear: both;
+
+.buttonarea{
+    padding-top: 10vh;
+}
+.saveDataButton{
+    background-color: #2196F3;
+    color: white;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px grey;
+}
+.saveDataButton:active{
+    background-color: #4ba9f4;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 30px;
+  border: 0px;
+}
+.switch input {display:none;}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
+}
+.slider.round {
+    border-radius: 34px;
+    box-shadow: 2px 2px 5px grey;
+}
+.slider.round:before {
+    border-radius: 50%;
 }
