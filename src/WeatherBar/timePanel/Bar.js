@@ -82,7 +82,6 @@ class Bar extends Component {
         } else {
             hours = parseInt(time[0]);
         }
-        console.log(hours);
         var imgURL = null;
         if (hours>5 && hours<19) {
             imgURL = "https://i.imgur.com/doBAMm7.png";
