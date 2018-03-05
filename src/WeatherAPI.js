@@ -28,9 +28,10 @@ export function UpdateHourly10Day(City, callBack){
             if(i % 2 == 0){
               datam[daycount].push(weatherdata[i]);
             }
-            
+
           } else {
-            if(currentdate.getHours() > 0 && currentdate.getHours() < 5){
+            console.log(currentdate.getHours());
+            if(currentdate.getHours() >= 0 && currentdate.getHours() <= 5){
               if(i % 2 == 0){
                 datam[daycount].push(weatherdata[i]);
               }
