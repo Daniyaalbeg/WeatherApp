@@ -1,12 +1,22 @@
-.info{
-    color: white;
+@font-face {
+    font-family: "PixelMix";
+    src: url("../../fonts/pixelmix.ttf");
 }
 
-#message{
-    font-size: 3vh;
+.info{
+
+}
+
+.message{
+    margin: auto;
+    color: black;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    font-family: 'PixelMix';
+    padding: 4px;
+    font-size: 2.1vh;
+    border: 2px dashed black;
     text-align: center;
-    width: 80%;
-    height: 50%;
-    padding-top: 6vh;
-    display: inline-block;
+    width: 94%;
+    background-color: white;
+    overflow: hidden;
 }

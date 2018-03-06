@@ -64,13 +64,16 @@ import Message from './Message/Message.js';
             return (
                 <div className="di">
                     <Info weatherInfo={weatherInfo}/>
-                    <div className="dogarea">
-                        <div className="weatheranimation">
-                            <img id="weathergif" src={weatherGif} alt="Error"/>
+                    <div class="lowerbody">
+                        <div className="dogarea">
+                            <div className="weatheranimation">
+                                <img id="weathergif" src={weatherGif} alt="Error"/>
+                            </div>
+                            <div class="dog">
+                            </div>
                         </div>
-                        <div className="weatherComment"> <Message id="message" message={message}/> </div>
+                    <div class="weathercomment"><Message id="message" message={message}/></div>
                     </div>
-                     <div className="weathercomment"></div>
                 </div>
             );
         }

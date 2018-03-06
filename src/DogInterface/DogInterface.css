@@ -15,37 +15,40 @@
     font-family: 'Lanenar';
 }
 
-.dogarea{
+.lowerbody{
     height: 65%;
+
+}
+
+.dogarea{
+    height: 84%;
     width: 100%;
     margin: auto;
     position: relative;
+}
+.weathercomment{
+    height: 16%;
+    width: 100%;
+    margin: auto;
 }
 
 .weatheranimation{
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    /*transform: translateY(-50%);*/
     margin: auto;
-    height: 100%;
+    height: 45%;
 }
-#weathergif{
-    height: 40%;
+.dog{
+
+    height: 55%;
 }
 
-.weatherComment{
-    width: 100%;
-    height: 50%;
-    position: absolute;
-    bottom: 0;
+.dog, .weathercomment{
     background-image: url(https://opengameart.org/sites/default/files/forum-attachments/grasstest_1.png);
     background-size: cover;
     background-position: center;
-    z-index: -1;
 }
 
-.weathercomment{
-    height: 0%;
-    width: 90%;
-    margin: auto;
+#weathergif{
+    height: 95%;
 }
