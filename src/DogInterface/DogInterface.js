@@ -60,13 +60,17 @@ import Message from './Message/Message.js';
                     break;
             }
             if (windSpeed < 24) {
-                message += " There is a gentle breeze.";
+                message += " there is a gentle breeze.";
+                walkDog = true;
             } else if (windSpeed < 38) {
-                message += " There is a strong breeze.";
+                message += " there is a strong breeze.";
+                walkDog = true;
             } else if (windSpeed < 38) {
-                message += " There is a moderate gale.";
+                message += " there is a moderate gale.";
+                walkDog = false;
             } else {
-                message += " The wind... God help us all.";
+                message += " the wind... God help us all.";
+                walkDog = false;
             }
             message += " The high / low today is " + this.props.daysimple.tHigh + " / " + this.props.daysimple.tLow + ".";
             if (walkDog) {

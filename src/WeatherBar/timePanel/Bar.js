@@ -88,9 +88,9 @@ class Bar extends Component {
         const time = this.props.time.split(":");
         var hours = 0;
         if (time[1].includes("PM") && parseInt(time[0]) === 12) {
-            hours = parseInt(time[0]) + 12;
-        } else if (time[1].includes("AM") && parseInt(time[0]) === 12) {
             hours = parseInt(time[0]);
+        } else if (time[1].includes("AM") && parseInt(time[0]) === 12) {
+            hours = parseInt(time[0]) + 12;
         } else if (time[1].includes("PM")) {
             hours = parseInt(time[0]) + 12;
         } else {
