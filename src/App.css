@@ -1,9 +1,15 @@
+@font-face {
+    font-family: "PixelMix";
+    src: url("/fonts/pixelmix.ttf");
+}
+
 *{
     margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
     vertical-align: baseline;
+    font-family: 'PixelMix';
 }
 
 ::-webkit-scrollbar {

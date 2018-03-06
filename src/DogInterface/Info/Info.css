@@ -4,14 +4,15 @@
 
 #city{
     padding-top: 10vh;
-    font-size: 3vh;
+    font-size: 3.1vh;
 }
 #temp{
-    font-size: 5vh;
+    font-size: 5.5vh;
 }
 #wind{
-    font-size: 2vh;
+    font-size: 2.3vh;
 }
 #pol{
-    font-size: 2vh;
+    padding-top: 0.2vh;
+    font-size: 1.9vh;
 }

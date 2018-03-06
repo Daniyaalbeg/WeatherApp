@@ -47,6 +47,8 @@
 }
 .locationBox:focus{
     border-bottom: 2px solid #2196F3;
+    outline: 0;
+    transition: padding-top 0.2s ease,
 }
 
 .userInfo{
