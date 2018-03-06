@@ -5,7 +5,8 @@ import './Message.css';
         render() {
             return (
                 <div className="info">
-                    <div class="message"><p id="message"> {this.props.message} </p></div>
+                    <div className="message"><p id="header"> {this.props.header} </p></div>
+                    <div className="message"><p id="message"> {this.props.message} </p></div>
                 </div>
             );
         }

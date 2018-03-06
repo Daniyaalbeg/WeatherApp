@@ -20,32 +20,40 @@ import Message from './Message/Message.js';
             // This is a transparent image, used as a placeholder for the weather gif.
             var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
             let message = "";
+            var header = "";
+            var walkDog = true;
             let windSpeed = weatherInfo.wind;
             // More weathers need to be added into the switch case.
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):
                     weatherGif="https://media.giphy.com/media/3ov9jLYWb4zCjGfqIE/giphy.gif";
-                    message="The sun is out, now is a great time to walk your dog.";
+                    message="The sun is out, ";
+                    walkDog = true;
                     break;
                 case this.checkForWeather("snow"):
                     weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";
-                    message="Its snowing, perhaps wait a few hours.";
+                    message="Its snowing, ";
+                    walkDog = false;
                     break;
                 case this.checkForWeather("cloud"):
                     weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
-                    message="Its a bit cloudy, now is an ok time to walk your dog.";
+                    message="Its a bit cloudy, ";
+                    walkDog = true;
                     break;
                 case this.checkForWeather("overcast"):
                     weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
-                    message="Its a bit gloomy, now is an ok time to walk your dog.";
+                    message="Its a bit gloomy, ";
+                    walkDog = true;
                     break;
                 case this.checkForWeather("rain"):
                     weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
-                    message="Its raining, perhaps wait a few hours.";
+                    message="Its raining, ";
+                    walkDog = false;
                     break;
                 case this.checkForWeather("fog"):
                     weatherGif="https://media.tnh.me/551ac5ba5ccacf1b837ebc21/5523d7cd5ccacf4f41a895f3";
-                    message="Its a bit foggy, now may not be the best time.";
+                    message="Its a bit foggy, ";
+                    walkDog = false;
                     break;
                 default:
                     message="Well shit...";
@@ -60,7 +68,12 @@ import Message from './Message/Message.js';
             } else {
                 message += " The wind... God help us all.";
             }
-            message += " The high today is " + this.props.daysimple.tHigh;
+            message += " The high / low today is " + this.props.daysimple.tHigh + " / " + this.props.daysimple.tLow + ".";
+            if (walkDog) {
+                header = "It is a good time to walk your dog.";
+            } else {
+                header = "It is not a good time to walk your dog.";
+            }
             return (
                 <div className="di">
                     <Info weatherInfo={weatherInfo}/>
@@ -72,7 +85,7 @@ import Message from './Message/Message.js';
                             <div class="dog">
                             </div>
                         </div>
-                    <div class="weathercomment"><Message id="message" message={message}/></div>
+                    <div class="weathercomment"><Message id="message" header={header}message={message}/></div>
                     </div>
                 </div>
             );
