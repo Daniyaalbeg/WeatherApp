@@ -2,7 +2,7 @@
 export function UpdateHourly10Day(City, callBack){
   let datam = {0 : [], 1 : [], 2 : [], 3 : [], 4 : [], 5 : [], 6 : [], 7 : [], 8 : [], 9 : [], 10 : []};
   var currentdate = new Date();
-    var a = fetch('http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/UK/'+City+'.json')
+    var a = fetch('http://13.72.104.16/test2.php?url=http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/UK/'+City+'.json')
     .then(results => {
         return results.json();
     }).then( data => {
@@ -57,7 +57,7 @@ export function UpdateHourly10Day(City, callBack){
 
 export function UpdateDay(City, callBack){
   var datam = {};
-    fetch('http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/UK/'+City+'.json')
+    fetch('http://13.72.104.16/test2.php?url=http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/UK/'+City+'.json')
     .then(forecast => {
         return forecast.json();
     }).then( data => {
