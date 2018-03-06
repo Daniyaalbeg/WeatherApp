@@ -44,7 +44,7 @@
 }
 
 .dog, .weathercomment{
-    background-image: url(https://opengameart.org/sites/default/files/forum-attachments/grasstest_1.png);
+    /* background-image: url(https://opengameart.org/sites/default/files/forum-attachments/grasstest_1.png); */
     background-size: cover;
     background-position: center;
 }
