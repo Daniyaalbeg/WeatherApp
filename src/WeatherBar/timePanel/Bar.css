@@ -13,17 +13,16 @@
     padding-top: 0.5vh;
     height: 15%;
     width:100%;
-    font-size: 1.9vh;
+    font-size: 1.6vh;
     color: white;
 }
 
-/*.barweathergif{
+.barweathergif{
     height: 100%;
     width: 100%;
-    opacity: 0.5;
     overflow:hidden;
     object-fit: contain;
-}*/
+}
 
 .bartemp{
     height: 25%;
@@ -31,7 +30,7 @@
     position: absolute;
     bottom: 0;
     color: white;
-    font-size: 4vh;
+    font-size: 3.5vh;
 }
 
 .fixed{

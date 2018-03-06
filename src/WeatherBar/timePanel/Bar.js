@@ -113,7 +113,7 @@ class Bar extends Component {
                     <p>{this.props.time}</p>
                 </div>
                 <div class="barweathergif">
-                     <img id="barweatheranimation" class={classfile} src={weatherGif}/>
+                     <img class={classfile} src={weatherGif}/>
                 </div>
                 <div className="bartemp">
                     <p>{this.temp}</p>
