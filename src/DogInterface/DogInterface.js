@@ -77,15 +77,15 @@ import Message from './Message/Message.js';
             return (
                 <div className="di">
                     <Info weatherInfo={weatherInfo}/>
-                    <div class="lowerbody">
+                    <div className="lowerbody">
                         <div className="dogarea">
                             <div className="weatheranimation">
                                 <img id="weathergif" src={weatherGif} alt="Error"/>
                             </div>
-                            <div class="dog">
+                            <div className="dog">
                             </div>
                         </div>
-                    <div class="weathercomment"><Message id="message" header={header}message={message}/></div>
+                    <div className="weathercomment"><Message id="message" header={header} message={message}/></div>
                     </div>
                 </div>
             );
