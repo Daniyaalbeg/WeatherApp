@@ -67,11 +67,11 @@ class Bar extends Component {
                 classfile="notfixed";
                 break;
             case this.checkForWeather("cloud"):
-                weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
+                weatherGif="https://i.imgur.com/Rpgm1V2.gif";
                 classfile="fixed";
                 break;
             case this.checkForWeather("overcast"):
-                weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
+                weatherGif="https://i.imgur.com/Rpgm1V2.gif";
                 classfile="fixed";
                 break;
             case this.checkForWeather("rain"):

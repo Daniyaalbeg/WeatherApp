@@ -36,7 +36,7 @@ import Message from './Message/Message.js';
                     walkDog = false;
                     break;
                 case this.checkForWeather("cloud"):
-                    weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
+                    weatherGif="https://i.imgur.com/Rpgm1V2.gif";
                     message="Its a bit cloudy, ";
                     walkDog = true;
                     break;
