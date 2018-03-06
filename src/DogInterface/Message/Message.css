@@ -12,11 +12,10 @@
     color: black;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     font-family: 'PixelMix';
-    padding: 4px;
-    font-size: 3vw;
+    padding: 1vh;
+    font-size: 1.7vh;
     border: 2px dashed black;
     text-align: center;
-    width: 93%;
+    width: 90%;
     background-color: white;
-    overflow: hidden;
 }

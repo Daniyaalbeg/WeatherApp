@@ -18,34 +18,34 @@ class Bar extends Component {
         }
     }
 
-    dayOfWeek(day){
-        switch(day){
-            case 0:
-                this.dayOW="Mon";
-                return;
-            case 1:
-                this.dayOW="Tue";
-                return;
-            case 2:
-                this.dayOW="Wed";
-                return;
-            case 3:
-                this.dayOW="Thurs";
-                return;
-            case 4:
-                this.dayOW="Fri";
-                return;
-            case 5:
-                this.dayOW="Sat";
-                return;
-            case 6:
-                this.dayOW="Sun";
-                return;
-            default:
-                this.dayOW="Error";
-                return;
-        }
-    }
+    // dayOfWeek(day){
+    //     switch(day){
+    //         case 0:
+    //             this.dayOW="Mon";
+    //             return;
+    //         case 1:
+    //             this.dayOW="Tue";
+    //             return;
+    //         case 2:
+    //             this.dayOW="Wed";
+    //             return;
+    //         case 3:
+    //             this.dayOW="Thurs";
+    //             return;
+    //         case 4:
+    //             this.dayOW="Fri";
+    //             return;
+    //         case 5:
+    //             this.dayOW="Sat";
+    //             return;
+    //         case 6:
+    //             this.dayOW="Sun";
+    //             return;
+    //         default:
+    //             this.dayOW="Error";
+    //             return;
+    //     }
+    // }
 
     // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)
     checkForWeather(weather){
@@ -55,25 +55,32 @@ class Bar extends Component {
     render() {
         // This is a transparent image, used as a placeholder for the weather gif.
         var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
+        var classfile=null;
         // More weathers need to be added into the switch case.
         switch(this.props.weather){
             case this.checkForWeather("sun"):
                 weatherGif="https://media.giphy.com/media/3ov9jLYWb4zCjGfqIE/giphy.gif";
+                classfile="fixed";
                 break;
             case this.checkForWeather("snow"):
                 weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";
+                classfile="notfixed";
                 break;
             case this.checkForWeather("cloud"):
                 weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
+                classfile="fixed";
                 break;
             case this.checkForWeather("overcast"):
                 weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
+                classfile="fixed";
                 break;
             case this.checkForWeather("rain"):
                 weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
+                classfile="notfixed";
                 break;
             case this.checkForWeather("fog"):
                 weatherGif="https://media.tnh.me/551ac5ba5ccacf1b837ebc21/5523d7cd5ccacf4f41a895f3";
+                classfile="notfixed";
                 break;
             default:
                 weatherGif="https://media.giphy.com/media/11s4W2s2rNA17W/giphy.gif";
@@ -105,8 +112,8 @@ class Bar extends Component {
                 <div className="bartime">
                     <p>{this.props.time}</p>
                 </div>
-                <div className="barweathergif">
-                     <img id="barweatheranimation" src={weatherGif}/>
+                <div class="barweathergif">
+                     <img id="barweatheranimation" class={classfile} src={weatherGif}/>
                 </div>
                 <div className="bartemp">
                     <p>{this.temp}</p>
