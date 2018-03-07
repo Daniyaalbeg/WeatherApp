@@ -23,6 +23,7 @@ import Message from './Message/Message.js';
             var header = "";
             var walkDog = true;
             let windSpeed = weatherInfo.wind;
+            console.log(weatherInfo.weather);
             // More weathers need to be added into the switch case.
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):
@@ -55,8 +56,11 @@ import Message from './Message/Message.js';
                     message="Its a bit foggy, ";
                     walkDog = false;
                     break;
+                case this.checkForWeather("clear"):
+                    message="Its a clear day, ";
+                    break;
                 default:
-                    message="Well shit...";
+                    message="Weather Not found...";
                     break;
             }
             if (windSpeed < 24) {
