@@ -43,8 +43,9 @@
      filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
 }
 .notfixedtop{
+    margin-top: -25vh;
     width: 100%;
-    height: 100%;
+    height: 230%;
 }
 .fixedtopmoon{
     width: 40%;
