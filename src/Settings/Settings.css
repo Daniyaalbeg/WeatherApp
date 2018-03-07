@@ -198,7 +198,7 @@ input:checked + .slider:before {
     position: absolute;
     top: calc(0px + var(--uiFieldPaddingTop) + var(--uiFieldBorderTop));
     left: calc(0px + var(--uiFieldPaddingLeft) + var(--uiFieldBorderLeft));
-
+    color: grey;
     pointer-events: none;
     font-size: .9em;
 

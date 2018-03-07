@@ -24,7 +24,7 @@ import Message from './Message/Message.js';
             var walkDog = true;
             let windSpeed = weatherInfo.wind;
             let classfile;
-            weatherInfo.weather ="cloud";
+            weatherInfo.weather ="rain";
             // More weathers need to be added into the switch case.
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):

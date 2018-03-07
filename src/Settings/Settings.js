@@ -53,6 +53,8 @@ class Settings extends Component {
                 settings.City = document.getElementById("locationf").value;
                 settings.LocationSet = true;
                 settings.GeoEnabled = false;
+                settings.latitude = null;
+                settings.longitude = null;
                 //console.log(this.location);
                 //this.props.setLocationCity(this.location);
             }
@@ -89,7 +91,7 @@ class Settings extends Component {
             settings.dogname = document.getElementById("dognamef").value;
         }
         if(document.getElementById("dogbreedf").value){
-            settings.dogreed = document.getElementById("dogbreedf").value;
+            settings.dogbreed = document.getElementById("dogbreedf").value;
         }
 
         console.log(settings);
@@ -109,17 +111,35 @@ class Settings extends Component {
             if(this.props.csettings.City != null) return this.props.csettings.City;
             else return holder;
         }
-        else if(holder==="Eg. Tom"){
-            if(this.props.csettings.username != null) return this.props.csettings.username;
-            else return holder;
+        else if(holder=="Eg. Tom" || holder=="User name"){
+            if(holder=="Eg. Tom"){
+                if(this.props.csettings.username != null) return this.props.csettings.username;
+                else return "User name";
+            }
+            else if(holder=="User name"){
+                if(this.props.csettings.username != null) return "User name";
+                else return "Eg. Tom";
+            }
         }
-        else if(holder==="Dog name"){
-            if(this.props.csettings.dogname != null) return this.props.csettings.dogname;
-            else return holder;
+        else if(holder=="Eg. Lassie" || holder=="Dog name"){
+            if(holder=="Eg. Lassie"){
+                if(this.props.csettings.dogname != null) return this.props.csettings.dogname;
+                else return "Dog name";
+            }
+            else if(holder=="Dog name"){
+                if(this.props.csettings.dogname != null) return "Dog name";
+                else return "Eg. Lassie";
+            }
         }
-        else if(holder==="Dog breed"){
-            if(this.props.csettings.dogbreed != null) return this.props.csettings.dogbreed;
-            else return holder;
+        else if(holder=="Eg. Bulldog" || holder=="Dog breed"){
+            if(holder=="Eg. Bulldog"){
+                if(this.props.csettings.dogbreed != null) return this.props.csettings.dogbreed;
+                else return "Dog type";
+            }
+            else{
+                if(this.props.csettings.dogbreed != null) return "Dog type";
+                else return "Eg. Bulldog"
+            }
         }
     }
 
@@ -150,7 +170,7 @@ class Settings extends Component {
                         <div className="headingTwo"><p>User Info</p></div>
                         <div class="userData">
                             <label class="field lablestyle">
-                                <input id="usernamef" class="field__input" placeholder="User name"/>
+                                <input id="usernamef" class="field__input" placeholder={this.getInputHolder("User name")}/>
                                 <span class="field__label-wrap">
                                     <span class="field__label">{this.getInputHolder("Eg. Tom")}</span>
                                 </span>
@@ -158,17 +178,17 @@ class Settings extends Component {
                         </div>
                         <div class="userData">
                             <label class="field lablestyle">
-                                <input id="dognamef" class="field__input" placeholder="Dog name"/>
+                                <input id="dognamef" class="field__input" placeholder={this.getInputHolder("Dog name")}/>
                                 <span class="field__label-wrap">
-                                    <span class="field__label">{this.getInputHolder("Dog name")}</span>
+                                    <span class="field__label">{this.getInputHolder("Eg. Lassie")}</span>
                                 </span>
                             </label>
                         </div>
                         <div class="userData">
                             <label class="field lablestyle">
-                                <input id="dogbreedf" class="field__input" placeholder="Dog breed"/>
+                                <input id="dogbreedf" class="field__input" placeholder={this.getInputHolder("Dog breed")}/>
                                 <span class="field__label-wrap">
-                                    <span class="field__label">{this.getInputHolder("Dog breed")}</span>
+                                    <span class="field__label">{this.getInputHolder("Eg. Bulldog")}</span>
                                 </span>
                             </label>
                         </div>
