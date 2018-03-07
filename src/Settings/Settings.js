@@ -168,27 +168,27 @@ class Settings extends Component {
                     </div>
                     <div className="userInfo">
                         <div className="headingTwo"><p>User Info</p></div>
-                        <div class="userData">
-                            <label class="field lablestyle">
-                                <input id="usernamef" class="field__input" placeholder={this.getInputHolder("User name")}/>
-                                <span class="field__label-wrap">
-                                    <span class="field__label">{this.getInputHolder("Eg. Tom")}</span>
+                        <div className="userData">
+                            <label className="field lablestyle">
+                                <input id="usernamef" className="field__input" placeholder={this.getInputHolder("User name")}/>
+                                <span className="field__label-wrap">
+                                    <span className="field__label">{this.getInputHolder("Eg. Tom")}</span>
                                 </span>
                             </label>
                         </div>
-                        <div class="userData">
-                            <label class="field lablestyle">
-                                <input id="dognamef" class="field__input" placeholder={this.getInputHolder("Dog name")}/>
-                                <span class="field__label-wrap">
-                                    <span class="field__label">{this.getInputHolder("Eg. Lassie")}</span>
+                        <div className="userData">
+                            <label className="field lablestyle">
+                                <input id="dognamef" className="field__input" placeholder={this.getInputHolder("Dog name")}/>
+                                <span className="field__label-wrap">
+                                    <span className="field__label">{this.getInputHolder("Eg. Lassie")}</span>
                                 </span>
                             </label>
                         </div>
-                        <div class="userData">
-                            <label class="field lablestyle">
-                                <input id="dogbreedf" class="field__input" placeholder={this.getInputHolder("Dog breed")}/>
-                                <span class="field__label-wrap">
-                                    <span class="field__label">{this.getInputHolder("Eg. Bulldog")}</span>
+                        <div className="userData">
+                            <label className="field lablestyle">
+                                <input id="dogbreedf" className="field__input" placeholder={this.getInputHolder("Dog breed")}/>
+                                <span className="field__label-wrap">
+                                    <span className="field__label">{this.getInputHolder("Eg. Bulldog")}</span>
                                 </span>
                             </label>
                         </div>
