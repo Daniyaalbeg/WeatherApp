@@ -18,7 +18,7 @@ class Bar extends Component {
         }
     }
 
-    // dayOfWeek(day){
+    //// dayOfWeek(day){
     //     switch(day){
     //         case 0:
     //             this.dayOW="Mon";
