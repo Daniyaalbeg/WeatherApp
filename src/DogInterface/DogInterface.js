@@ -24,14 +24,14 @@ import Message from './Message/Message.js';
             var walkDog = true;
             let windSpeed = weatherInfo.wind;
             let classfile;
-            weatherInfo.weather ="rain";
+            weatherInfo.weather ="sun";
             // More weathers need to be added into the switch case.
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):
-                    weatherGif="https://media.giphy.com/media/3ov9jLYWb4zCjGfqIE/giphy.gif";
+                    weatherGif="https://i.imgur.com/2P8pMyy.gif";
                     message="The sun is out, ";
                     walkDog = true;
-                    classfile="fixedtop";
+                    classfile="fixedtopsun";
                     break;
                 case this.checkForWeather("snow"):
                     weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";

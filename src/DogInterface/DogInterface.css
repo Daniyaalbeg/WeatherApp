@@ -44,3 +44,20 @@
     width: 100%;
     height: 100%;
 }
+.fixedtopsun{
+    width: 40%;
+    padding-top: 5%;
+    animation: MoveUpDown 3s infinite;
+  }
+
+  @keyframes MoveUpDown {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }

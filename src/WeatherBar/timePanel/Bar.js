@@ -61,8 +61,8 @@ class Bar extends Component {
             case this.checkForWeather("clear"):
                 break;
             case this.checkForWeather("sun"):
-                weatherGif="https://media.giphy.com/media/3ov9jLYWb4zCjGfqIE/giphy.gif";
-                classfile="fixed";
+                weatherGif="https://i.imgur.com/2P8pMyy.gif";
+                classfile="fixedsun";
                 break;
             case this.checkForWeather("snow"):
                 weatherGif="https://i.imgur.com/l8GPSHU.gif";
