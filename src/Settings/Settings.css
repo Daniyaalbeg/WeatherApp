@@ -1,18 +1,17 @@
 .se{
     height: 100%;
     background-color: #FFFAF0;
-    font-size: 14pt;
 }
 
 .heading{
-    font-size: 32pt;
-    padding-top: 6vh;
+    font-size: 10vw;
+    padding-top: 7vh;
 }
 
 .loc{
-    width: 71%;
+    width: 75%;
     max-width: 450px;
-    padding-top: 8vh;
+    padding-top: 7vh;
     min-width: 200px;
     margin: auto;
 }
@@ -52,7 +51,7 @@
 }
 
 .userInfo{
-    padding-top: 10vh;
+    padding-top: 5vh;
     font-size: 20pt;
     width: 71%;
     max-width: 450px;
@@ -60,11 +59,11 @@
     margin: auto;
 }
 .headingTwo{
-    font-size: 24pt;
-    padding-bottom: 7vh;
+    font-size: 7.5vw;
+    padding-bottom: 5vh;
 }
 .userData{
-    padding-bottom: 4.5vh;
+    padding-bottom: 5vh;
 }
 
 .buttonarea{
@@ -147,7 +146,6 @@ input:checked + .slider:before {
     --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #767676);
     --uiFieldAnimationDuration: var(--fieldAnimationDuration, .3s);
     --uiFieldFonstSize: var(--fieldFontSize, 20px);
-
     position: relative;
     display: block;
 }
@@ -155,7 +153,7 @@ input:checked + .slider:before {
 .field__input{
     width: 100%;
     box-sizing: border-box;
-
+    background-color: #FFFAF0;
     /* for iOS */
     appearance: none;
     border-radius: 0;
@@ -229,7 +227,6 @@ input:checked + .slider:before {
     content: "";
     width: 0;
     height: var(--uiFieldBorderBottom);
-    background-color: var(--fieldBorderColorActive);
 
     position: absolute;
     bottom: 0;
