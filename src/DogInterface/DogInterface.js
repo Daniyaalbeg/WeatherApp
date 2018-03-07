@@ -23,37 +23,45 @@ import Message from './Message/Message.js';
             var header = "";
             var walkDog = true;
             let windSpeed = weatherInfo.wind;
+            let classfile;
+            weatherInfo.weather ="cloud";
             // More weathers need to be added into the switch case.
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):
                     weatherGif="https://media.giphy.com/media/3ov9jLYWb4zCjGfqIE/giphy.gif";
                     message="The sun is out, ";
                     walkDog = true;
+                    classfile="fixedtop";
                     break;
                 case this.checkForWeather("snow"):
                     weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";
                     message="Its snowing, ";
                     walkDog = false;
+                    classfile="notfixedtop";
                     break;
                 case this.checkForWeather("cloud"):
                     weatherGif="https://i.imgur.com/Rpgm1V2.gif";
                     message="Its a bit cloudy, ";
                     walkDog = true;
+                    classfile="fixedtop";
                     break;
                 case this.checkForWeather("overcast"):
                     weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
                     message="Its a bit gloomy, ";
                     walkDog = true;
+                    classfile="fixedtop";
                     break;
                 case this.checkForWeather("rain"):
                     weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
                     message="Its raining, ";
                     walkDog = false;
+                    classfile="notfixedtop";
                     break;
                 case this.checkForWeather("fog"):
                     weatherGif="https://media.tnh.me/551ac5ba5ccacf1b837ebc21/5523d7cd5ccacf4f41a895f3";
                     message="Its a bit foggy, ";
                     walkDog = false;
+                    classfile="notfixedtop";
                     break;
                 case this.checkForWeather("clear"):
                     // weatherGif="";
@@ -84,10 +92,10 @@ import Message from './Message/Message.js';
             }
             return (
                 <div className="di">
-                    <Info weatherInfo={weatherInfo}/>
+                    <div class="weatherinfo"><Info weatherInfo={weatherInfo}/></div>
                     <div className="lowerbody">
                         <div className="weatheranimation">
-                            <img id="weathergif" src={weatherGif} alt="Error"/>
+                            <img class={classfile} src={weatherGif} alt="Error"/>
                         </div>
                         <div className="weathercontainer">
                             <div className="weathercomment"><Message id="message" header={header} message={message}/></div>

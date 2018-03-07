@@ -11,9 +11,7 @@ class App extends Component {
         super(props);
         this.changeBackground(props);
         this.state = {
-            City: null,
-            LocationSet: false,
-            GeoEnabled: false,
+            AppName: 'DogWeather',
             Settings: {
               City: null,
               LocationSet: false,
@@ -21,6 +19,8 @@ class App extends Component {
               isToggleOn: false,
               isChecked: false,
               location: null,
+              latitude: null,
+              longitude: null,
               username: null,
               dogname: null,
               dogbreed: null,
@@ -72,16 +72,17 @@ class App extends Component {
         if(this.state.Settings.City != null){
           return (
             <div className="App">
-             <WeatherData geo={{city: this.state.Settings.City}} csettings={this.state.Settings} className="weatherData"/>
+             <WeatherData csettings={this.state.Settings} className="weatherData"/>
              <div className="settings">
                  <Settings csettings={this.state.Settings} setSettings={this.setSettings.bind(this)}/>
              </div>
            </div>
           );
         } else {
+          console.log(this.state.Settings);
           return (
             <div className="App">
-                <WeatherData geo={this.props.coords} csettings={this.state.Settings} className="weatherData"/>
+                <WeatherData csettings={this.state.Settings} className="weatherData"/>
                 <div className="settings">
                     <Settings csettings={this.state.Settings} setSettings={this.setSettings.bind(this)}/>
                 </div>
