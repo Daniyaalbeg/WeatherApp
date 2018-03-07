@@ -10,6 +10,38 @@ class App extends Component {
     constructor(props){
         super(props);
         this.changeBackground(props);
+        this.state = {
+            City: null,
+            LocationSet: false,
+            GeoEnabled: false,
+            Settings: {
+              City: null,
+              LocationSet: false,
+              GeoEnabled: false,
+              isToggleOn: false,
+              isChecked: false,
+              location: null,
+              username: null,
+              dogname: null,
+              dogbreed: null,
+              checkornot: 'checked'
+            }
+        };
+    }
+
+    componentWillMount(){
+      let csettings = localStorage.getItem('DogWeather');
+      if(csettings != null){
+        this.setState({Settings: JSON.parse(csettings)});
+      }
+
+    }
+
+    setSettings(NSettings){
+      this.setState({
+        Settings: NSettings
+      });
+      localStorage.setItem('DogWeather', JSON.stringify(NSettings));
     }
 
     changeBackground(props){
@@ -28,31 +60,35 @@ class App extends Component {
     // - wind speed
 
     render() {
-     //console.log(this.props.coords);
-     if(this.props.isGeolocationAvailable && this.props.isGeolocationEnabled){
-        if(this.props.coords){
+     //console.log(this.props.coords)
+     if(this.state.Settings.LocationSet == true){
+       //this.props.isGeolocationAvailable && this.props.isGeolocationEnabled)
+        if(this.state.Settings.City != null){
           return (
-              <div className="App">
-                  <WeatherData geo={this.props.coords} className="weatherData"/>
-                  <div className="settings">
-                      <Settings/>
-                  </div>
-              </div>
+            <div className="App">
+             <WeatherData geo={{city: this.state.Settings.City}} csettings={this.state.Settings} className="weatherData"/>
+             <div className="settings">
+                 <Settings csettings={this.state.Settings} setSettings={this.setSettings.bind(this)}/>
+             </div>
+           </div>
           );
         } else {
           return (
-              <div className="App">
-                  <Loader />
-              </div>
+            <div className="App">
+                <WeatherData geo={this.props.coords} csettings={this.state.Settings} className="weatherData"/>
+                <div className="settings">
+                    <Settings csettings={this.state.Settings} setSettings={this.setSettings.bind(this)}/>
+                </div>
+            </div>
           );
 
         }
       } else {
+        // Location is not set so set locatoion
         return (
           <div className="App">
-              <WeatherData geo={{city: 'Northwood'}} className="weatherData"/>
-              <div className="settings">
-                  <Settings/>
+              <div ref="setting" className="settings">
+                  <Settings csettings={this.state.Settings} setSettings={this.setSettings.bind(this)} />
               </div>
           </div>
         );

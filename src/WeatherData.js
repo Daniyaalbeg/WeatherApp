@@ -7,8 +7,8 @@ import Loader from './Loader/Loader.js';
 
 
 class WeatherData extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             today: [],
             hourly: [],
@@ -16,6 +16,7 @@ class WeatherData extends Component {
             viewday: 0,
             updates: 0
         };
+
     }
 
     callBack(data){
@@ -28,16 +29,25 @@ class WeatherData extends Component {
     }
 
     componentDidMount(){
-        //UpdateDay('Northwood', this.callBack.bind(this));
-        //UpdateHourly10Day('Northwood', this.callBack.bind(this));
-        //console.log(this.props.geo);
-        if(this.props.geo.city != undefined){
-          UpdateDay(this.props.geo.city, this.callBack.bind(this));
-          UpdateHourly10Day(this.props.geo.city, this.callBack.bind(this));
-        } else {
+        if(this.props.csettings.City != null){
+          UpdateDay(this.props.csettings.City, this.callBack.bind(this));
+          UpdateHourly10Day(this.props.csettings.City, this.callBack.bind(this));
+        } else if(this.props.csettings.GeoEnabled == true) {
           GeoUpdateWeather(this.props.geo.latitude, this.props.geo.longitude, this.callBack.bind(this));
         }
 
+    }
+
+    componentWillUpdate(nextProps, nextState){
+      if(this.props.csettings.City != null){
+        // Settings Changed
+        if(nextProps.csettings.City != this.props.csettings.City){
+          UpdateDay(nextProps.csettings.City, this.callBack.bind(this));
+          UpdateHourly10Day(nextProps.csettings.City, this.callBack.bind(this));
+          }
+      } else if(this.props.csettings.GeoEnabled == true) {
+        GeoUpdateWeather(this.props.geo.latitude, this.props.geo.longitude, this.callBack.bind(this));
+      }
     }
 
     child(percentage){
@@ -49,13 +59,7 @@ class WeatherData extends Component {
     }
 
     render(){
-       console.log(this.state);
-        //console.log(this.state);
-        //console.log(this.state.hourly);
-        //console.log(this.state.fiveday);
-        // console.log(this.state.daysimple);
-        //console.log(this.state.hour[this.state.viewday]);
-        //console.log(this.state.hourly);
+       //console.log(this.state);
 
         var element = document.getElementById("data");
         if(element){

@@ -16,8 +16,8 @@ class Settings extends Component {
         let checkornot="checked";
         this.locMsg="We use your location to provide you with a up-to-date service when you're on the go! Don't fret, we only use this data to get the most accurate info to you 24/7.";
         this.state = {
-            isToggleOn: true,
-            isChecked: true,
+            isToggleOn: this.props.csettings.isToggleOn,
+            isChecked: this.props.csettings.isChecked
         };
         this.handleClick = this.handleClick.bind(this);
         this.saveSettings = this.saveSettings.bind(this);
@@ -37,50 +37,73 @@ class Settings extends Component {
     }
 
     saveSettings(){
+        let settings = {
+          City: this.props.csettings.City,
+          LocationSet: this.props.csettings.LocationSet,
+          GeoEnabled: this.props.csettings.GeoEnabled,
+          isToggleOn: this.state.isToggleOn,
+          isChecked: this.state.isChecked,
+          location: this.props.csettings.location,
+          username: this.props.csettings.username,
+          dogname: this.props.csettings.dogname,
+          dogbreed: this.props.csettings.dogbreed,
+          checkornot: this.props.csettings.checkornot
+        }
+
         if(!this.state.isToggleOn){
             if(document.getElementById("locationf").value){
-                this.location=document.getElementById("locationf").value;
+                settings.City = document.getElementById("locationf").value;
+                settings.LocationSet = true;
+                settings.GeoEnabled = false;
+                //console.log(this.location);
+                //this.props.setLocationCity(this.location);
             }
-            if(this.location === "") this.location=null;
+            if(this.location === "") {
+              this.location=null;
+              settings.LocationSet = false;
+            }
+        } else {
+          this.location=null;
+          settings.GeoEnabled = true;
+          settings.LocationSet = true;
         }
-        else this.location=null;
+
         if(document.getElementById("usernamef").value){
-            this.username=document.getElementById("usernamef").value;
+            settings.username = document.getElementById("usernamef").value;
         }
         if(document.getElementById("dognamef").value){
-            this.dogname=document.getElementById("dognamef").value;
+            settings.dogname = document.getElementById("dognamef").value;
         }
         if(document.getElementById("dogbreedf").value){
-            this.dogbreed=document.getElementById("dogbreedf").value;
+            settings.dogreed = document.getElementById("dogbreedf").value;
         }
-        if(this.username === "") this.username=null;
-        if(this.dogname === "") this.dogname=null;
-        if(this.dogbreed === "") this.dogbreed=null;
-        document.getElementById("settingForm").reset();
-        this.forceUpdate();
+
+        //console.log(settings);
+        this.props.setSettings(settings);
+        //this.forceUpdate();
+        //document.getElementById("settingForm").reset();
+        //this.forceUpdate();
 
         // console.log("Loc?" + this.state.isChecked);
         // if(!this.state.isChecked) console.log("Loc:" + this.location);
-        // console.log(this.username);
-        // console.log(this.dogname);
-        // console.log(this.dogbreed);
+
     }
 
     getInputHolder(holder){
         if(holder==="Location"){
-            if(this.location != null) return this.location;
+            if(this.props.csettings.City != null) return this.props.csettings.City;
             else return holder;
         }
         else if(holder==="User name"){
-            if(this.username != null) return this.username;
+            if(this.props.csettings.username != null) return this.props.csettings.username;
             else return holder;
         }
         else if(holder==="Dog name"){
-            if(this.dogname != null) return this.dogname;
+            if(this.props.csettings.dogname != null) return this.props.csettings.dogname;
             else return holder;
         }
         else if(holder==="Dog breed"){
-            if(this.dogbreed != null) return this.dogbreed;
+            if(this.props.csettings.dogbreed != null) return this.props.csettings.dogbreed;
             else return holder;
         }
     }
