@@ -107,10 +107,10 @@ import Message from './Message/Message.js';
             }
             return (
                 <div className="di">
-                    <div class="weatherinfo"><Info weatherInfo={weatherInfo}/></div>
+                    <div className="weatherinfo"><Info weatherInfo={weatherInfo}/></div>
                     <div className="lowerbody">
                         <div className="weatheranimation">
-                            <img class={classfile} src={weatherGif} alt="Error"/>
+                            <img className={classfile} src={weatherGif} alt="Error"/>
                         </div>
                         <div className="weathercontainer">
                             <div className="weathercomment"><Message id="message" header={header} message={message}/></div>

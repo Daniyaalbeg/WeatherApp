@@ -18,7 +18,7 @@ class Bar extends Component {
         }
     }
 
-    //// dayOfWeek(day){
+    // dayOfWeek(day){
     //     switch(day){
     //         case 0:
     //             this.dayOW="Mon";
@@ -51,26 +51,43 @@ class Bar extends Component {
     checkForWeather(weather){
         if(this.props.weather.toUpperCase().includes(weather.toUpperCase())) return this.props.weather;
     }
+    //Function to check if time is AM or PM
+    checkTime() {
+        const time = this.props.time.split(":");
+        var hours = 0;
+        if (time[1].includes("PM") && parseInt(time[0]) === 12) {
+            hours = parseInt(time[0]);
+        } else if (time[1].includes("AM") && parseInt(time[0]) === 12) {
+            hours = parseInt(time[0]) + 12;
+        } else if (time[1].includes("PM")) {
+            hours = parseInt(time[0]) + 12;
+        } else {
+            hours = parseInt(time[0]);
+        }
+        return hours;
+    }
 
     render() {
         // This is a transparent image, used as a placeholder for the weather gif.
         var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
         var classfile=null;
         var isDay = null;
-        let currentTime = new Date().getHours();
-        if (currentTime >= 6 && currentTime < 19) {
+        let frameTime = this.checkTime();
+        if (frameTime >= 6 && frameTime < 19) {
             isDay = true;
         } else {
             isDay = false;
         }
+
+        console.log(this.props.time);
 
         // More weathers need to be added into the switch case.
         switch(this.props.weather){
             case this.checkForWeather("clear"):
                 if (!isDay) {
                     weatherGif="https://i.imgur.com/hG7Z9xh.png";
+                    classfile="fixedmoon";
                 }
-                classfile="fixedmoon";
                 break;
             case this.checkForWeather("sun"):
                 weatherGif="https://i.imgur.com/2P8pMyy.gif";
@@ -99,17 +116,8 @@ class Bar extends Component {
             default:
                 weatherGif="https://media.giphy.com/media/11s4W2s2rNA17W/giphy.gif";
         }
-        const time = this.props.time.split(":");
-        var hours = 0;
-        if (time[1].includes("PM") && parseInt(time[0]) === 12) {
-            hours = parseInt(time[0]);
-        } else if (time[1].includes("AM") && parseInt(time[0]) === 12) {
-            hours = parseInt(time[0]) + 12;
-        } else if (time[1].includes("PM")) {
-            hours = parseInt(time[0]) + 12;
-        } else {
-            hours = parseInt(time[0]);
-        }
+
+        var hours = this.checkTime();
         var imgURL = null;
         if (hours === 19 || hours === 18 || hours === 6 || hours === 7) {
             imgURL = "https://i.imgur.com/4s2zUAw.png";
