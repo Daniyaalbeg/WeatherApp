@@ -18,12 +18,12 @@
     text-align: center;
     width: 90%;
     background-color: white;
+    overflow: hidden;
 }
 
 #header{
-    font-size: 6vw;
+    font-size: 3vh;
 }
-
-#header{
-    font-size: 6vw;
+#message{
+    font-size: 2vh;
 }

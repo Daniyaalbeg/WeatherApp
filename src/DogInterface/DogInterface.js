@@ -86,14 +86,12 @@ import Message from './Message/Message.js';
                 <div className="di">
                     <Info weatherInfo={weatherInfo}/>
                     <div className="lowerbody">
-                        <div className="dogarea">
-                            <div className="weatheranimation">
-                                <img id="weathergif" src={weatherGif} alt="Error"/>
-                            </div>
-                            <div className="dog">
-                            </div>
+                        <div className="weatheranimation">
+                            <img id="weathergif" src={weatherGif} alt="Error"/>
                         </div>
-                    <div className="weathercomment"><Message id="message" header={header} message={message}/></div>
+                        <div className="weathercontainer">
+                            <div class="weathercomment"><Message id="message" header={header} message={message}/></div>
+                        </div>
                     </div>
                 </div>
             );
