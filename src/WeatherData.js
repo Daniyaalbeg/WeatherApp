@@ -83,9 +83,9 @@ class WeatherData extends Component {
         if(this.state.updates > 1 && this.state.today.length != 0){
           return (
               <div id="dayScroller" className="horizontalSnapper">
-                <div class="day">
+                <div className="day">
                   <div className="doginterface" >
-                    <DogInterface weatherInfo={this.state.today} daysimple={this.state.daysimple[this.state.viewday]}/>
+                    <DogInterface weatherInfo={this.state.today} dogname={this.props.csettings.dogname} daysimple={this.state.daysimple[this.state.viewday]}/>
                   </div>
                   <div className="weatherbar">
                     <WeatherBar hourly={this.state.hourly[this.state.viewday]} />

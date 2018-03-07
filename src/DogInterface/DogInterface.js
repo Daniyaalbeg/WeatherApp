@@ -8,7 +8,12 @@ import Message from './Message/Message.js';
             super(props);
             // console.log(this.props.daysimple);
             // console.log(this.props.weatherInfo);
-
+            this.state = {
+                header: "empty",
+                message: "empty",
+                classfile: null,
+                weatherGif: ""
+            };
         }
 
         // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)
@@ -16,7 +21,7 @@ import Message from './Message/Message.js';
             if(this.props.weatherInfo.weather.toUpperCase().includes(weather.toUpperCase())) return this.props.weatherInfo.weather;
         }
 
-        render() {
+        componentWillMount() {
             let weatherInfo = this.props.weatherInfo;
             // This is a transparent image, used as a placeholder for the weather gif.
             var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
@@ -100,20 +105,32 @@ import Message from './Message/Message.js';
                 walkDog = false;
             }
             message += " The high is " + this.props.daysimple.tHigh + ". The low is  " + this.props.daysimple.tLow + ".";
+            var noDog;
+            if (this.props.dogname == null) {
+                noDog = false;
+            } else {
+                noDog = true;
+            }
+            // console.log(dogName);
             if (walkDog) {
-                header = "It is a good time to walk your dog.";
+                header = "It is a good time to walk "+ (noDog ? this.props.dogname+"." : "your dog.");
             } else {
                 header = "It is not a good time to walk your dog.";
             }
+            this.setState({message : message, classfile: classfile, weatherGif: weatherGif, header: header});
+        }
+
+        render() {
+
             return (
                 <div className="di">
-                    <div className="weatherinfo"><Info weatherInfo={weatherInfo}/></div>
+                    <div className="weatherinfo"><Info weatherInfo={this.props.weatherInfo}/></div>
                     <div className="lowerbody">
                         <div className="weatheranimation">
-                            <img className={classfile} src={weatherGif} alt="Error"/>
+                            <img className={this.state.classfile} src={this.state.weatherGif} alt="Error"/>
                         </div>
                         <div className="weathercontainer">
-                            <div className="weathercomment"><Message id="message" header={header} message={message}/></div>
+                            <div className="weathercomment"><Message id="message" header={this.state.header} message={this.state.message}/></div>
                         </div>
                     </div>
                 </div>
