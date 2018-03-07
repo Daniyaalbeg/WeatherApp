@@ -30,7 +30,7 @@ export function UpdateHourly10Day(City, callBack){
             }
 
           } else {
-            console.log(currentdate.getHours());
+            //console.log(currentdate.getHours());
             if(currentdate.getHours() >= 0 && currentdate.getHours() <= 5){
               if(i % 2 == 0){
                 datam[daycount].push(weatherdata[i]);
@@ -76,6 +76,7 @@ export function UpdateDay(City, callBack){
 }
 
 export function GeoUpdateWeather(latitude, longitude, callBack){
+  console.log("Geo Update was called");
   var datam = {};
   var fetchurl = 'http://13.72.104.16/test2.php?url=https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCNxJtlpcNknGc-T_vEvkVWT_kCqdd0x9Y';
     fetch(fetchurl)
@@ -89,8 +90,13 @@ export function GeoUpdateWeather(latitude, longitude, callBack){
                 }
             )
         })
-        UpdateDay(geodata[0].name, callBack);
-        UpdateHourly10Day(geodata[0].name, callBack);
+        console.log(geodata[0]);
+        if(geodata[0].name != null){
+          console.log('Debug the null');
+          console.log(geodata[0].name);
+          UpdateDay(geodata[0].name, callBack);
+          UpdateHourly10Day(geodata[0].name, callBack);
+        }
         //console.log(geodata[0].name);
         //callBack({daysimple: weatherdata});
     });

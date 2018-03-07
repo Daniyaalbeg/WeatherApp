@@ -38,10 +38,11 @@ class WeatherData extends Component {
     }
 
     componentWillUpdate(nextProps, nextState){
-      if(this.props.csettings.City != null){
+      if(nextProps.csettings.City !== null && nextProps.csettings.City !== 'undefined'){
         // Settings Changed
         if(nextProps.csettings.City != this.props.csettings.City){
           //this.setState({updates: 0});
+          console.log("Wrong call");
           UpdateDay(nextProps.csettings.City, this.callBack.bind(this));
           UpdateHourly10Day(nextProps.csettings.City, this.callBack.bind(this));
           }
@@ -61,7 +62,7 @@ class WeatherData extends Component {
     }
 
     render(){
-       console.log(this.state);
+       //console.log(this.state);
 
         var element = document.getElementById("data");
         if(element){

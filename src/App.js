@@ -79,7 +79,7 @@ class App extends Component {
            </div>
           );
         } else {
-          console.log(this.state.Settings);
+          //console.log(this.state.Settings);
           return (
             <div className="App">
                 <WeatherData csettings={this.state.Settings} className="weatherData"/>
