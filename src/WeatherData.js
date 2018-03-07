@@ -3,6 +3,8 @@ import DogInterface from './DogInterface/DogInterface.js';
 import WeatherBar from './WeatherBar/WeatherBar.js';
 import {GeoUpdateWeather, UpdateDay, UpdateHourly10Day} from './WeatherAPI.js';
 import Loader from './Loader/Loader.js';
+import HorizontalSnapper from  './lib/HorizontalSnapper.js';
+import './lib/HorizontalSnapper.css';
 
 
 class WeatherData extends Component {
@@ -34,7 +36,6 @@ class WeatherData extends Component {
         } else if(this.props.csettings.GeoEnabled === true) {
           GeoUpdateWeather(this.props.csettings.latitude, this.props.csettings.longitude, this.callBack.bind(this));
         }
-
     }
 
     componentWillUpdate(nextProps, nextState){
@@ -50,6 +51,16 @@ class WeatherData extends Component {
           GeoUpdateWeather(this.props.csettings.latitude, this.props.csettings.longitude, this.callBack.bind(this));
         }
       }
+    }
+
+    componentDidUpdate(){
+        let elem = document.getElementById("dayScroller");
+        if(elem){
+            console.log("test");
+            if(!snapper){
+                var snapper = new HorizontalSnapper(elem);
+            }
+        }
     }
 
     child(percentage){
@@ -71,8 +82,8 @@ class WeatherData extends Component {
 
         if(this.state.updates > 1 && this.state.today.length != 0){
           return (
-              <div>
-                <div>
+              <div id="dayScroller" className="horizontalSnapper">
+                <div class="day">
                   <div className="doginterface" >
                     <DogInterface weatherInfo={this.state.today} daysimple={this.state.daysimple[this.state.viewday]}/>
                   </div>

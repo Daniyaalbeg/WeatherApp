@@ -22,43 +22,37 @@
     background: linear-gradient(to top, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-attachment: fixed;
 }
-.morning{
-    background-image: url(https://i.imgur.com/t8YAgSN.png);
-    background-size: cover;
-    background-attachment: fixed;
-}
-.lateMorning{
-    background-image: url(https://i.imgur.com/TnmqFD7.png);
-    background-size: cover;
-    background-attachment: fixed;
-}
-.afternoon{
+
+.otherDay{
     background-image: url(https://i.imgur.com/72Lk95x.png);
     background-size: cover;
-    background-attachment: fixed;
 }
-.lateAfternoon{
+
+.day{
+    background-size: cover;
+}
+
+.morning .day{
+    background-image: url(https://i.imgur.com/t8YAgSN.png);
+}
+.lateMorning .day{
+    background-image: url(https://i.imgur.com/TnmqFD7.png);
+}
+.afternoon .day{
+    background-image: url(https://i.imgur.com/72Lk95x.png);
+}
+.lateAfternoon .day{
     background-image: url(https://i.imgur.com/tti4nmD.png);
-    background-size: cover;
-    background-attachment: fixed;
 }
-.evening{
+.evening .day{
     background-image: url(https://i.imgur.com/sJbvfPh.png);
-    background-size: cover;
-    background-attachment: fixed;
 }
-.lateEvening{
+.lateEvening .day{
     background-image: url(https://i.imgur.com/XEPQ8BW.png);
-    background-size: cover;
-    background-attachment: fixed;
 }
-.night{
+.night .day{
     background-image: url(https://i.imgur.com/4vk9uN3.png);
-    background-size: cover;
-    background-attachment: fixed;
 }
-.lateNight{
+.lateNight .day{
     background-image: url(https://i.imgur.com/V2RAlzQ.png);
-    background-size: cover;
-    background-attachment: fixed;
 }

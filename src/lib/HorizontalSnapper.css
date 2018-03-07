@@ -1,0 +1,14 @@
+.horizontalSnapper{
+    white-space: nowrap;
+    overflow-y: hidden;
+}
+
+.horizontalSnapper > div{
+    display: inline-block;
+    white-space: normal;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
