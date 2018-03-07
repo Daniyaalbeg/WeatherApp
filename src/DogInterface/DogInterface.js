@@ -6,8 +6,8 @@ import Message from './Message/Message.js';
     class DogInterface extends Component {
         constructor(props) {
             super(props);
-            console.log(this.props.daysimple);
-            console.log(this.props.weatherInfo);
+            // console.log(this.props.daysimple);
+            // console.log(this.props.weatherInfo);
         }
 
         // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)
@@ -23,7 +23,6 @@ import Message from './Message/Message.js';
             var header = "";
             var walkDog = true;
             let windSpeed = weatherInfo.wind;
-            console.log(weatherInfo.weather);
             // More weathers need to be added into the switch case.
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):
@@ -57,6 +56,7 @@ import Message from './Message/Message.js';
                     walkDog = false;
                     break;
                 case this.checkForWeather("clear"):
+                    // weatherGif="";
                     message="Its a clear day, ";
                     break;
                 default:
@@ -76,7 +76,7 @@ import Message from './Message/Message.js';
                 message += " the wind... God help us all.";
                 walkDog = false;
             }
-            message += " The high / low today is " + this.props.daysimple.tHigh + " / " + this.props.daysimple.tLow + ".";
+            message += " The high is " + this.props.daysimple.tHigh + ". The low is  " + this.props.daysimple.tLow + ".";
             if (walkDog) {
                 header = "It is a good time to walk your dog.";
             } else {
@@ -90,7 +90,7 @@ import Message from './Message/Message.js';
                             <img id="weathergif" src={weatherGif} alt="Error"/>
                         </div>
                         <div className="weathercontainer">
-                            <div class="weathercomment"><Message id="message" header={header} message={message}/></div>
+                            <div className="weathercomment"><Message id="message" header={header} message={message}/></div>
                         </div>
                     </div>
                 </div>

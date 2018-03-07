@@ -57,7 +57,6 @@ class Bar extends Component {
         var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
         var classfile=null;
         // More weathers need to be added into the switch case.
-        console.log(this.props.weather);
         switch(this.props.weather){
             case this.checkForWeather("clear"):
                 break;
@@ -112,11 +111,11 @@ class Bar extends Component {
         };
         return (
             <div className="bar" style={divStyle}>
+                <div className="barweathergif">
+                    <img className={classfile} src={weatherGif}/>
+                </div>
                 <div className="bartime">
                     <p>{this.props.time}</p>
-                </div>
-                <div className="barweathergif">
-                     <img className={classfile} src={weatherGif}/>
                 </div>
                 <div className="bartemp">
                     <p>{this.temp}</p>

@@ -51,9 +51,9 @@ class App extends Component {
         if(currentTime >= 4 && currentTime < 6) document.body.classList.add('morning');
         else if (currentTime >= 6 && currentTime <11) document.body.classList.add('lateMorning');
         else if(currentTime >= 11 && currentTime < 16) document.body.classList.add('afternoon');
-        else if(currentTime >= 16 && currentTime < 17) document.body.classList.add('lateAfternoon');
-        else if(currentTime >= 17 && currentTime < 18) document.body.classList.add('evening');
-        else if(currentTime >= 18 && currentTime < 20) document.body.classList.add('lateEvening');
+        else if(currentTime >= 16 && currentTime < 18) document.body.classList.add('lateAfternoon');
+        else if(currentTime >= 18 && currentTime < 19) document.body.classList.add('evening');
+        else if(currentTime >= 19 && currentTime < 20) document.body.classList.add('lateEvening');
         else if(currentTime >= 20 && currentTime < 22) document.body.classList.add('night');
         else document.body.classList.add('lateNight');
     }

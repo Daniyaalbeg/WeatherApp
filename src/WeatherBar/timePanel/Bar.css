@@ -22,7 +22,8 @@
     width: 100%;
     overflow:hidden;
     object-fit: contain;
-
+    position: absolute;
+    opacity: 50;
 }
 
 .bartemp{
@@ -35,7 +36,9 @@
 }
 
 .fixed{
+    padding-top: 3vh;
     width:100%;
+    opacity: 0.6;
 }
 .notfixed{
     width:100%;
