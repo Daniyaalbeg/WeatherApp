@@ -42,11 +42,10 @@ class WeatherData extends Component {
         // Settings Changed
         if(nextProps.csettings.City != this.props.csettings.City){
           //this.setState({updates: 0});
-          console.log("Wrong call");
           UpdateDay(nextProps.csettings.City, this.callBack.bind(this));
           UpdateHourly10Day(nextProps.csettings.City, this.callBack.bind(this));
           }
-      } else if(this.props.csettings.GeoEnabled == true) {
+      } else if(nextProps.csettings.GeoEnabled == true) {
         if(nextProps.csettings.latitude != this.props.csettings.latitude && nextProps.csettings.longitude != this.props.csettings.longitude){
           GeoUpdateWeather(this.props.csettings.latitude, this.props.csettings.longitude, this.callBack.bind(this));
         }

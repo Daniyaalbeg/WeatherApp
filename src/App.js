@@ -78,7 +78,7 @@ class App extends Component {
              </div>
            </div>
           );
-        } else {
+        } else if(this.state.Settings.GeoEnabled == true){
           //console.log(this.state.Settings);
           return (
             <div className="App">

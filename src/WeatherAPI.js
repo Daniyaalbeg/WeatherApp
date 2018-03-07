@@ -76,26 +76,22 @@ export function UpdateDay(City, callBack){
 }
 
 export function GeoUpdateWeather(latitude, longitude, callBack){
-  console.log("Geo Update was called");
   var datam = {};
   var fetchurl = 'http://13.72.104.16/test2.php?url=https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCNxJtlpcNknGc-T_vEvkVWT_kCqdd0x9Y';
     fetch(fetchurl)
     .then(results => {
         return results.json();
     }).then( data => {
-        let geodata = data.results[1].address_components.map(function(item, i){
+        let geodata = data.results[0].address_components.map(function(item, i){
             return(
                 {
                     name: item.long_name,
                 }
             )
         })
-        console.log(geodata[0]);
-        if(geodata[0].name != null){
-          console.log('Debug the null');
-          console.log(geodata[0].name);
-          UpdateDay(geodata[0].name, callBack);
-          UpdateHourly10Day(geodata[0].name, callBack);
+        if(geodata[2].name != null){
+          UpdateDay(geodata[2].name, callBack);
+          UpdateHourly10Day(geodata[2].name, callBack);
         }
         //console.log(geodata[0].name);
         //callBack({daysimple: weatherdata});
