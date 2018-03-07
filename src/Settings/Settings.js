@@ -14,7 +14,7 @@ class Settings extends Component {
         let dogname=null;
         let dogbreed=null;
         let checkornot="checked";
-        this.locMsg="We use your location to provide you with a up-to-date service when you're on the go! Don't fret, we only use this data to get the most accurate info to you 24/7.";
+        this.locMsg="We use your location to provide you with na up-to-date service when you're on the go! Don't fret, we only use this data to get the most accurate info to you 24/7.";
         this.state = {
             isToggleOn: this.props.csettings.isToggleOn,
             isChecked: this.props.csettings.isChecked
@@ -81,7 +81,7 @@ class Settings extends Component {
         //console.log(settings);
         this.props.setSettings(settings);
         //this.forceUpdate();
-        //document.getElementById("settingForm").reset();
+        document.getElementById("settingForm").reset();
         //this.forceUpdate();
 
         // console.log("Loc?" + this.state.isChecked);
@@ -94,7 +94,7 @@ class Settings extends Component {
             if(this.props.csettings.City != null) return this.props.csettings.City;
             else return holder;
         }
-        else if(holder==="User name"){
+        else if(holder==="Eg. Tom"){
             if(this.props.csettings.username != null) return this.props.csettings.username;
             else return holder;
         }
@@ -107,6 +107,10 @@ class Settings extends Component {
             else return holder;
         }
     }
+
+    // <div><input id="usernamef" className="locationBox" type="text" placeholder={this.getInputHolder("User name")}/></div>
+    // <div><input id="dognamef" className="locationBox" type="text" placeholder={this.getInputHolder("Dog name")}/></div>
+    // <div><input id="dogbreedf" className="locationBox" type="text" placeholder={this.getInputHolder("Dog breed")}/></div>
 
     render() {
         return (
@@ -128,9 +132,30 @@ class Settings extends Component {
                     </div>
                     <div className="userInfo">
                         <div className="headingTwo"><p>User Info</p></div>
-                        <div className="userData"><input id="usernamef" className="locationBox" type="text" placeholder={this.getInputHolder("User name")}/></div>
-                        <div className="userData"><input id="dognamef" className="locationBox" type="text" placeholder={this.getInputHolder("Dog name")}/></div>
-                        <div className="userData"><input id="dogbreedf" className="locationBox" type="text" placeholder={this.getInputHolder("Dog breed")}/></div>
+                        <div class="userData">
+                            <label class="field lablestyle">
+                                <input id="usernamef" class="field__input" placeholder="User name"/>
+                                <span class="field__label-wrap">
+                                    <span class="field__label">{this.getInputHolder("Eg. Tom")}</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="userData">
+                            <label class="field lablestyle">
+                                <input id="dognamef" class="field__input" placeholder="Dog name"/>
+                                <span class="field__label-wrap">
+                                    <span class="field__label">{this.getInputHolder("Dog name")}</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="userData">
+                            <label class="field lablestyle">
+                                <input id="dogbreedf" class="field__input" placeholder="Dog breed"/>
+                                <span class="field__label-wrap">
+                                    <span class="field__label">{this.getInputHolder("Dog breed")}</span>
+                                </span>
+                            </label>
+                        </div>
                         <div className="buttonarea">
                             <button className="saveDataButton" type="button" onClick={this.saveSettings}>Save Settings</button>
                             <div className="saveMessage"><p id="saq"></p></div>
