@@ -47,4 +47,11 @@ html{
     width: 100vw;
     clear:both;
     margin:auto;
+
+    /*height: 90vh;
+    width: 90vw;
+    padding-left: 5vw;
+    padding-top: 5vh;
+    padding-right: 5vw;
+    padding-bottom: 5vh;*/
 }

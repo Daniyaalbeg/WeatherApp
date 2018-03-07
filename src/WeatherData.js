@@ -71,9 +71,8 @@ class WeatherData extends Component {
 
         if(this.state.updates > 1 && this.state.today.length != 0){
           return (
-              <div style={{height: "200vh"}} id="data">
-                <div style={{position: "sticky", top: 0, bottom: 0}}>
-                  {this.child(percentage)}
+              <div>
+                <div>
                   <div className="doginterface" >
                     <DogInterface weatherInfo={this.state.today} daysimple={this.state.daysimple[this.state.viewday]}/>
                   </div>
