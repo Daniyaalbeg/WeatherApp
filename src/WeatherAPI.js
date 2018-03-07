@@ -77,7 +77,7 @@ export function UpdateDay(City, callBack){
 
 export function GeoUpdateWeather(latitude, longitude, callBack){
   var datam = {};
-  var fetchurl = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCk1yHtfieheD4x3BW2O17pdShv0LaMPX0';
+  var fetchurl = 'http://13.72.104.16/test2.php?url=https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCNxJtlpcNknGc-T_vEvkVWT_kCqdd0x9Y';
     fetch(fetchurl)
     .then(results => {
         return results.json();

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {geolocated} from 'react-geolocated';
 import './Settings.css';
 
 // For the user settings:
@@ -9,11 +10,6 @@ import './Settings.css';
 class Settings extends Component {
     constructor(props){
         super(props);
-        let location=null;
-        let username=null;
-        let dogname=null;
-        let dogbreed=null;
-        let checkornot="checked";
         this.locMsg="We use your location to provide you with na up-to-date service when you're on the go! Don't fret, we only use this data to get the most accurate info to you 24/7.";
         this.state = {
             isToggleOn: this.props.csettings.isToggleOn,
@@ -44,6 +40,8 @@ class Settings extends Component {
           isToggleOn: this.state.isToggleOn,
           isChecked: this.state.isChecked,
           location: this.props.csettings.location,
+          latitude: this.props.csettings.latitude,
+          longitude: this.props.csettings.longitude,
           username: this.props.csettings.username,
           dogname: this.props.csettings.dogname,
           dogbreed: this.props.csettings.dogbreed,
@@ -59,13 +57,29 @@ class Settings extends Component {
                 //this.props.setLocationCity(this.location);
             }
             if(this.location === "") {
-              this.location=null;
               settings.LocationSet = false;
             }
         } else {
-          this.location=null;
-          settings.GeoEnabled = true;
-          settings.LocationSet = true;
+          // Using GPS / Location
+          if(this.props.isGeolocationAvailable){
+            if(this.props.isGeolocationEnabled){
+              if(this.props.coords.latitude !== 'undefined' && this.props.coords.longitude !== 'undefined'){
+                settings.LocationSet = true;
+                settings.GeoEnabled = true;
+                settings.City = null;
+                settings.latitude = this.props.coords.latitude;
+                settings.longitude = this.props.coords.longitude;
+              } else {
+                // Error with getting coords
+                console.log("Unable to get coords");
+              }
+            } else {
+              // Geo Location is not Enabled
+              console.log("Enable Geo Location");
+            }
+          } else {
+            console.log("Geo Location not possible on device / reset");
+          }
         }
 
         if(document.getElementById("usernamef").value){
@@ -78,10 +92,11 @@ class Settings extends Component {
             settings.dogreed = document.getElementById("dogbreedf").value;
         }
 
-        //console.log(settings);
+        console.log(settings);
         this.props.setSettings(settings);
         //this.forceUpdate();
         document.getElementById("settingForm").reset();
+
         //this.forceUpdate();
 
         // console.log("Loc?" + this.state.isChecked);
@@ -113,6 +128,7 @@ class Settings extends Component {
     // <div><input id="dogbreedf" className="locationBox" type="text" placeholder={this.getInputHolder("Dog breed")}/></div>
 
     render() {
+      //console.log(this.props.coords);
         return (
             <div className="se">
                 <div className="heading"><p id="title">Settings</p></div>
@@ -167,4 +183,11 @@ class Settings extends Component {
         }
     }
 
-    export default Settings;
+    //export default Settings;
+
+    export default geolocated({
+      positionOptions: {
+        enableHighAccuracy: false,
+      },
+      userDecisionTimeout: 5000,
+    })(Settings);

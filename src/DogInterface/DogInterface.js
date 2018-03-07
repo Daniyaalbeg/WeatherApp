@@ -6,8 +6,8 @@ import Message from './Message/Message.js';
     class DogInterface extends Component {
         constructor(props) {
             super(props);
-            console.log(this.props.daysimple);
-            console.log(this.props.weatherInfo);
+            //console.log(this.props.daysimple);
+            //console.log(this.props.weatherInfo);
         }
 
         // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)

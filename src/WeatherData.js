@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import DogInterface from './DogInterface/DogInterface.js';
 import WeatherBar from './WeatherBar/WeatherBar.js';
 import {GeoUpdateWeather, UpdateDay, UpdateHourly10Day} from './WeatherAPI.js';
-import {geolocated} from 'react-geolocated';
 import Loader from './Loader/Loader.js';
 
 
@@ -32,8 +31,8 @@ class WeatherData extends Component {
         if(this.props.csettings.City != null){
           UpdateDay(this.props.csettings.City, this.callBack.bind(this));
           UpdateHourly10Day(this.props.csettings.City, this.callBack.bind(this));
-        } else if(this.props.csettings.GeoEnabled == true) {
-          GeoUpdateWeather(this.props.geo.latitude, this.props.geo.longitude, this.callBack.bind(this));
+        } else if(this.props.csettings.GeoEnabled === true) {
+          GeoUpdateWeather(this.props.csettings.latitude, this.props.csettings.longitude, this.callBack.bind(this));
         }
 
     }
@@ -42,11 +41,14 @@ class WeatherData extends Component {
       if(this.props.csettings.City != null){
         // Settings Changed
         if(nextProps.csettings.City != this.props.csettings.City){
+          //this.setState({updates: 0});
           UpdateDay(nextProps.csettings.City, this.callBack.bind(this));
           UpdateHourly10Day(nextProps.csettings.City, this.callBack.bind(this));
           }
       } else if(this.props.csettings.GeoEnabled == true) {
-        GeoUpdateWeather(this.props.geo.latitude, this.props.geo.longitude, this.callBack.bind(this));
+        if(nextProps.csettings.latitude != this.props.csettings.latitude && nextProps.csettings.longitude != this.props.csettings.longitude){
+          GeoUpdateWeather(this.props.csettings.latitude, this.props.csettings.longitude, this.callBack.bind(this));
+        }
       }
     }
 
@@ -59,7 +61,7 @@ class WeatherData extends Component {
     }
 
     render(){
-       //console.log(this.state);
+       console.log(this.state);
 
         var element = document.getElementById("data");
         if(element){
@@ -67,7 +69,7 @@ class WeatherData extends Component {
             // console.log(Math.round(percentage));
         }
 
-        if(this.state.updates > 1){
+        if(this.state.updates > 1 && this.state.today.length != 0){
           return (
               <div style={{height: "200vh"}} id="data">
                 <div style={{position: "sticky", top: 0, bottom: 0}}>
