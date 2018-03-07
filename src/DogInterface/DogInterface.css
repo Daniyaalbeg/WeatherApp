@@ -20,35 +20,23 @@
 
 }
 
-.dogarea{
-    height: 67%;
-    width: 100%;
-    margin: auto;
-    position: relative;
-}
-.weathercomment{
-    height: 33%;
-    width: 100%;
-    margin: auto;
-}
-
 .weatheranimation{
     position: relative;
     /*transform: translateY(-50%);*/
     margin: auto;
     height: 45%;
 }
-.dog{
-
-    height: 55%;
-}
-
-.dog, .weathercomment{
-    /* background-image: url(https://opengameart.org/sites/default/files/forum-attachments/grasstest_1.png); */
-    background-size: cover;
-    background-position: center;
-}
-
 #weathergif{
     height: 95%;
+}
+
+.weathercontainer{
+    position: relative;
+    height: 55%;
+    width: 100%;
+    margin: auto;
+}
+.weathercomment{
+    position: absolute;
+    bottom: 5%;
 }
