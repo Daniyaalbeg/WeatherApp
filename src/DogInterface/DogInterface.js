@@ -8,6 +8,7 @@ import Message from './Message/Message.js';
             super(props);
             // console.log(this.props.daysimple);
             // console.log(this.props.weatherInfo);
+
         }
 
         // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)
@@ -24,8 +25,16 @@ import Message from './Message/Message.js';
             var walkDog = true;
             let windSpeed = weatherInfo.wind;
             let classfile;
-            weatherInfo.weather ="sun";
+            var isDay = null;
+            let currentTime = new Date().getHours();
+            if (currentTime >= 6 && currentTime < 19) {
+                isDay = true;
+            } else {
+                isDay = false;
+            }
+            //weatherInfo.weather ="sun";
             // More weathers need to be added into the switch case.
+            // Moon Image: https://i.imgur.com/hG7Z9xh.png
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):
                     weatherGif="https://i.imgur.com/2P8pMyy.gif";
@@ -64,11 +73,17 @@ import Message from './Message/Message.js';
                     classfile="notfixedtop";
                     break;
                 case this.checkForWeather("clear"):
-                    // weatherGif="";
-                    message="Its a clear day, ";
+                    if (!isDay) {
+                        weatherGif="https://i.imgur.com/hG7Z9xh.png";
+                    }
+                    message="Its a clear "+ (isDay? " day " : " night ") +", ";
+                    classfile="fixedtopmoon";
                     break;
                 default:
-                    message="Weather Not found...";
+                    weatherGif="https://i.imgur.com/2P8pMyy.gif";
+                    walkDog = true;
+                    classfile="fixedtopsun";
+                    message="Weather Not found... Default to sun";
                     break;
             }
             if (windSpeed < 24) {

@@ -56,9 +56,21 @@ class Bar extends Component {
         // This is a transparent image, used as a placeholder for the weather gif.
         var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
         var classfile=null;
+        var isDay = null;
+        let currentTime = new Date().getHours();
+        if (currentTime >= 6 && currentTime < 19) {
+            isDay = true;
+        } else {
+            isDay = false;
+        }
+
         // More weathers need to be added into the switch case.
         switch(this.props.weather){
             case this.checkForWeather("clear"):
+                if (!isDay) {
+                    weatherGif="https://i.imgur.com/hG7Z9xh.png";
+                }
+                classfile="fixedmoon";
                 break;
             case this.checkForWeather("sun"):
                 weatherGif="https://i.imgur.com/2P8pMyy.gif";
