@@ -66,7 +66,7 @@ class Bar extends Component {
                 classfile="fixed";
                 break;
             case this.checkForWeather("snow"):
-                weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";
+                weatherGif="https://i.imgur.com/l8GPSHU.gif";
                 classfile="notfixed";
                 break;
             case this.checkForWeather("cloud"):
@@ -115,8 +115,8 @@ class Bar extends Component {
                 <div className="bartime">
                     <p>{this.props.time}</p>
                 </div>
-                <div class="barweathergif">
-                     <img class={classfile} src={weatherGif}/>
+                <div className="barweathergif">
+                     <img className={classfile} src={weatherGif}/>
                 </div>
                 <div className="bartemp">
                     <p>{this.temp}</p>
