@@ -7,13 +7,15 @@ import './Settings.css';
 // The location is set when this.state.isChecked == flase, it is saved under this.location.
 // The username, dogname and dogtype are saved under this.username, this.dogname and this.dogtype respectively.
 
+// The settings component returns the entire settings panel on the lower potion of the app.
 class Settings extends Component {
     constructor(props){
         super(props);
-        this.locMsg="We use your location to provide you with na up-to-date service when you're on the go! Don't fret, we only use this data to get the most accurate info to you 24/7.";
+        this.locationErrorMessage="Location not found"
         this.state = {
             isToggleOn: this.props.csettings.isToggleOn,
-            isChecked: this.props.csettings.isChecked
+            isChecked: this.props.csettings.isChecked,
+            locationFound: true
         };
         this.handleClick = this.handleClick.bind(this);
         this.saveSettings = this.saveSettings.bind(this);
@@ -28,7 +30,23 @@ class Settings extends Component {
 
     getEle(){
         return(
-            <input id="locationf" className="locationBox" type="text" placeholder={this.getInputHolder("Location")}/>
+            <div className="userData">
+                <label className="field lablestyle">
+                    <input id="locationf" className="field__input" placeholder={this.getInputHolder("Location")}/>
+                    <span className="field__label-wrap">
+                        <span className="field__label">{this.getInputHolder("Eg. London")}</span>
+                    </span>
+                </label>
+                <div className="locationerrormsg">{this.state.locationFound ? "" : this.locationErrorMessage}</div>
+            </div>
+        );
+    }
+
+    getMsg(){
+        return(
+            <div className="locationMessage">
+                <p>We use your location to provide you with an up-to-date service when you're on the go! Don't fret, we only use this data to get the most accurate info to you 24/7.</p>
+            </div>
         );
     }
 
@@ -73,13 +91,16 @@ class Settings extends Component {
                 settings.longitude = this.props.coords.longitude;
               } else {
                 // Error with getting coords
+                this.state.locationFound=false;
                 console.log("Unable to get coords");
               }
             } else {
               // Geo Location is not Enabled
+              this.state.locationFound=false;
               console.log("Enable Geo Location");
             }
           } else {
+              this.state.locationFound=false;
             console.log("Geo Location not possible on device / reset");
           }
         }
@@ -107,9 +128,15 @@ class Settings extends Component {
     }
 
     getInputHolder(holder){
-        if(holder==="Location"){
-            if(this.props.csettings.City != null) return this.props.csettings.City;
-            else return holder;
+        if(holder=="Location" || holder=="Eg. London"){
+            if(holder=="Eg. London"){
+                if(this.props.csettings.City != null) return this.props.csettings.City;
+                else return "Location";
+            }
+            else if(holder=="Location"){
+                if(this.props.csettings.City != null) return "Location";
+                else return "Eg. London";
+            }
         }
         else if(holder=="Eg. Tom" || holder=="User name"){
             if(holder=="Eg. Tom"){
@@ -136,16 +163,12 @@ class Settings extends Component {
                 if(this.props.csettings.dogbreed != null) return this.props.csettings.dogbreed;
                 else return "Dog type";
             }
-            else{
+            else if(holder=="Dog breed"){
                 if(this.props.csettings.dogbreed != null) return "Dog type";
                 else return "Eg. Bulldog"
             }
         }
     }
-
-    // <div><input id="usernamef" className="locationBox" type="text" placeholder={this.getInputHolder("User name")}/></div>
-    // <div><input id="dognamef" className="locationBox" type="text" placeholder={this.getInputHolder("Dog name")}/></div>
-    // <div><input id="dogbreedf" className="locationBox" type="text" placeholder={this.getInputHolder("Dog breed")}/></div>
 
     render() {
       //console.log(this.props.coords);
@@ -164,7 +187,7 @@ class Settings extends Component {
                             </div>
 
                         </div>
-                        <div className="locationInput">{this.state.isToggleOn ? this.locMsg : this.getEle()}</div>
+                        <div className="locationInput">{this.state.isToggleOn ? this.getMsg() : this.getEle()}</div>
                     </div>
                     <div className="userInfo">
                         <div className="headingTwo"><p>User Info</p></div>
