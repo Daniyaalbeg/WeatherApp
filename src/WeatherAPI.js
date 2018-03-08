@@ -1,14 +1,6 @@
-export function UpdateHourly10Day(type, sdata, callBack){
+export function UpdateHourly10Day(sdata, callBack){
 
-  let dataurl = '';
-  if(type === 'WUID'){
-    dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/zmw:'+sdata.wuid+'.json';
-  } else if(type === 'GEO'){
-    dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/'+sdata.latitude+','+sdata.longitude+'.json';
-  } else {
-    console.log('Incorrect type supplied')
-    return;
-  }
+  let dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/zmw:'+sdata.wuid+'.json';
 
   let datam = [[], [], [], [], [], [], [], [], [], [], []];
   var currentdate = new Date();
@@ -67,16 +59,8 @@ export function UpdateHourly10Day(type, sdata, callBack){
   return true;
 }
 
-export function UpdateDay(type, sdata, callBack){
-  let dataurl = '';
-  if(type === 'WUID'){
-    dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/zmw:'+sdata.wuid+'.json';
-  } else if(type === 'GEO'){
-    dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/'+sdata.latitude+','+sdata.longitude+'.json';
-  } else {
-    console.log('Incorrect type supplied')
-    return;
-  }
+export function UpdateDay(sdata, callBack){
+  let dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/zmw:'+sdata.wuid+'.json';
 
   var datam = {};
     fetch(dataurl)
@@ -98,26 +82,22 @@ export function UpdateDay(type, sdata, callBack){
   return datam;
 }
 
-export function GeoUpdateWeather(latitude, longitude, callBack){
+export function GeoUpdateWeather(sdata, callBack){
   var datam = {};
-  var fetchurl = 'http://13.72.104.16/apicache.php?url=https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCNxJtlpcNknGc-T_vEvkVWT_kCqdd0x9Y';
+  var fetchurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/geolookup/q/' + sdata.latitude + ',' + sdata.longitude + '.json';
     fetch(fetchurl)
     .then(results => {
         return results.json();
     }).then( data => {
-        let geodata = data.results[0].address_components.map(function(item, i){
-            return(
-                {
-                    name: item.long_name,
-                }
-            )
-        })
-        if(geodata[2].name != null){
-          UpdateDay(geodata[2].name, callBack);
-          UpdateHourly10Day(geodata[2].name, callBack);
+        let geodata = {
+            wuname: data.location.city,
+            wuid: data.location.zip + '.' +  data.location.magic + '.' + data.location.wmo
+          };
+
+        if(geodata.wuname != null){
+          UpdateDay(geodata, callBack);
+          UpdateHourly10Day(geodata, callBack);
         }
-        //console.log(geodata[0].name);
-        //callBack({daysimple: weatherdata});
     });
   return true;
 }
