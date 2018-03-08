@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './Bar.css';
-// Needs cleaning
+
+// The bar is one of the components in the horizonal weather bar, which shows hourly
+// information. It shows the time, the temperature and an animation of the weathers
+// at the corrent point in the data.
 class Bar extends Component {
     constructor(props){
         super(props);
-        // If the time is not null, the bar component should be the 5 hour forecast, else, 5 day forecast.
+        // Key variables assigned.
         if(this.props.time != null){
             this.temp=this.props.temp+"°C";
         }
@@ -17,35 +20,6 @@ class Bar extends Component {
             this.tHigh=this.props.tHigh + "°C";
         }
     }
-
-    // dayOfWeek(day){
-    //     switch(day){
-    //         case 0:
-    //             this.dayOW="Mon";
-    //             return;
-    //         case 1:
-    //             this.dayOW="Tue";
-    //             return;
-    //         case 2:
-    //             this.dayOW="Wed";
-    //             return;
-    //         case 3:
-    //             this.dayOW="Thurs";
-    //             return;
-    //         case 4:
-    //             this.dayOW="Fri";
-    //             return;
-    //         case 5:
-    //             this.dayOW="Sat";
-    //             return;
-    //         case 6:
-    //             this.dayOW="Sun";
-    //             return;
-    //         default:
-    //             this.dayOW="Error";
-    //             return;
-    //     }
-    // }
 
     // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)
     checkForWeather(weather){
@@ -81,7 +55,7 @@ class Bar extends Component {
 
         console.log(this.props.time);
 
-        // More weathers need to be added into the switch case.
+        // Switches through the weathers to assign the correct animation to the correct weather.
         switch(this.props.weather){
             case this.checkForWeather("clear"):
                 if (!isDay) {
@@ -117,6 +91,7 @@ class Bar extends Component {
                 weatherGif="https://media.giphy.com/media/11s4W2s2rNA17W/giphy.gif";
         }
 
+        // Depending on the time of day a different background image is displayed.
         var hours = this.checkTime();
         var imgURL = null;
         if (hours === 19 || hours === 18 || hours === 6 || hours === 7) {

@@ -6,6 +6,8 @@ import Loader from './Loader/Loader.js';
 import './App.css';
 import './StyleSheets/backgroundStyles.css';
 
+// The main window component. Holds important state checks to ensure that the
+// correct data is being rendered.
 class App extends Component {
     constructor(props){
         super(props);
@@ -45,7 +47,7 @@ class App extends Component {
     }
 
     // Imgur Album for backgrounds: https://imgur.com/a/LRjN3
-
+    // Depending on the time of day a different background is displayed.
     changeBackground(props){
         var currentTime = new Date().getHours();
         if(currentTime >= 4 && currentTime < 6) document.body.classList.add('morning');
@@ -65,6 +67,7 @@ class App extends Component {
     // - humidity (hour)
     // - wind speed
 
+    // If location is enabled a different window of data is displayed.
     render() {
      //console.log(this.props.coords)
      if(this.state.Settings.LocationSet == true){
