@@ -70,7 +70,7 @@ import Message from './Message/Message.js';
                     break;
                 case this.checkForWeather("clear"):
                     if (!isDay) {
-                        weatherGif="https://i.imgur.com/jHBJMA0.png";
+                        weatherGif="https://imgur.com/k24jlE3.png";
                     }
                     classfile="fixedtopmoon";
                     break;

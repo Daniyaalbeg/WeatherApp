@@ -25,7 +25,6 @@ export default function VerticalSnapper(element, pageSize = 1, snapTime = 30){
                 let diff = to - this.from;
                 let target = this.from + diff*(-Math.cos(progress*Math.PI)+1)/2;
                 this.element.scrollTop = Math.round(target);
-                console.log({elem: this.element, progress, bounds, to, diff, target});
                 if(this.snappingTime >= this.snapTime){
                     //Finished snapping, tell ourselves to stop!
                     this.stopSnapping = true;
@@ -37,7 +36,6 @@ export default function VerticalSnapper(element, pageSize = 1, snapTime = 30){
             //Not yet snapping, start
             this.snapping = true;
             this.from = this.element.scrollTop;
-            console.log({element : this.element, from: this.from});
             window.requestAnimationFrame(snap.bind(this));
         }
     }

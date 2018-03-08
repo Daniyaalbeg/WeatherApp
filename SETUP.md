@@ -1,2 +1,3 @@
 npm install
-npm install react-over-scroll
+npm install react-toggle-switch
+npm install react-geolocated

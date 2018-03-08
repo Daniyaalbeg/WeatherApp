@@ -89,7 +89,7 @@ import Message from './Message/Message.js';
                   break;
               case this.checkForWeather("clear"):
                   if (!isDay) {
-                      weatherGif="https://i.imgur.com/jHBJMA0.png";
+                      weatherGif="https://imgur.com/k24jlE3.png";
                   }
                   message="Its a clear "+ (isDay? " day " : " night ") +", ";
                   classfile="fixedtopmoon";
@@ -160,7 +160,7 @@ import Message from './Message/Message.js';
                     <div className="weatherinfo"><Info weatherInfo={this.props.weatherInfo}/></div>
                     <div className="lowerbody">
                         <div className="weatheranimation">
-                            <img className={this.state.classfile} src={this.state.weatherGif} alt="Error"/>
+                            <img className={this.state.classfile} src={this.state.weatherGif} alt=""/>
                         </div>
                         <div className="weathercontainer">
                             <div className="weathercomment"><Message id="message" header={this.state.header} message={this.state.message}/></div>

@@ -45,7 +45,7 @@ class Bar extends Component {
         switch(this.props.weather){
             case this.checkForWeather("clear"):
                 if (!isDay) {
-                    weatherGif="https://i.imgur.com/jHBJMA0.png";
+                    weatherGif="https://imgur.com/k24jlE3.png";
                     classfile="fixedmoon";
                 }
                 break;
@@ -81,14 +81,18 @@ class Bar extends Component {
         var hours = this.checkTime();
         var imgURL = null;
         if (hours === 19 || hours === 18 || hours === 6 || hours === 7) {
-            imgURL = "https://i.imgur.com/4s2zUAw.png";
+            //Sunset
+            imgURL = "https://imgur.com/3lKtYUC.png";
         } else if (hours >= 6 && hours < 20) {
-            imgURL = "https://i.imgur.com/ZBkJtVD.png";
+            //Day
+            imgURL = "https://imgur.com/9KgUH67.png";
         } else {
-            imgURL = "https://i.imgur.com/d0h64Nu.png";
+            //Night
+            imgURL = "https://imgur.com/7xjHY9D.png";
         }
         let divStyle = {
-            backgroundImage: 'url('+imgURL+')'
+            backgroundImage: 'url('+imgURL+')',
+            backgroundPosition: (-this.props.pos*20)+'vw'
         };
         return (
             <div className="bar" style={divStyle}>

@@ -3,7 +3,6 @@
     width: 20vw;
     display: inline-block;
     position: relative;
-    box-shadow:inset 0px 0px 0px 1px black;
     font-size: 4vh;
     background-size: cover;
     background-position: center;
@@ -40,8 +39,8 @@
     width:90%;
     max-width: 125px;
     opacity: 0.6;
-    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-    filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+    -webkit-filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.5));
 }
 .notfixed{
     width:100%;
@@ -52,16 +51,16 @@
     width:80%;
     max-width: 100px;
     opacity: 0.6;
-    animation: MoveUpDown 3s infinite;
-    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-     filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+    animation: MoveUpDown 2s infinite steps(5);
+    -webkit-filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.5));
+     filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.5));
 }
 .fixedmoon{
     padding-top: 3vh;
     width:80%;
     max-width: 100px;
     opacity: 0.9;
-    animation: MoveUpDown 3s infinite;
+    animation: MoveUpDown 2s infinite steps(5);
     -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
      filter: drop-shadow(1px 1px 10px rgba(255, 255, 255, 1));
 }
