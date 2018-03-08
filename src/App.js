@@ -12,7 +12,7 @@ import VerticalSnapper from './lib/VerticalSnapper.js';
 class App extends Component {
     constructor(props){
         super(props);
-        this.changeBackground(props);
+        
         this.state = {
             AppName: 'DogWeather',
             Settings: {

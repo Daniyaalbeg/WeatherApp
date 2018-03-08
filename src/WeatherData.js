@@ -18,8 +18,47 @@ class WeatherData extends Component {
             viewday: 0,
             updates: 0
         };
-
     }
+
+    changeBackground(){
+        var currentTime = this.checkTime();
+        this.removeOld();
+        if(currentTime >= 4 && currentTime < 6) document.body.classList.add('morning');
+        else if (currentTime >= 6 && currentTime <11) document.body.classList.add('lateMorning');
+        else if(currentTime >= 11 && currentTime < 16) document.body.classList.add('afternoon');
+        else if(currentTime >= 16 && currentTime < 17) document.body.classList.add('lateAfternoon');
+        else if(currentTime >= 17 && currentTime < 18) document.body.classList.add('evening');
+        else if(currentTime >= 18 && currentTime < 19) document.body.classList.add('lateEvening');
+        else if(currentTime >= 19 && currentTime < 22) document.body.classList.add('night');
+        else document.body.classList.add('lateNight');
+    }
+    checkTime() {
+        let time = this.state.today.time.split(":");
+        var hours = 0;
+        if (time[1].includes("PM") && parseInt(time[0]) === 12) {
+            hours = parseInt(time[0]);
+        } else if (time[1].includes("AM") && parseInt(time[0]) === 12) {
+            hours = parseInt(time[0]) + 12;
+        } else if (time[1].includes("PM")) {
+            hours = parseInt(time[0]) + 12;
+        } else {
+            hours = parseInt(time[0]);
+        }
+        console.log("HOURS: " + hours);
+        return hours;
+    }
+    removeOld(){
+        document.body.classList.remove('morning');
+        document.body.classList.remove('lateMorning');
+        document.body.classList.remove('afternoon');
+        document.body.classList.remove('lateAfternoon');
+        document.body.classList.remove('evening');
+        document.body.classList.remove('lateEvening');
+        document.body.classList.remove('night');
+        document.body.classList.remove('lateNight');
+    }
+
+
 
     callBack(data){
         this.setState(data);
@@ -65,7 +104,6 @@ class WeatherData extends Component {
 
     render(){
         // console.log(this.state);
-
         let days = [];
         if(this.state.daysimple.length > 7){
             days = this.state.daysimple.slice(1,7);
@@ -103,7 +141,8 @@ class WeatherData extends Component {
         }
 
         if(this.state.updates > 1 && this.state.today.length != 0){
-          return (
+            this.changeBackground();
+            return (
               <div id="dayScroller" className="horizontalSnapper">
                 <div className="day">
                   <div className="doginterface" >
@@ -115,7 +154,7 @@ class WeatherData extends Component {
                 </div>
                 {daysElems}
               </div>
-          );
+            );
       } else {
         return (
           <Loader />
