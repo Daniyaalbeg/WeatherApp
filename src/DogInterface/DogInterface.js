@@ -3,11 +3,18 @@ import './DogInterface.css';
 import Info from './Info/Info.js';
 import Message from './Message/Message.js';
 
+    // The dog interface is the main window of the application. It is from in here that
+    // the main window components are rendered. This includes the weather info, the dog
+    // image area where the weather gif is displayed, as well as the comment  about the
+    // current weather.
+
     class DogInterface extends Component {
         constructor(props) {
             super(props);
             // console.log(this.props.daysimple);
             // console.log(this.props.weatherInfo);
+
+            // The state holds data used to personalise the output, as well as the weather gif;
             this.state = {
                 header: "empty",
                 message: "empty",
@@ -40,6 +47,10 @@ import Message from './Message/Message.js';
             //weatherInfo.weather ="sun";
             // More weathers need to be added into the switch case.
             // Moon Image: https://i.imgur.com/hG7Z9xh.png
+
+            // This switch case is used to display the weather gif animation. The weather is run
+            // through the switch case so if the weather is present, the correct variables and gif
+            // are attatched to the animation when rendered.
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):
                     weatherGif="https://i.imgur.com/2P8pMyy.gif";
@@ -91,6 +102,8 @@ import Message from './Message/Message.js';
                     message="Weather Not found... Default to sun";
                     break;
             }
+            // Additionally the message for the user requires a check to wind windspeed, this
+            // is concatonated onto the message for the user.
             if (windSpeed < 24) {
                 message += " there is a gentle breeze.";
                 walkDog = true;
