@@ -85,7 +85,7 @@ class WeatherData extends Component {
               <div id="dayScroller" className="horizontalSnapper">
                 <div className="day">
                   <div className="doginterface" >
-                    <DogInterface weatherInfo={this.state.today} dogname={this.props.csettings.dogname} daysimple={this.state.daysimple[this.state.viewday]}/>
+                    <DogInterface weatherInfo={this.state.today} dogname={this.props.csettings.dogname} username={this.props.csettings.username} daysimple={this.state.daysimple[this.state.viewday]}/>
                   </div>
                   <div className="weatherbar">
                     <WeatherBar hourly={this.state.hourly[this.state.viewday]} />

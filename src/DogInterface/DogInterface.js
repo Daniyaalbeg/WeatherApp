@@ -9,6 +9,8 @@ import Message from './Message/Message.js';
             // console.log(this.props.daysimple);
             // console.log(this.props.weatherInfo);
             this.state = {
+                username: this.props.username,
+                dogname: this.props.dogname,
                 header: "empty",
                 message: "empty",
                 classfile: null,
@@ -106,22 +108,26 @@ import Message from './Message/Message.js';
             }
             message += " The high is " + this.props.daysimple.tHigh + ". The low is  " + this.props.daysimple.tLow + ".";
             var noDog;
+            var noUser;
             if (this.props.dogname == null) {
-                noDog = false;
-            } else {
                 noDog = true;
-            }
-            // console.log(dogName);
-            if (walkDog) {
-                header = "It is a good time to walk "+ (noDog ? this.props.dogname+"." : "your dog.");
             } else {
-                header = "It is not a good time to walk your dog.";
+                noDog = false;
+            }
+            if (this.props.username == null) {
+                noUser = true;
+            } else {
+                noUser = false;
+            }
+            if (walkDog) {
+                header = (noUser ? "It is a " : this.props.username + " it is a ") + "good time to walk "+ (noDog ? "your dog." : this.props.dogname+".");
+            } else {
+                header = (noUser ? "It is a " : this.props.username + " it is a ") + "good time to walk "+ (noDog ? "your dog." : this.props.dogname+".");
             }
             this.setState({message : message, classfile: classfile, weatherGif: weatherGif, header: header});
         }
 
         render() {
-
             return (
                 <div className="di">
                     <div className="weatherinfo"><Info weatherInfo={this.props.weatherInfo}/></div>

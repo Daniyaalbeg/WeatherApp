@@ -73,7 +73,7 @@ class Bar extends Component {
         var classfile=null;
         var isDay = null;
         let frameTime = this.checkTime();
-        if (frameTime >= 6 && frameTime < 19) {
+        if (frameTime >= 6 && frameTime < 20) {
             isDay = true;
         } else {
             isDay = false;
