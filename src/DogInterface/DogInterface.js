@@ -31,127 +31,127 @@ import Message from './Message/Message.js';
             if(this.props.weatherInfo.weather.toUpperCase().includes(weather.toUpperCase())) return this.props.weatherInfo.weather;
         }
 
-        componentWillMount() {
-            let weatherInfo = this.props.weatherInfo;
-            // This is a transparent image, used as a placeholder for the weather gif.
-            var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
-            let message = "";
-            var walkDog = this.state.walkDog;
-            let windSpeed = weatherInfo.wind;
-            let classfile;
-            var isDay = null;
-            let currentTime = new Date().getHours();
-            if (currentTime >= 6 && currentTime < 20) {
-                isDay = true;
-            } else {
-                isDay = false;
-            }
-            //weatherInfo.weather ="sun";
-            // More weathers need to be added into the switch case.
-            // Moon Image: https://i.imgur.com/hG7Z9xh.png
+        makeWeatherInfo(CProps){
+          let weatherInfo = this.props.weatherInfo;
+          // This is a transparent image, used as a placeholder for the weather gif.
+          var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
+          let message = "";
+          var walkDog = this.state.walkDog;
+          let windSpeed = weatherInfo.wind;
+          let classfile;
+          var isDay = null;
+          let currentTime = new Date().getHours();
+          if (currentTime >= 6 && currentTime < 20) {
+              isDay = true;
+          } else {
+              isDay = false;
+          }
+          //weatherInfo.weather ="sun";
+          // More weathers need to be added into the switch case.
+          // Moon Image: https://i.imgur.com/hG7Z9xh.png
 
-            // This switch case is used to display the weather gif animation. The weather is run
-            // through the switch case so if the weather is present, the correct variables and gif
-            // are attatched to the animation when rendered.
-            switch(weatherInfo.weather){
-                case this.checkForWeather("sun"):
-                    weatherGif="https://i.imgur.com/2P8pMyy.gif";
-                    message="The sun is out, ";
-                    walkDog = true;
-                    classfile="fixedtopsun";
-                    break;
-                case this.checkForWeather("snow"):
-                    weatherGif="https://i.imgur.com/l8GPSHU.gif";
-                    message="Its snowing, ";
-                    walkDog = false;
-                    classfile="notfixedtop";
-                    break;
-                case this.checkForWeather("cloud"):
-                    weatherGif="https://i.imgur.com/Rpgm1V2.gif";
-                    message="Its a bit cloudy, ";
-                    walkDog = true;
-                    classfile="fixedtop";
-                    break;
-                case this.checkForWeather("overcast"):
-                    weatherGif="https://i.imgur.com/Tnp4BBN.gif";
-                    message="Its a bit gloomy, ";
-                    walkDog = true;
-                    classfile="fixedtop";
-                    break;
-                case this.checkForWeather("rain"):
-                    weatherGif="https://i.imgur.com/0VD2YQL.gif";
-                    message="Its raining, ";
-                    walkDog = false;
-                    classfile="notfixedtop";
-                    break;
-                case this.checkForWeather("fog"):
-                    weatherGif="";
-                    message="Its a bit foggy, ";
-                    walkDog = false;
-                    classfile="notfixedtop";
-                    break;
-                case this.checkForWeather("clear"):
-                    if (!isDay) {
-                        weatherGif="https://i.imgur.com/hG7Z9xh.png";
-                    }
-                    message="Its a clear "+ (isDay? " day " : " night ") +", ";
-                    classfile="fixedtopmoon";
-                    break;
-                default:
-                    weatherGif="https://i.imgur.com/2P8pMyy.gif";
-                    walkDog = true;
-                    classfile="fixedtopsun";
-                    message="Weather Not found... Default to sun";
-                    break;
-            }
-            // Additionally the message for the user requires a check to wind windspeed, this
-            // is concatonated onto the message for the user.
-            if (windSpeed < 24) {
-                message += " there is a gentle breeze.";
-                walkDog = true;
-            } else if (windSpeed < 38) {
-                message += " there is a strong breeze.";
-                walkDog = true;
-            } else if (windSpeed < 48) {
-                message += " there is a moderate gale.";
-                walkDog = false;
-            } else {
-                message += " the wind... God help us all.";
-                walkDog = false;
-            }
-            message += " The high is " + this.props.daysimple.tHigh + ". The low is  " + this.props.daysimple.tLow + ".";
-            let header = this.getNameAndUser();
-            this.setState({message: message, classfile: classfile, weatherGif: weatherGif, header: header});
+          // This switch case is used to display the weather gif animation. The weather is run
+          // through the switch case so if the weather is present, the correct variables and gif
+          // are attatched to the animation when rendered.
+          switch(weatherInfo.weather){
+              case this.checkForWeather("sun"):
+                  weatherGif="https://i.imgur.com/2P8pMyy.gif";
+                  message="The sun is out, ";
+                  walkDog = true;
+                  classfile="fixedtopsun";
+                  break;
+              case this.checkForWeather("snow"):
+                  weatherGif="https://i.imgur.com/l8GPSHU.gif";
+                  message="Its snowing, ";
+                  walkDog = false;
+                  classfile="notfixedtop";
+                  break;
+              case this.checkForWeather("cloud"):
+                  weatherGif="https://i.imgur.com/Rpgm1V2.gif";
+                  message="Its a bit cloudy, ";
+                  walkDog = true;
+                  classfile="fixedtop";
+                  break;
+              case this.checkForWeather("overcast"):
+                  weatherGif="https://i.imgur.com/Tnp4BBN.gif";
+                  message="Its a bit gloomy, ";
+                  walkDog = true;
+                  classfile="fixedtop";
+                  break;
+              case this.checkForWeather("rain"):
+                  weatherGif="https://i.imgur.com/0VD2YQL.gif";
+                  message="Its raining, ";
+                  walkDog = false;
+                  classfile="notfixedtop";
+                  break;
+              case this.checkForWeather("fog"):
+                  weatherGif="";
+                  message="Its a bit foggy, ";
+                  walkDog = false;
+                  classfile="notfixedtop";
+                  break;
+              case this.checkForWeather("clear"):
+                  if (!isDay) {
+                      weatherGif="https://i.imgur.com/hG7Z9xh.png";
+                  }
+                  message="Its a clear "+ (isDay? " day " : " night ") +", ";
+                  classfile="fixedtopmoon";
+                  break;
+              default:
+                  weatherGif="https://i.imgur.com/2P8pMyy.gif";
+                  walkDog = true;
+                  classfile="fixedtopsun";
+                  message="Weather Not found... Default to sun";
+                  break;
+          }
+          // Additionally the message for the user requires a check to wind windspeed, this
+          // is concatonated onto the message for the user.
+          if (windSpeed < 24) {
+              message += " there is a gentle breeze.";
+              walkDog = true;
+          } else if (windSpeed < 38) {
+              message += " there is a strong breeze.";
+              walkDog = true;
+          } else if (windSpeed < 48) {
+              message += " there is a moderate gale.";
+              walkDog = false;
+          } else {
+              message += " the wind... God help us all.";
+              walkDog = false;
+          }
+          message += " The high is " + this.props.daysimple.tHigh + ". The low is  " + this.props.daysimple.tLow + ".";
+          let header = this.getNameAndUser(CProps);
+          this.setState({message: message, classfile: classfile, weatherGif: weatherGif, header: header});
         }
 
-        componentWillUpdate(nextProps, prevState) {
-            console.log("--------------------------------");
-            console.log(nextProps.username);
-            console.log(this.props.username);
+        componentWillMount() {
+          this.makeWeatherInfo(this.props);
+        }
+
+        componentWillUpdate(nextProps) {
             if (nextProps.username != this.props.username || nextProps.dogname != this.props.dogname) {
-                this.setState({header: this.getNameAndUser()});
-                console.log("UPDATING!");
+                this.makeWeatherInfo(nextProps);
                 //this.state.header = this.getNameAndUser();
             }
         }
 
-        getNameAndUser() {
+        getNameAndUser(CProps) {
             var noDog;
             var noUser;
             var header;
             var dogname;
             var username;
-            if (this.props.dogname == null) {
+            if (CProps.dogname == null) {
                 noDog = true;
             } else {
                 noDog = false;
-                dogname = this.props.dogname.substring(0,1).toUpperCase() + this.props.dogname.substring(1);
+                dogname = CProps.dogname.substring(0,1).toUpperCase() + CProps.dogname.substring(1);
             }
-            if (this.props.username == null) {
+            if (CProps.username == null) {
                 noUser = true;
             } else {
                 noUser = false;
-                username = this.props.username.substring(0,1).toUpperCase() + this.props.username.substring(1);
+                username = CProps.username.substring(0,1).toUpperCase() + CProps.username.substring(1);
             }
             header = (noUser ? "It is " : username + " it is ") + (this.state.walkDog? "" : " not ") + "a good time to walk "+ (noDog ? "your dog." : dogname+".");
             return header;
