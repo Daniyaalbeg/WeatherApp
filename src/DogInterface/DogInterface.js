@@ -61,7 +61,7 @@ import Message from './Message/Message.js';
                     classfile="fixedtopsun";
                     break;
                 case this.checkForWeather("snow"):
-                    weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";
+                    weatherGif="https://i.imgur.com/l8GPSHU.gif";
                     message="Its snowing, ";
                     walkDog = false;
                     classfile="notfixedtop";
@@ -73,19 +73,19 @@ import Message from './Message/Message.js';
                     classfile="fixedtop";
                     break;
                 case this.checkForWeather("overcast"):
-                    weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
+                    weatherGif="https://i.imgur.com/Tnp4BBN.gif";
                     message="Its a bit gloomy, ";
                     walkDog = true;
                     classfile="fixedtop";
                     break;
                 case this.checkForWeather("rain"):
-                    weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
+                    weatherGif="https://i.imgur.com/0VD2YQL.gif";
                     message="Its raining, ";
                     walkDog = false;
                     classfile="notfixedtop";
                     break;
                 case this.checkForWeather("fog"):
-                    weatherGif="https://media.tnh.me/551ac5ba5ccacf1b837ebc21/5523d7cd5ccacf4f41a895f3";
+                    weatherGif="";
                     message="Its a bit foggy, ";
                     walkDog = false;
                     classfile="notfixedtop";

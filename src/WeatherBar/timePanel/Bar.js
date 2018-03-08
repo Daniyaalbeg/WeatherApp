@@ -74,19 +74,19 @@ class Bar extends Component {
                 classfile="fixed";
                 break;
             case this.checkForWeather("overcast"):
-                weatherGif="https://i.imgur.com/Rpgm1V2.gif";
+                weatherGif="https://i.imgur.com/Tnp4BBN.gif";
                 classfile="fixed";
                 break;
             case this.checkForWeather("rain"):
-                weatherGif="https://cdn.discordapp.com/attachments/307276322386870272/420046689425031179/rain-straight.gif";
+                weatherGif="https://i.imgur.com/0VD2YQL.gif";
                 classfile="notfixed";
                 break;
             case this.checkForWeather("fog"):
-                weatherGif="https://media.tnh.me/551ac5ba5ccacf1b837ebc21/5523d7cd5ccacf4f41a895f3";
+                weatherGif="";
                 classfile="notfixed";
                 break;
             default:
-                weatherGif="https://media.giphy.com/media/11s4W2s2rNA17W/giphy.gif";
+                weatherGif="";
         }
 
         // Depending on the time of day a different background image is displayed.

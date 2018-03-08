@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {geolocated} from 'react-geolocated';
-import SearchLocation from './SearchLocation.js';
 import './Settings.css';
 
 // For the user settings:
@@ -172,7 +171,7 @@ class Settings extends Component {
     }
 
     render() {
-      //console.log(this.props.coords);
+        //console.log(this.props.coords);
         return (
             <div className="se">
                 <div className="heading"><p id="title">Settings</p></div>
@@ -188,7 +187,6 @@ class Settings extends Component {
                             </div>
                         </div>
                         <div className="locationInput">{this.state.isToggleOn ? this.getMsg() : this.getEle()}</div>
-                        <SearchLocation />
                     </div>
                     <div className="userInfo">
                         <div className="headingTwo"><p>User Info</p></div>
