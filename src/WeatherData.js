@@ -142,6 +142,7 @@ class WeatherData extends Component {
 
         if(this.state.updates > 1 && this.state.today.length != 0){
             this.changeBackground();
+            console.log('Today', this.state.daysimple);
             return (
               <div id="dayScroller" className="horizontalSnapper">
                 <div className="day">

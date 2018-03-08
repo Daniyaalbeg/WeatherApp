@@ -73,7 +73,9 @@ export function UpdateDay(sdata, callBack){
                     city: sdata.wuname,
                     weather: item.conditions,
                     tHigh: parseInt(item.high.celsius),
-                    tLow: parseInt(item.low.celsius)
+                    tLow: parseInt(item.low.celsius),
+                    epoch: item.date.epoch,
+                    timezone: item.date.tz_long
                 }
             )
         })
