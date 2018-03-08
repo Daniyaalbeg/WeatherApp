@@ -21,7 +21,8 @@ import Message from './Message/Message.js';
                 header: "empty",
                 message: "empty",
                 classfile: null,
-                weatherGif: ""
+                weatherGif: "",
+                walkDog: true
             };
         }
 
@@ -35,8 +36,7 @@ import Message from './Message/Message.js';
             // This is a transparent image, used as a placeholder for the weather gif.
             var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
             let message = "";
-            var header = "";
-            var walkDog = true;
+            var walkDog = this.state.walkDog;
             let windSpeed = weatherInfo.wind;
             let classfile;
             var isDay = null;
@@ -112,7 +112,7 @@ import Message from './Message/Message.js';
             } else if (windSpeed < 38) {
                 message += " there is a strong breeze.";
                 walkDog = true;
-            } else if (windSpeed < 38) {
+            } else if (windSpeed < 48) {
                 message += " there is a moderate gale.";
                 walkDog = false;
             } else {
@@ -120,24 +120,41 @@ import Message from './Message/Message.js';
                 walkDog = false;
             }
             message += " The high is " + this.props.daysimple.tHigh + ". The low is  " + this.props.daysimple.tLow + ".";
+            let header = this.getNameAndUser();
+            this.setState({message: message, classfile: classfile, weatherGif: weatherGif, header: header});
+        }
+
+        componentWillUpdate(nextProps, prevState) {
+            console.log("--------------------------------");
+            console.log(nextProps.username);
+            console.log(this.props.username);
+            if (nextProps.username != this.props.username || nextProps.dogname != this.props.dogname) {
+                this.setState({header: this.getNameAndUser()});
+                console.log("UPDATING!");
+                //this.state.header = this.getNameAndUser();
+            }
+        }
+
+        getNameAndUser() {
             var noDog;
             var noUser;
+            var header;
+            var dogname;
+            var username;
             if (this.props.dogname == null) {
                 noDog = true;
             } else {
                 noDog = false;
+                dogname = this.props.dogname.substring(0,1).toUpperCase() + this.props.dogname.substring(1);
             }
             if (this.props.username == null) {
                 noUser = true;
             } else {
                 noUser = false;
+                username = this.props.username.substring(0,1).toUpperCase() + this.props.username.substring(1);
             }
-            if (walkDog) {
-                header = (noUser ? "It is a " : this.props.username + " it is a ") + "good time to walk "+ (noDog ? "your dog." : this.props.dogname+".");
-            } else {
-                header = (noUser ? "It is a " : this.props.username + " it is a ") + "good time to walk "+ (noDog ? "your dog." : this.props.dogname+".");
-            }
-            this.setState({message : message, classfile: classfile, weatherGif: weatherGif, header: header});
+            header = (noUser ? "It is " : username + " it is ") + (this.state.walkDog? "" : " not ") + "a good time to walk "+ (noDog ? "your dog." : dogname+".");
+            return header;
         }
 
         render() {

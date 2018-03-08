@@ -53,8 +53,6 @@ class Bar extends Component {
             isDay = false;
         }
 
-        console.log(this.props.time);
-
         // Switches through the weathers to assign the correct animation to the correct weather.
         switch(this.props.weather){
             case this.checkForWeather("clear"):
