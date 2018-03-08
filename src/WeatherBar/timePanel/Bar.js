@@ -7,18 +7,6 @@ import './Bar.css';
 class Bar extends Component {
     constructor(props){
         super(props);
-        // Key variables assigned.
-        if(this.props.time != null){
-            this.temp=this.props.temp+"°C";
-        }
-        else{
-            var currentDay = new Date().getDay();
-            var dayToDisplay = currentDay + this.props.day;
-            if(dayToDisplay>=7) dayToDisplay=dayToDisplay-7;
-            this.dayOfWeek(dayToDisplay);
-            this.tLow=this.props.tLow + "°C";
-            this.tHigh=this.props.tHigh + "°C";
-        }
     }
 
     // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)
@@ -111,7 +99,7 @@ class Bar extends Component {
                     <p>{this.props.time}</p>
                 </div>
                 <div className="bartemp">
-                    <p>{this.temp}</p>
+                    <p>{this.props.temp +"°C"}</p>
                 </div>
             </div>
         );

@@ -100,7 +100,7 @@ export function UpdateDay(type, sdata, callBack){
 
 export function GeoUpdateWeather(latitude, longitude, callBack){
   var datam = {};
-  var fetchurl = 'http://13.72.104.16/test2.php?url=https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCNxJtlpcNknGc-T_vEvkVWT_kCqdd0x9Y';
+  var fetchurl = 'http://13.72.104.16/apicache.php?url=https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyCNxJtlpcNknGc-T_vEvkVWT_kCqdd0x9Y';
     fetch(fetchurl)
     .then(results => {
         return results.json();

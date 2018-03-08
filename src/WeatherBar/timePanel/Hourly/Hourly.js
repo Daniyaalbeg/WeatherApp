@@ -6,8 +6,12 @@ import Bar from '../Bar.js';
 // that is passed to it and adding a new component to the array which is rendered,
 // for each hourly forecast in the object.
 class Hourly extends Component {
+    constructor(props) {
+        super(props);
+    }
 
     render() {
+      console.log(this.props.hourly);
         // Data that is padded in.
         let hourly = this.props.hourly;
         // If no data is passed, nothing can be looped through.
