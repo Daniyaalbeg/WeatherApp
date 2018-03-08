@@ -43,10 +43,6 @@ import Message from './Message/Message.js';
           } else {
               isDay = false;
           }
-          //weatherInfo.weather ="sun";
-          // More weathers need to be added into the switch case.
-          // Moon Image: https://i.imgur.com/hG7Z9xh.png
-
           // This switch case is used to display the weather gif animation. The weather is run
           // through the switch case so if the weather is present, the correct variables and gif
           // are attatched to the animation when rendered.
@@ -91,7 +87,7 @@ import Message from './Message/Message.js';
                   if (!isDay) {
                       weatherGif="https://imgur.com/k24jlE3.png";
                   }
-                  message="Its a clear "+ (isDay? " day " : " night ") +", ";
+                  message="Its a clear "+ (isDay? " day " : " night") +", ";
                   classfile="fixedtopmoon";
                   break;
               default:
