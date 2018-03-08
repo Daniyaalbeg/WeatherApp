@@ -39,10 +39,6 @@ class SearchLocation extends Component {
 
 	}
 
-	gotoUser (value, event) {
-		window.open(value.html_url);
-	}
-
 	toggleBackspaceRemoves () {
 		this.setState({
 			backspaceRemoves: !this.state.backspaceRemoves

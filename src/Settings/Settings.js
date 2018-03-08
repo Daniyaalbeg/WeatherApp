@@ -33,12 +33,7 @@ class Settings extends Component {
     getEle(){
         return(
             <div className="userData">
-                <label className="field lablestyle">
-                    <input id="locationf" className="field__input" placeholder={this.getInputHolder("Location")}/>
-                    <span className="field__label-wrap">
-                        <span className="field__label">{this.getInputHolder("Eg. London")}</span>
-                    </span>
-                </label>
+                <SearchLocation WUName={this.props.csettings.wuname} updateDetails={this.updateAutoComplete.bind(this)} />
                 <div className="locationerrormsg">{this.state.locationFound ? "" : this.locationErrorMessage}</div>
             </div>
         );
@@ -203,7 +198,6 @@ class Settings extends Component {
                             </div>
                         </div>
                         <div className="locationInput">{this.state.isToggleOn ? this.getMsg() : this.getEle()}</div>
-                        <SearchLocation WUName={this.props.csettings.wuname} updateDetails={this.updateAutoComplete.bind(this)} />
                     </div>
                     <div className="userInfo">
                         <div className="headingTwo"><p>User Info</p></div>
