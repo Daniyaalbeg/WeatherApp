@@ -14,7 +14,7 @@ import './Info.css';
             date.setUTCSeconds(weatherInfo.epoch);
             var dateString = date.getDate() + " / " + date.getMonth();
             return (
-                <div className="info">
+                <div className="info other">
                     <p id="time">{dateString}</p>
                     <p id="city">{weatherInfo.city}</p>
                     <p id="temp"><span style={{fontSize: "0.8em", verticalAlign: "top"}}>▲</span> {weatherInfo.tHigh}°C</p>
