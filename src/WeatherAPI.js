@@ -14,7 +14,8 @@ export function UpdateHourly10Day(City, callBack){
                   time: item.FCTTIME.civil,
                   weather: item.condition,
                   temp: parseInt(item.temp.metric),
-                  wind: parseInt(item.wspd.metric)
+                  wind: parseInt(item.wspd.metric),
+                  feelslike: item.feelslike
                 }
             )
         })

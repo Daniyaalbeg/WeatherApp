@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {geolocated} from 'react-geolocated';
+import SearchLocation from './SearchLocation.js';
 import './Settings.css';
 
 // For the user settings:
@@ -17,6 +18,7 @@ class Settings extends Component {
             isChecked: this.props.csettings.isChecked,
             locationFound: true
         };
+        this.WUAuto = {wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid};
         this.handleClick = this.handleClick.bind(this);
         this.saveSettings = this.saveSettings.bind(this);
     }
@@ -60,6 +62,8 @@ class Settings extends Component {
           location: this.props.csettings.location,
           latitude: this.props.csettings.latitude,
           longitude: this.props.csettings.longitude,
+          wuid: this.props.csettings.wuid,
+          wuname: this.props.csettings.wuname,
           username: this.props.csettings.username,
           dogname: this.props.csettings.dogname,
           dogbreed: this.props.csettings.dogbreed,
@@ -73,6 +77,10 @@ class Settings extends Component {
                 settings.GeoEnabled = false;
                 settings.latitude = null;
                 settings.longitude = null;
+                settings.City = this.WUAuto.wuname;
+                settings.wuname = this.WUAuto.wuname;
+                settings.wuid = this.WUAuto.wuid;
+                //console.log(this.WUAuto);
                 //console.log(this.location);
                 //this.props.setLocationCity(this.location);
             }
@@ -170,8 +178,13 @@ class Settings extends Component {
         }
     }
 
+    updateAutoComplete(newWUAuto){
+      this.WUAuto = newWUAuto;
+      //this.WUAuto = {City: this.props.csettings.City, wuid: this.props.csettings.wuid};
+    }
+
+
     render() {
-        //console.log(this.props.coords);
         return (
             <div className="se">
                 <div className="heading"><p id="title">Settings</p></div>
@@ -187,6 +200,7 @@ class Settings extends Component {
                             </div>
                         </div>
                         <div className="locationInput">{this.state.isToggleOn ? this.getMsg() : this.getEle()}</div>
+                        <SearchLocation updateDetails={this.updateAutoComplete.bind(this)} />
                     </div>
                     <div className="userInfo">
                         <div className="headingTwo"><p>User Info</p></div>

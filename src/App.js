@@ -23,6 +23,8 @@ class App extends Component {
               location: null,
               latitude: null,
               longitude: null,
+              wuname: null,
+              wuid: null,
               username: null,
               dogname: null,
               dogbreed: null,
