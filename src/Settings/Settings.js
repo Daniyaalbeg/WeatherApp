@@ -53,6 +53,7 @@ class Settings extends Component {
     }
 
     saveSettings(){
+      console.log(this.WUAuto);
         let settings = {
           City: this.props.csettings.City,
           LocationSet: this.props.csettings.LocationSet,
@@ -71,8 +72,8 @@ class Settings extends Component {
         }
 
         if(!this.state.isToggleOn){
-            if(document.getElementById("locationf").value){
-                settings.City = document.getElementById("locationf").value;
+
+                //settings.City = document.getElementById("locationf").value;
                 settings.LocationSet = true;
                 settings.GeoEnabled = false;
                 settings.latitude = null;
@@ -83,7 +84,7 @@ class Settings extends Component {
                 //console.log(this.WUAuto);
                 //console.log(this.location);
                 //this.props.setLocationCity(this.location);
-            }
+
             if(this.location === "") {
               settings.LocationSet = false;
             }
@@ -179,7 +180,9 @@ class Settings extends Component {
     }
 
     updateAutoComplete(newWUAuto){
+      console.log(newWUAuto);
       this.WUAuto = newWUAuto;
+      console.log(this.WUAuto);
       //this.WUAuto = {City: this.props.csettings.City, wuid: this.props.csettings.wuid};
     }
 
@@ -200,7 +203,7 @@ class Settings extends Component {
                             </div>
                         </div>
                         <div className="locationInput">{this.state.isToggleOn ? this.getMsg() : this.getEle()}</div>
-                        <SearchLocation updateDetails={this.updateAutoComplete.bind(this)} />
+                        <SearchLocation WUName={this.props.csettings.wuname} updateDetails={this.updateAutoComplete.bind(this)} />
                     </div>
                     <div className="userInfo">
                         <div className="headingTwo"><p>User Info</p></div>

@@ -6,7 +6,7 @@ import './react-select.css';
 class SearchLocation extends Component {
 	constructor(props){
 			super(props);
-			this.state = {};
+			this.state = {value:{name: this.props.WUName}};
 	}
 
 	getInitialState () {
@@ -21,6 +21,9 @@ class SearchLocation extends Component {
 		this.setState({
 			value: value,
 		});
+		if(value !== null){
+			this.props.updateDetails({wuname: value.name, wuid: value.zmw});
+		}
 	}
 
 	getUsers (input) {
@@ -59,7 +62,7 @@ class SearchLocation extends Component {
 
 		return (
 			<div>
-				<AsyncComponent value={this.state.value} onChange={this.onChange.bind(this)} onValueClick={this.gotoUser} valueKey="id" labelKey="name" loadOptions={this.getUsers} backspaceRemoves={this.state.backspaceRemoves} />
+				<AsyncComponent value={this.state.value} onChange={this.onChange.bind(this)} valueKey="id" labelKey="name" loadOptions={this.getUsers} backspaceRemoves={this.state.backspaceRemoves} />
 			</div>
 		);
 	}

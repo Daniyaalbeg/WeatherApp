@@ -1,6 +1,16 @@
 
-export function UpdateHourly10Day(City, callBack){
-  let dataurl = 'http://13.72.104.16/test2.php?url=http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/UK/'+City+'.json';
+export function UpdateHourly10Day(type, sdata, callBack){
+
+  let dataurl = '';
+  if(type === 'WUID'){
+    dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/zmw:'+sdata.wuid+'.json';
+  } else if(type === 'GEO'){
+    dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/hourly10day/q/'+sdata.latitude+','+sdata.longitude+'.json';
+  } else {
+    console.log('Incorrect type supplied')
+    return;
+  }
+
   let datam = {0 : [], 1 : [], 2 : [], 3 : [], 4 : [], 5 : [], 6 : [], 7 : [], 8 : [], 9 : [], 10 : []};
   var currentdate = new Date();
     fetch(dataurl)
@@ -50,15 +60,25 @@ export function UpdateHourly10Day(City, callBack){
         }
 
         let today = datam[0].splice(0,1)[0];
-        today.city = City;
+        //console.log(data);
+        today.city = sdata.wuname;
         today.pol = 'High';
         callBack({today: today, hourly : datam});
     });
   return true;
 }
 
-export function UpdateDay(City, callBack){
-  let dataurl = 'http://13.72.104.16/test2.php?url=http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/UK/'+City+'.json'
+export function UpdateDay(type, sdata, callBack){
+  let dataurl = '';
+  if(type === 'WUID'){
+    dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/zmw:'+sdata.wuid+'.json';
+  } else if(type === 'GEO'){
+    dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/'+sdata.latitude+','+sdata.longitude+'.json';
+  } else {
+    console.log('Incorrect type supplied')
+    return;
+  }
+
   var datam = {};
     fetch(dataurl)
     .then(forecast => {

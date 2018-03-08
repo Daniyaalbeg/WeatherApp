@@ -30,9 +30,9 @@ class WeatherData extends Component {
     }
 
     componentDidMount(){
-        if(this.props.csettings.City != null){
-          UpdateDay(this.props.csettings.City, this.callBack.bind(this));
-          UpdateHourly10Day(this.props.csettings.City, this.callBack.bind(this));
+        if(this.props.csettings.wuid != null){
+          UpdateDay('WUID', {wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
+          UpdateHourly10Day('WUID', {wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
         } else if(this.props.csettings.GeoEnabled === true) {
           GeoUpdateWeather(this.props.csettings.latitude, this.props.csettings.longitude, this.callBack.bind(this));
         }
@@ -43,8 +43,8 @@ class WeatherData extends Component {
         // Settings Changed
         if(nextProps.csettings.City != this.props.csettings.City){
           //this.setState({updates: 0});
-          UpdateDay(nextProps.csettings.City, this.callBack.bind(this));
-          UpdateHourly10Day(nextProps.csettings.City, this.callBack.bind(this));
+          UpdateDay('WUID', {wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
+          UpdateHourly10Day('WUID', {wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
           }
       } else if(nextProps.csettings.GeoEnabled == true) {
         if(nextProps.csettings.latitude != this.props.csettings.latitude && nextProps.csettings.longitude != this.props.csettings.longitude){
