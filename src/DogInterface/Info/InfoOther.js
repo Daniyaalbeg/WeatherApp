@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './Info.css';
 
-    // The info component contains the main weather for the day:
-    // The location, the temperature, the wind speed and the pollen count.
+    // This info component is for the vertical slide views for future days
     class Info extends Component {
         constructor(props) {
             super(props);
@@ -11,6 +10,7 @@ import './Info.css';
         // The weather information is passed in a prop which is used to render the data.
         render() {
             let weatherInfo = this.props.weatherInfo;
+            console.log(weatherInfo);
 
             return (
                 <div className="info">
