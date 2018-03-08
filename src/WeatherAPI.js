@@ -1,4 +1,3 @@
-
 export function UpdateHourly10Day(type, sdata, callBack){
 
   let dataurl = '';
@@ -11,7 +10,7 @@ export function UpdateHourly10Day(type, sdata, callBack){
     return;
   }
 
-  let datam = {0 : [], 1 : [], 2 : [], 3 : [], 4 : [], 5 : [], 6 : [], 7 : [], 8 : [], 9 : [], 10 : []};
+  let datam = [[], [], [], [], [], [], [], [], [], [], []];
   var currentdate = new Date();
     fetch(dataurl)
     .then(results => {
@@ -87,6 +86,7 @@ export function UpdateDay(type, sdata, callBack){
         let weatherdata = data.forecast.simpleforecast.forecastday.map(function(item, i){
             return(
                 {
+                    city: sdata.wuname,
                     weather: item.conditions,
                     tHigh: parseInt(item.high.celsius),
                     tLow: parseInt(item.low.celsius)

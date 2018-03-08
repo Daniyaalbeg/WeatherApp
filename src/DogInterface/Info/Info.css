@@ -9,6 +9,9 @@
 #temp{
     font-size: 5.5vh;
 }
+.otherDay #temp{
+    font-size: 4.5vh;
+}
 #wind{
     font-size: 2.3vh;
 }

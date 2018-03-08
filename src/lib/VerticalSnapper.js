@@ -1,4 +1,4 @@
-export default function HorizontalSnapper(element, pageSize = 1, snapTime = 30){
+export default function VerticalSnapper(element, pageSize = 1, snapTime = 30){
     this.snapping = false;
     this.snappingTime = 0;
     this.element = element;
@@ -21,10 +21,11 @@ export default function HorizontalSnapper(element, pageSize = 1, snapTime = 30){
                 this.snappingTime++;
                 let progress = this.snappingTime/this.snapTime;
                 let bounds = this.element.getBoundingClientRect();
-                let to = Math.round(this.element.scrollLeft/(bounds.width*this.pageSize))*bounds.width*this.pageSize;
+                let to = Math.round(this.element.scrollTop/(bounds.height*this.pageSize))*bounds.height*this.pageSize;
                 let diff = to - this.from;
                 let target = this.from + diff*(-Math.cos(progress*Math.PI)+1)/2;
-                this.element.scrollLeft = Math.round(target);
+                this.element.scrollTop = Math.round(target);
+                console.log({elem: this.element, progress, bounds, to, diff, target});
                 if(this.snappingTime >= this.snapTime){
                     //Finished snapping, tell ourselves to stop!
                     this.stopSnapping = true;
@@ -35,7 +36,7 @@ export default function HorizontalSnapper(element, pageSize = 1, snapTime = 30){
         }else{
             //Not yet snapping, start
             this.snapping = true;
-            this.from = this.element.scrollLeft;
+            this.from = this.element.scrollTop;
             console.log({element : this.element, from: this.from});
             window.requestAnimationFrame(snap.bind(this));
         }

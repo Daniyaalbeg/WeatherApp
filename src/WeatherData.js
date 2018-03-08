@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DogInterface from './DogInterface/DogInterface.js';
+import DogInterfaceOther from './DogInterface/DogInterfaceOther.js';
 import WeatherBar from './WeatherBar/WeatherBar.js';
 import {GeoUpdateWeather, UpdateDay, UpdateHourly10Day} from './WeatherAPI.js';
 import Loader from './Loader/Loader.js';
@@ -13,7 +14,7 @@ class WeatherData extends Component {
         this.state = {
             today: [],
             hourly: [],
-            daysimple: {},
+            daysimple: [],
             viewday: 0,
             updates: 0
         };
@@ -56,23 +57,44 @@ class WeatherData extends Component {
     componentDidUpdate(){
         let elem = document.getElementById("dayScroller");
         if(elem){
-            console.log("test");
-            if(!snapper){
-                var snapper = new HorizontalSnapper(elem);
+            if(!this.snapper){
+                this.snapper = new HorizontalSnapper(elem);
             }
         }
     }
 
-    child(percentage){
-        return(
-            <div style={{position: "absolute", top: 10, left: 10, backgroundColor: "white"}}>
-            {percentage}% scroll
-            </div>
-        )
-    }
-
     render(){
-       //console.log(this.state);
+        // console.log(this.state);
+
+        let days = [];
+        if(this.state.daysimple.length > 7){
+            days = this.state.daysimple.slice(1,7);
+            // console.log(days);
+        }
+
+        let daysHourly = [];
+        if(this.state.hourly.length > 7){
+            daysHourly = this.state.hourly.slice(1,7);
+            // console.log(daysHourly);
+        }
+
+        let daysElems = [];
+        if(days.length > 0){
+            console.log(days);
+            daysElems = days.map((day, i)=>{
+                console.log({day, i});
+                return (
+                    <div className="otherDay">
+                      <div className="doginterface" >
+                        <DogInterfaceOther dogname={this.props.csettings.dogname} username={this.props.csettings.username} daysimple={day}/>
+                      </div>
+                      <div className="weatherbar">
+                        <WeatherBar hourly={daysHourly[i]} id={i+1} />
+                      </div>
+                    </div>
+                );
+            });
+        }
 
         var element = document.getElementById("data");
         if(element){
@@ -88,9 +110,10 @@ class WeatherData extends Component {
                     <DogInterface weatherInfo={this.state.today} dogname={this.props.csettings.dogname} username={this.props.csettings.username} daysimple={this.state.daysimple[this.state.viewday]}/>
                   </div>
                   <div className="weatherbar">
-                    <WeatherBar hourly={this.state.hourly[this.state.viewday]} />
+                    <WeatherBar hourly={this.state.hourly[this.state.viewday]} id="0" />
                   </div>
                 </div>
+                {daysElems}
               </div>
           );
       } else {

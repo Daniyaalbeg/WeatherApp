@@ -5,6 +5,7 @@ import {geolocated} from 'react-geolocated';
 import Loader from './Loader/Loader.js';
 import './App.css';
 import './StyleSheets/backgroundStyles.css';
+import VerticalSnapper from './lib/VerticalSnapper.js';
 
 // The main window component. Holds important state checks to ensure that the
 // correct data is being rendered.
@@ -62,6 +63,24 @@ class App extends Component {
         else document.body.classList.add('lateNight');
     }
 
+    componentDidMount(){
+        let elem = document.getElementById("App");
+        if(elem){
+            if(!this.snapper){
+                this.snapper = new VerticalSnapper(elem);
+            }
+        }
+    }
+
+    componentDidUpdate(){
+        let elem = document.getElementById("App");
+        if(elem){
+            if(!this.snapper){
+                this.snapper = new VerticalSnapper(elem);
+            }
+        }
+    }
+
     // Data we have access to:
     // - Pressure
     // - Feels like (Hour)
@@ -76,7 +95,7 @@ class App extends Component {
        //this.props.isGeolocationAvailable && this.props.isGeolocationEnabled)
         if(this.state.Settings.City != null){
           return (
-            <div className="App">
+            <div className="App" id="App">
              <WeatherData csettings={this.state.Settings} className="weatherData"/>
              <div className="settings">
                  <Settings csettings={this.state.Settings} setSettings={this.setSettings.bind(this)}/>
@@ -86,7 +105,7 @@ class App extends Component {
         } else if(this.state.Settings.GeoEnabled == true){
           //console.log(this.state.Settings);
           return (
-            <div className="App">
+            <div className="App" id="App">
                 <WeatherData csettings={this.state.Settings} className="weatherData"/>
                 <div className="settings">
                     <Settings csettings={this.state.Settings} setSettings={this.setSettings.bind(this)}/>
