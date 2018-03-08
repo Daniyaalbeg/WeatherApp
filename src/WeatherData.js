@@ -120,7 +120,7 @@ class WeatherData extends Component {
         if(days.length > 0){
             console.log(days);
             daysElems = days.map((day, i)=>{
-                console.log({day, i});
+                //console.log({day, i});
                 return (
                     <div className="otherDay">
                       <div className="doginterface" >

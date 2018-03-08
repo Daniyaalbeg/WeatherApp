@@ -1,10 +1,17 @@
 .info{
     color: white;
-}
-
-#city{
     padding-top: 10vh;
+}
+.other{
+    padding-top: 8vh;
+}
+#city{
     font-size: 3.1vh;
+}
+#time{
+    font-size: 2.6vh;
+    padding-top: 0.4vh;
+    padding-bottom: 0.4vh;
 }
 #temp{
     font-size: 5.5vh;

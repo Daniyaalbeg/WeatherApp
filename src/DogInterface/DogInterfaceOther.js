@@ -22,7 +22,7 @@ import Message from './Message/Message.js';
 
         // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)
         checkForWeather(weather){
-            console.log({m: "checking weather", info: this.props.weatherInfo});
+            //console.log({m: "checking weather", info: this.props.weatherInfo});
             if(this.props.daysimple.weather.toUpperCase().includes(weather.toUpperCase())) return this.props.daysimple.weather;
         }
 
@@ -49,7 +49,7 @@ import Message from './Message/Message.js';
                     classfile="fixedtopsun";
                     break;
                 case this.checkForWeather("snow"):
-                    weatherGif="https://media.giphy.com/media/eiMzTkBCN4lGg/giphy.gif";
+                    weatherGif="https://i.imgur.com/l8GPSHU.gif";
                     classfile="notfixedtop";
                     break;
                 case this.checkForWeather("cloud"):
@@ -57,11 +57,11 @@ import Message from './Message/Message.js';
                     classfile="fixedtop";
                     break;
                 case this.checkForWeather("overcast"):
-                    weatherGif="https://media.giphy.com/media/139VhIY2eHewz6/giphy.gif";
-                    classfile="fixedtop";
+                    weatherGif="https://i.imgur.com/Tnp4BBN.gif";
+                    classfile="fixedtopsun";
                     break;
                 case this.checkForWeather("rain"):
-                    weatherGif="https://i.imgur.com/bkKOKNS.gif";
+                    weatherGif="https://i.imgur.com/0VD2YQL.gif";
                     classfile="notfixedtoprain";
                     break;
                 case this.checkForWeather("fog"):
@@ -84,9 +84,9 @@ import Message from './Message/Message.js';
         }
 
         componentWillUpdate(nextProps, prevState) {
-            console.log("--------------------------------");
-            console.log(nextProps.username);
-            console.log(this.props.username);
+            //console.log("--------------------------------");
+            //console.log(nextProps.username);
+            //console.log(this.props.username);
             if (nextProps.username != this.props.username || nextProps.dogname != this.props.dogname) {
                 this.setState({header: this.getNameAndUser()});
                 console.log("UPDATING!");
@@ -118,7 +118,7 @@ import Message from './Message/Message.js';
         }
 
         render() {
-            console.log(this.props.daysimple);
+            //console.log(this.props.daysimple);
             return (
                 <div className="di">
                     <div className="weatherinfo"><Info weatherInfo={this.props.daysimple}/></div>

@@ -11,7 +11,7 @@ class Hourly extends Component {
     }
 
     render() {
-      console.log(this.props.hourly);
+        //console.log(this.props.hourly);
         // Data that is padded in.
         let hourly = this.props.hourly;
         // If no data is passed, nothing can be looped through.

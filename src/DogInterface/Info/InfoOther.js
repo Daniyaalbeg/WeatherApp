@@ -10,10 +10,12 @@ import './Info.css';
         // The weather information is passed in a prop which is used to render the data.
         render() {
             let weatherInfo = this.props.weatherInfo;
-            //console.log(weatherInfo);
-
+            var date = new Date(0);
+            date.setUTCSeconds(weatherInfo.epoch);
+            var dateString = date.getDate() + " / " + date.getMonth();
             return (
                 <div className="info">
+                    <p id="time">{dateString}</p>
                     <p id="city">{weatherInfo.city}</p>
                     <p id="temp"><span style={{fontSize: "0.8em", verticalAlign: "top"}}>▲</span> {weatherInfo.tHigh}°C</p>
                     <p id="temp"><span style={{fontSize: "0.8em", verticalAlign: "top"}}>▼</span> {weatherInfo.tLow}°C</p>

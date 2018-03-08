@@ -136,10 +136,17 @@ class DogInterface extends Component {
       this.makeWeatherInfo(this.props);
     }
 
+<<<<<<< Updated upstream
     componentWillUpdate(nextProps) {
         if (nextProps.username != this.props.username || nextProps.dogname != this.props.dogname) {
             this.makeWeatherInfo(nextProps);
             //this.state.header = this.getNameAndUser();
+=======
+        componentWillUpdate(nextProps) {
+            if (nextProps.username != this.props.username || nextProps.dogname != this.props.dogname) {
+                this.makeWeatherInfo(nextProps);
+            }
+>>>>>>> Stashed changes
         }
     }
 
