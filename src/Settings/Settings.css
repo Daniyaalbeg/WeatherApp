@@ -1,11 +1,17 @@
 .se{
     height: 100%;
     background-color: #FFFAF0;
+    overflow: hidden;
 }
 
 .heading{
     font-size: 10vw;
     padding-top: 7vh;
+}
+@media screen and (min-width: 350px) {
+    .heading{
+        font-size: 36px;
+    }
 }
 
 .loc{
@@ -20,10 +26,22 @@
     margin: auto;
     display: inline-block;
     width: 100%;
+    position: relative;
 }
 .locationTag{
-    font-size: 4.9vw;
+    font-size: 4vw;
     float: left;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@media screen and (min-width: 600px) {
+    .locationTag{
+        font-size: 24px;
+    }
+}
+.locationMessage{
+    font-size: 12px;
 }
 .togg{
     float: right;
@@ -31,8 +49,8 @@
 
 .locationInput{
     height: 10%;
-    padding-top: 2vh;
-    font-size: 10pt;
+    padding-top: 5vh;
+    font-size: 20pt;
     width: 100%;
     max-width:100%;
     margin: auto;
@@ -50,6 +68,12 @@
     transition: padding-top 0.2s ease,
 }
 
+.locationerrormsg{
+    font-size: 10px;
+    color: red;
+    padding-top: 1vh;
+}
+
 .userInfo{
     padding-top: 5vh;
     font-size: 20pt;
@@ -59,15 +83,20 @@
     margin: auto;
 }
 .headingTwo{
-    font-size: 7.5vw;
+    font-size: 7vw;
     padding-bottom: 5vh;
+}
+@media screen and (min-width: 350px) {
+    .headingTwo{
+        font-size: 26px;
+    }
 }
 .userData{
     padding-bottom: 5vh;
 }
 
 .buttonarea{
-    padding-top: 2vh;
+    padding-top: 1vh;
 }
 .saveDataButton{
     background-color: #2196F3;
