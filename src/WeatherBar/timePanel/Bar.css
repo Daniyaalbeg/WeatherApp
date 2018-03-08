@@ -14,6 +14,8 @@
     width:100%;
     font-size: 1.6vh;
     color: white;
+    -webkit-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 1));
+     filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 1));
 }
 
 .barweathergif{
@@ -32,6 +34,8 @@
     bottom: 0;
     color: white;
     font-size: 3.5vh;
+    -webkit-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 1));
+     filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 1));
 }
 
 .fixed{
@@ -40,7 +44,16 @@
     max-width: 125px;
     opacity: 0.6;
     -webkit-filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.5));
-    filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(4px 4px 1px rgba(0, 0, 0, 0.3));
+}
+.overcast{
+    padding-top: 1.5vh;
+
+    animation: MoveUpDown 2s infinite steps(5);
+}
+.cloud{
+    padding-top: 4vh;
+    animation: MoveUpDown 2s infinite steps(5);
 }
 .notfixed{
     width:100%;
@@ -61,7 +74,7 @@
     max-width: 100px;
     opacity: 0.9;
     animation: MoveUpDown 2s infinite steps(5);
-    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+    -webkit-filter: drop-shadow(1px 1px 10px rgba(255, 255, 255, 1));
      filter: drop-shadow(1px 1px 10px rgba(255, 255, 255, 1));
 }
 @keyframes MoveUpDown {

@@ -61,8 +61,8 @@ import Message from './Message/Message.js';
                     classfile="fixedtop";
                     break;
                 case this.checkForWeather("rain"):
-                    weatherGif="https://media.giphy.com/media/K9AnZe1fuZb68/giphy.gif";
-                    classfile="notfixedtop";
+                    weatherGif="https://i.imgur.com/bkKOKNS.gif";
+                    classfile="notfixedtoprain";
                     break;
                 case this.checkForWeather("fog"):
                     weatherGif="https://media.tnh.me/551ac5ba5ccacf1b837ebc21/5523d7cd5ccacf4f41a895f3";

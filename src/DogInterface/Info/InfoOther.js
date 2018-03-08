@@ -10,7 +10,7 @@ import './Info.css';
         // The weather information is passed in a prop which is used to render the data.
         render() {
             let weatherInfo = this.props.weatherInfo;
-            console.log(weatherInfo);
+            //console.log(weatherInfo);
 
             return (
                 <div className="info">

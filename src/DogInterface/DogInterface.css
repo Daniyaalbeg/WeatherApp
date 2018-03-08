@@ -12,6 +12,8 @@
 .weatherinfo{
     height: 30%;
     margin:auto;
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+     filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
 .lowerbody{
@@ -47,6 +49,13 @@
     margin-top: -25vh;
     width: 100vw;
     height: 100vh;
+}
+.notfixedtoprain{
+    margin-top: -25vh;
+    width: 100vw;
+    height: 100vh;
+    /* background-image: url(https://i.imgur.com/bkKOKNS.gif);
+    background-repeat: repeat; */
 }
 .fixedtopmoon{
     width: 40%;
