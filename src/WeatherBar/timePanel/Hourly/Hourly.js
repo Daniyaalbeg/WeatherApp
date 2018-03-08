@@ -16,8 +16,8 @@ class Hourly extends Component {
         }
         // Each bar represents the data for another hourly forecast; all are added
         // to the variable 'rows'.
-        let rows = hourly.map((weatherObj) => {
-            return <Bar time={weatherObj.time} weather={weatherObj.weather} temp={weatherObj.temp}/>;
+        let rows = hourly.map((weatherObj, index) => {
+            return <Bar key={index} time={weatherObj.time} weather={weatherObj.weather} temp={weatherObj.temp}/>;
         });
 
 

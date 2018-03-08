@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {geolocated} from 'react-geolocated';
+import SearchLocation from './SearchLocation.js';
 import './Settings.css';
 
 // For the user settings:
@@ -185,9 +186,9 @@ class Settings extends Component {
                                     <span className="slider round"></span>
                                 </label>
                             </div>
-
                         </div>
                         <div className="locationInput">{this.state.isToggleOn ? this.getMsg() : this.getEle()}</div>
+                        <SearchLocation />
                     </div>
                     <div className="userInfo">
                         <div className="headingTwo"><p>User Info</p></div>
