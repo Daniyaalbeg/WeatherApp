@@ -45,7 +45,7 @@ class Bar extends Component {
         switch(this.props.weather){
             case this.checkForWeather("clear"):
                 if (!isDay) {
-                    weatherGif="https://i.imgur.com/hG7Z9xh.png";
+                    weatherGif="https://i.imgur.com/jHBJMA0.png";
                     classfile="fixedmoon";
                 }
                 break;

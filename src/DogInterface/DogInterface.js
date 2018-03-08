@@ -11,9 +11,6 @@ import Message from './Message/Message.js';
     class DogInterface extends Component {
         constructor(props) {
             super(props);
-            // console.log(this.props.daysimple);
-            // console.log(this.props.weatherInfo);
-
             // The state holds data used to personalise the output, as well as the weather gif;
             this.state = {
                 username: this.props.username,
@@ -92,7 +89,7 @@ import Message from './Message/Message.js';
                   break;
               case this.checkForWeather("clear"):
                   if (!isDay) {
-                      weatherGif="https://i.imgur.com/hG7Z9xh.png";
+                      weatherGif="https://i.imgur.com/jHBJMA0.png";
                   }
                   message="Its a clear "+ (isDay? " day " : " night ") +", ";
                   classfile="fixedtopmoon";

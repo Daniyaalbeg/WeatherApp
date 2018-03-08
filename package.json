@@ -8,6 +8,7 @@
     "react-geolocated": "^2.3.0",
     "react-over-scroll": "^1.1.1",
     "react-scripts": "1.1.1",
+    "react-select": "^1.2.1",
     "react-toggle-button": "^2.2.0",
     "react-toggle-switch": "^3.0.4"
   },

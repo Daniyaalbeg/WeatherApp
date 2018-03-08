@@ -3,17 +3,11 @@ import './DogInterface.css';
 import Info from './Info/InfoOther.js';
 import Message from './Message/Message.js';
 
-    // The dog interface is the main window of the application. It is from in here that
-    // the main window components are rendered. This includes the weather info, the dog
-    // image area where the weather gif is displayed, as well as the comment  about the
-    // current weather.
+    // This dog interface is used to show weather for future days via a vertical swipe.
 
     class DogInterfaceOther extends Component {
         constructor(props) {
             super(props);
-            // console.log(this.props.daysimple);
-            // console.log(this.props.weatherInfo);
-
             // The state holds data used to personalise the output, as well as the weather gif;
             this.state = {
                 username: this.props.username,
@@ -44,8 +38,6 @@ import Message from './Message/Message.js';
             } else {
                 isDay = false;
             }
-            //weatherInfo.weather ="sun";
-            // More weathers need to be added into the switch case.
             // Moon Image: https://i.imgur.com/hG7Z9xh.png
 
             // This switch case is used to display the weather gif animation. The weather is run
@@ -78,7 +70,7 @@ import Message from './Message/Message.js';
                     break;
                 case this.checkForWeather("clear"):
                     if (!isDay) {
-                        weatherGif="https://i.imgur.com/hG7Z9xh.png";
+                        weatherGif="https://i.imgur.com/jHBJMA0.png";
                     }
                     classfile="fixedtopmoon";
                     break;
@@ -102,6 +94,7 @@ import Message from './Message/Message.js';
             }
         }
 
+        //Method to generate custom message to take your dog out or not
         getNameAndUser() {
             var noDog;
             var noUser;

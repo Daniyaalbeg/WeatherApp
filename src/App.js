@@ -42,6 +42,7 @@ class App extends Component {
 
     }
 
+    //Setting state to the varibales that change.
     setSettings(NSettings){
       this.setState({
         Settings: NSettings
@@ -63,6 +64,7 @@ class App extends Component {
         else document.body.classList.add('lateNight');
     }
 
+    //Creates the vertical slider
     componentDidMount(){
         let elem = document.getElementById("App");
         if(elem){
@@ -93,6 +95,7 @@ class App extends Component {
      //console.log(this.props.coords)
      if(this.state.Settings.LocationSet == true){
        //this.props.isGeolocationAvailable && this.props.isGeolocationEnabled)
+       //Render if no city is selected
         if(this.state.Settings.City != null){
           return (
             <div className="App" id="App">
@@ -102,8 +105,8 @@ class App extends Component {
              </div>
            </div>
           );
+          //Render if Auto location is enabled,
         } else if(this.state.Settings.GeoEnabled == true){
-          //console.log(this.state.Settings);
           return (
             <div className="App" id="App">
                 <WeatherData csettings={this.state.Settings} className="weatherData"/>

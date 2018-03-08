@@ -23,13 +23,14 @@ class Settings extends Component {
         this.saveSettings = this.saveSettings.bind(this);
     }
 
+    //Called when save settings button is pressed
     handleClick(){
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
             isChecked: !prevState.isChecked,
         }));
     }
-
+    //Called when Use my location is disabled.
     getEle(){
         return(
             <div className="userData">
@@ -38,7 +39,7 @@ class Settings extends Component {
             </div>
         );
     }
-
+    //Message shown when Use your location is disabled.
     getMsg(){
         return(
             <div className="locationMessage">
