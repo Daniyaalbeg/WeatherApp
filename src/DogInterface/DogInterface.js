@@ -15,6 +15,7 @@ class DogInterface extends Component {
         this.state = {
             username: this.props.username,
             dogname: this.props.dogname,
+            dogbreed: this.props.dogbreed,
             header: "empty",
             message: "empty",
             classfile: null,
@@ -64,7 +65,7 @@ class DogInterface extends Component {
           case this.checkForWeather("sun"):
               weatherGif="https://imgur.com/UXQq6Ft.gif";
               message="The sun is out, ";
-              walkDog = true;
+              //walkDog = true;
               classfile="fixedtopsun";
               break;
           case this.checkForWeather("thunder"):
@@ -80,13 +81,13 @@ class DogInterface extends Component {
           case this.checkForWeather("cloud"):
               weatherGif="https://i.imgur.com/Rpgm1V2.gif";
               message="Its a bit cloudy, ";
-              walkDog = true;
+              //walkDog = true;
               classfile="fixedtop";
               break;
           case this.checkForWeather("overcast"):
               weatherGif="https://i.imgur.com/pqRqfhu.gif";
               message="Its a bit gloomy, ";
-              walkDog = true;
+              //walkDog = true;
               classfile="fixedtop";
               break;
           case this.checkForWeather("rain"):
@@ -108,7 +109,7 @@ class DogInterface extends Component {
                   classfile="fixedtopmoon";
               }else{
                   weatherGif="https://imgur.com/UXQq6Ft.gif";
-                  walkDog= true;
+                  //walkDog= true;
                   classfile="fixedtopsun";
               }
               message="Its a clear "+ (isDay? " day" : " night") +", ";
@@ -124,10 +125,10 @@ class DogInterface extends Component {
       // is concatonated onto the message for the user.
       if (windSpeed < 24) {
           message += " there is a gentle breeze.";
-          walkDog = true;
+          //walkDog = true;
       } else if (windSpeed < 38) {
           message += " there is a strong breeze.";
-          walkDog = true;
+          //walkDog = true;
       } else if (windSpeed < 48) {
           message += " there is a moderate gale.";
           walkDog = false;
@@ -136,9 +137,14 @@ class DogInterface extends Component {
           walkDog = false;
       }
       if (currentTime >= 6 && currentTime < 23) {
-          walkDog = true;
+          //walkDog = true;
       } else {
           walkDog = false;
+      }
+
+      // The current temp should also be taken into account.
+      if(weatherInfo.temp < 0){
+          walkDog=false;
       }
       message += " The high is " + this.props.daysimple.tHigh + ". The low is  " + this.props.daysimple.tLow + ".";
       let header = this.getNameAndUser(walkDog);
