@@ -75,7 +75,7 @@ class DogInterface extends Component {
               classfile="notfixedtoprain";
               break;
           case this.checkForWeather("snow"):
-              weatherGif="https://imgur.com/Nw3NwPU.gif";
+              weatherGif="https://imgur.com/x0HwYjk.gif";
               message="Its snowing, ";
               walkDog = false;
               classfile="notfixedtop";
