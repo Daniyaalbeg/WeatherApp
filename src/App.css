@@ -28,6 +28,22 @@ html{
     text-align: center;
 }
 
+.sideIndicator{
+    z-index: 2;
+    position: absolute;
+    right: 0;
+    top: 30vh;
+    color: white;
+    font-size: 2vh;
+    padding-right: 1em;
+    text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.5);
+}
+
+.sideIndicator:after{
+    content: " ►";
+    text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.5);
+}
+
 .doginterface{
     height: 76vh;
     width: 100vw;

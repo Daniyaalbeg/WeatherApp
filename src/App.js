@@ -83,6 +83,7 @@ class App extends Component {
        //this.props.isGeolocationAvailable && this.props.isGeolocationEnabled)
           return (
             <div className="App" id="App">
+            <div className="sideIndicator">Swipe left for more days</div>
              <WeatherData csettings={this.state.Settings} setSettings={this.setSettings.bind(this)} className="weatherData"/>
              <div className="indicator">▲</div>
              <div className="settings">
