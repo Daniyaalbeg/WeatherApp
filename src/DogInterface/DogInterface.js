@@ -43,8 +43,8 @@ class DogInterface extends Component {
         return hours;
     }
 
-    makeWeatherInfo(CProps){
-      let weatherInfo = CProps.weatherInfo;
+    makeWeatherInfo(){
+      let weatherInfo = this.props.weatherInfo;
       // This is a transparent image, used as a placeholder for the weather gif.
       var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
       let message = "";
@@ -128,18 +128,16 @@ class DogInterface extends Component {
           walkDog = false;
       }
       message += " The high is " + this.props.daysimple.tHigh + ". The low is  " + this.props.daysimple.tLow + ".";
-      let header = this.getNameAndUser(CProps);
-      this.setState({message: message, classfile: classfile, weatherGif: weatherGif, header: header});
+      let header = this.getNameAndUser(this.props);
+      return {message: message, classfile: classfile, weatherGif: weatherGif, header: header};
     }
 
     componentWillMount() {
-      this.makeWeatherInfo(this.props);
+      this.makeWeatherInfo();
     }
 
     componentWillUpdate(nextProps) {
-        if (nextProps.username != this.props.username || nextProps.dogname != this.props.dogname) {
-            this.makeWeatherInfo(nextProps);
-        }
+        this.makeWeatherInfo();
     }
 
     getNameAndUser(CProps) {
@@ -165,15 +163,16 @@ class DogInterface extends Component {
     }
 
     render() {
+        let info = this.makeWeatherInfo();
         return (
             <div className="di">
                 <div className="weatherinfo"><Info weatherInfo={this.props.weatherInfo}/></div>
                 <div className="lowerbody">
                     <div className="weatheranimation">
-                        <img className={this.state.classfile} src={this.state.weatherGif} alt=""/>
+                        <img className={info.classfile} src={info.weatherGif} alt=""/>
                     </div>
                     <div className="weathercontainer">
-                        <div className="weathercomment"><Message id="message" header={this.state.header} message={this.state.message}/></div>
+                        <div className="weathercomment"><Message id="message" header={info.header} message={info.message}/></div>
                     </div>
                 </div>
             </div>
