@@ -67,12 +67,31 @@ class WeatherData extends Component {
     }
 
     componentDidMount(){
+        var intervalId = setInterval(this.UpdateWeatherEveryX.bind(this), 900000); // Weather will be updated every 15 minutes
+        // Store intervalId in the state so it can be accessed later:
+        this.setState({intervalId: intervalId});
         if(!this.props.csettings.GeoEnabled){
           UpdateDay({wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
           UpdateHourly10Day({wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
         } else {
           GeoUpdateWeather({latitude: this.props.csettings.latitude, longitude: this.props.csettings.longitude}, this.callBack.bind(this));
         }
+    }
+
+    componentWillUnmount() {
+    // We are usng intervalId from the state to clear the interval
+    clearInterval(this.state.intervalId);
+    // It will clear it when the app is exited.
+    }
+
+   UpdateWeatherEveryX(){
+    // This method is called to update the weather every time, if the app is still kept open.
+      if(!this.props.csettings.GeoEnabled){
+        UpdateDay({wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
+        UpdateHourly10Day({wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
+      } else {
+        GeoUpdateWeather({latitude: this.props.csettings.latitude, longitude: this.props.csettings.longitude}, this.callBack.bind(this));
+      }
     }
 
     componentWillUpdate(nextProps){
