@@ -79,11 +79,17 @@ class WeatherData extends Component {
       if(!nextProps.csettings.GeoEnabled){
         // Settings Changed
         if(nextProps.csettings.wuname != this.props.csettings.wuname ||	nextProps.csettings.GeoEnabled != this.props.csettings.GeoEnabled){
+          let cstate = this.state;
+          cstate.today.city = 'Updating Weather';
+          this.setState(cstate);
           UpdateDay({wuname: nextProps.csettings.wuname, wuid: nextProps.csettings.wuid}, this.callBack.bind(this));
           UpdateHourly10Day({wuname: nextProps.csettings.wuname, wuid: nextProps.csettings.wuid}, this.callBack.bind(this));
           }
       } else {
         if(nextProps.csettings.latitude != this.props.csettings.latitude && nextProps.csettings.longitude != this.props.csettings.longitude){
+          let cstate = this.state;
+          cstate.today.city = 'Updating Weather';
+          this.setState(cstate);
           GeoUpdateWeather({latitude: nextProps.csettings.latitude, longitude: nextProps.csettings.longitude}, this.callBack.bind(this));
         }
       }
