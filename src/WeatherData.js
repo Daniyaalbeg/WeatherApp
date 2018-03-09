@@ -7,7 +7,6 @@ import Loader from './Loader/Loader.js';
 import HorizontalSnapper from  './lib/HorizontalSnapper.js';
 import './lib/HorizontalSnapper.css';
 
-
 class WeatherData extends Component {
     constructor(props) {
         super(props);
@@ -23,7 +22,8 @@ class WeatherData extends Component {
     changeBackground(){
         var currentTime = this.checkTime();
         this.removeOld();
-        if(currentTime >= 4 && currentTime < 6) document.body.classList.add('morning');
+        console.log(currentTime);
+        if(currentTime >= 5 && currentTime < 6) document.body.classList.add('morning');
         else if (currentTime >= 6 && currentTime <11) document.body.classList.add('lateMorning');
         else if(currentTime >= 11 && currentTime < 16) document.body.classList.add('afternoon');
         else if(currentTime >= 16 && currentTime < 17) document.body.classList.add('lateAfternoon');
@@ -32,6 +32,7 @@ class WeatherData extends Component {
         else if(currentTime >= 19 && currentTime < 22) document.body.classList.add('night');
         else document.body.classList.add('lateNight');
     }
+
     checkTime() {
         let time = this.state.today.time.split(":");
         var hours = 0;
@@ -47,6 +48,7 @@ class WeatherData extends Component {
         //console.log("HOURS: " + hours);
         return hours;
     }
+
     removeOld(){
         document.body.classList.remove('morning');
         document.body.classList.remove('lateMorning');
@@ -57,8 +59,6 @@ class WeatherData extends Component {
         document.body.classList.remove('night');
         document.body.classList.remove('lateNight');
     }
-
-
 
     callBack(data){
         this.setState(data);

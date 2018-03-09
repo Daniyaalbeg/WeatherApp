@@ -52,11 +52,13 @@ class DogInterface extends Component {
       let classfile;
       var isDay = null;
       let currentTime= this.checkTime();
-      if (currentTime > 6 && currentTime < 20) {
+      if (currentTime >= 6 && currentTime < 20) {
           isDay = true;
       } else {
           isDay = false;
       }
+      console.log(isDay);
+      console.log(currentTime);
       // This switch case is used to display the weather gif animation. The weather is run
       // through the switch case so if the weather is present, the correct variables and gif
       // are attatched to the animation when rendered.
@@ -127,7 +129,7 @@ class DogInterface extends Component {
           message += " the wind... God help us all.";
           walkDog = false;
       }
-      if (currentTime > 6 && currentTime < 23) {
+      if (currentTime >= 6 && currentTime < 23) {
           walkDog = true;
       } else {
           walkDog = false;
