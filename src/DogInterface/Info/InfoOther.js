@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import moment from 'moment';
-import 'moment-timezone';
 import './Info.css';
 
     // This info component is for the vertical slide views for future days

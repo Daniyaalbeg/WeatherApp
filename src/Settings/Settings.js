@@ -137,39 +137,6 @@ class Settings extends Component {
 
     }
 
-    getInputHolder(holder){
-        if(holder=="Eg. Tom" || holder=="User name"){
-            if(holder=="Eg. Tom"){
-                if(this.props.csettings.username != null) return this.props.csettings.username;
-                else return "User name";
-            }
-            else if(holder=="User name"){
-                if(this.props.csettings.username != null) return "User name";
-                else return "Eg. Tom";
-            }
-        }
-        else if(holder=="Eg. Lassie" || holder=="Dog name"){
-            if(holder=="Eg. Lassie"){
-                if(this.props.csettings.dogname != null) return this.props.csettings.dogname;
-                else return "Dog name";
-            }
-            else if(holder=="Dog name"){
-                if(this.props.csettings.dogname != null) return "Dog name";
-                else return "Eg. Lassie";
-            }
-        }
-        else if(holder=="Eg. Bulldog" || holder=="Dog breed"){
-            if(holder=="Eg. Bulldog"){
-                if(this.props.csettings.dogbreed != null) return this.props.csettings.dogbreed;
-                else return "Dog type";
-            }
-            else if(holder=="Dog breed"){
-                if(this.props.csettings.dogbreed != null) return "Dog type";
-                else return "Eg. Bulldog"
-            }
-        }
-    }
-
     updateAutoComplete(newWUAuto){
       this.WUAuto = newWUAuto;
     }

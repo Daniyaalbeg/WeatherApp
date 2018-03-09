@@ -84,6 +84,7 @@ class App extends Component {
           return (
             <div className="App" id="App">
              <WeatherData csettings={this.state.Settings} setSettings={this.setSettings.bind(this)} className="weatherData"/>
+             <div className="indicator">▲</div>
              <div className="settings">
                  <Settings csettings={this.state.Settings} setSettings={this.setSettings.bind(this)}/>
              </div>

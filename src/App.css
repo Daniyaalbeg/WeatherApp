@@ -29,7 +29,7 @@ html{
 }
 
 .doginterface{
-    height: 80vh;
+    height: 76vh;
     width: 100vw;
     clear: both;
     margin: auto;
@@ -39,8 +39,13 @@ html{
 .weatherbar{
     height: 20vh;
     width: 100vw;
-    clear:both;
-    margin:auto;
+}
+
+.indicator{
+    height: 4vh;
+    width: 100vw;
+    font-size: 3vh;
+    background-color: #FFFAF0;
 }
 
 .settings{
