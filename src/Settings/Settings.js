@@ -29,8 +29,6 @@ class Settings extends Component {
             isToggleOn: !prevState.isToggleOn,
             isChecked: !prevState.isChecked,
         }));
-
-        console.log(this.props.csettings);
     }
     //Called when Use my location is disabled.
     getEle(){
@@ -101,12 +99,17 @@ class Settings extends Component {
               }
             } else {
               // Geo Location is not Enabled
-              this.state.locationFound=false;
-              console.log("Enable Geo Location");
+              this.locationErrorMessage = 'You have to enable location to use this feature';
+              this.setState({locationFound: false});
+              this.handleClick();
+              return;
+              //console.log("Enable Geo Location");
             }
           } else {
-              this.state.locationFound=false;
-            console.log("Geo Location not possible on device / reset");
+            this.locationErrorMessage = 'GEO Location not possible on device / reset';
+            this.setState({locationFound: false});
+            this.handleClick();
+            return;
           }
         }
 
@@ -114,7 +117,7 @@ class Settings extends Component {
         settings.dogname = document.getElementById("dognamef").value;
         settings.dogbreed = document.getElementById("dogbreedf").value;
 
-        console.log(settings);
+        this.setState({locationFound: true});
         this.props.setSettings(settings);
         //this.forceUpdate();
         document.getElementById("settingForm").reset();
