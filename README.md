@@ -13,6 +13,7 @@ The following software and libraries need to be installed before running the pro
 *	Node.js /w NPM
 *	React-toggle-switch
 *	React-geolocated
+*   React-select
 
 ### Installing
 First let’s install [Node.js](https://nodejs.org/en/) this can be installed form their official website 
@@ -29,6 +30,8 @@ Please go where you have the files for the project and open either terminal if y
 `` npm install React-geolocated``
 
 `` npm install React-toggle-switch``
+
+`` npm install React-select``
 
 After installing the libraries please restart your IDE (Integrated Development Environment) of choice and the project is now ready to be modified to your liking. 
 
