@@ -15,6 +15,7 @@ import './Info.css';
 
             return (
                 <div className="info">
+                    <p id="time">Now</p>
                     <p id="city">{weatherInfo.city}</p>
                     <p id="temp">{weatherInfo.temp}°C</p>
                     <p id="wind">{weatherInfo.wind} mph</p>

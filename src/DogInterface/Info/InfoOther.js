@@ -12,7 +12,25 @@ import './Info.css';
             let weatherInfo = this.props.weatherInfo;
             var date = new Date(0);
             date.setUTCSeconds(weatherInfo.epoch);
-            var dateString = date.getDate() + " / " + date.getMonth();
+            let weekday = date.toLocaleDateString("en-GB",{weekday:'long'});
+            let day = date.getDate().toString();
+            let digit = day.slice(-1);
+            let dayString = day;
+            if(day.length == 2 && day.slice(0,1) != "1"){
+                if(digit == 1){
+                    dayString += "st";
+                }else if(digit == 2){
+                    dayString += "nd";
+                }else if(digit == 3){
+                    dayString += "rd";
+                }else{
+                    dayString += "th";
+                }
+            }else{
+                dayString += "th";
+            }
+            let month = date.toLocaleDateString("en-GB",{month:'long'});
+            var dateString = weekday + ", " + dayString + " " + month;
             return (
                 <div className="info other">
                     <p id="time">{dateString}</p>
