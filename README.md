@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # Weather APP PLACEHOLDER NAME
 Like most outdoor activities, the weather dictates how motivated we are to make the extra effort and walking the dog is no different.
 Unlike other pets, dogs have to be taken for regular walks or their health can decline. 
@@ -68,3 +69,7 @@ TO BE FILLED OUT WHEN THE FINAL VERSION OF APP IS MADE, *__WOOF WOOF__*
 ![Alt text](https://i.imgur.com/mfUULXZ.png "Test Different size TET")
 ![Alt text](https://i.imgur.com/4AYRXtw.png "Test Different size PEN")
     
+=======
+This will be updated shortly !!!
+:D
+>>>>>>> Stashed changes
