@@ -5,14 +5,21 @@ This weather application not only shows the weather but also tells the owner a s
 
 
 ## Table of Contents
-[Getting Started](GUI#getting-started)
-[Prerequisites](GUI#prerequisites)
-[Installing](GUI#installing)
-[Deployment](GUI#deployment)
-[Operation](GUI#operation)
-[Built With](GUI#Built With)
-[Authors](GUI#authors)
-[Screenshot](GUI#screenshot)
+[Getting Started](https://github.research.its.qmul.ac.uk/ec16492/WeatherApp/tree/GUI#getting-started)
+
+[Prerequisites](https://github.research.its.qmul.ac.uk/ec16492/WeatherApp/tree/GUI#prerequisites)
+
+[Installing](https://github.research.its.qmul.ac.uk/ec16492/WeatherApp/tree/GUI#installing)
+
+[Deployment](https://github.research.its.qmul.ac.uk/ec16492/WeatherApp/tree/GUI#deployment)
+
+[Operation](https://github.research.its.qmul.ac.uk/ec16492/WeatherApp/tree/GUI#operation)
+
+[Built With](https://github.research.its.qmul.ac.uk/ec16492/WeatherApp/tree/GUI#getting-started)
+
+[Authors](https://github.research.its.qmul.ac.uk/ec16492/WeatherApp/tree/GUI#authors)
+
+[Screenshot](https://github.research.its.qmul.ac.uk/ec16492/WeatherApp/tree/GUI#screenshot)
 
 
 
