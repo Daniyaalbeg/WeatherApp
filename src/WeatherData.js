@@ -68,7 +68,7 @@ class WeatherData extends Component {
 
     componentDidMount(){
         var intervalID = setInterval(this.UpdateWeatherEveryX.bind(this), 900000); // Weather will be updated every 15 minutes
-        let helperIntervalID = setInterval(this.disableHelperUI.bind(this), 3000); // Weather will be updated every 15 minutes
+        let helperIntervalID = setInterval(this.disableHelperUI.bind(this), 4000); // Remove hint after 4 seconds
         let settings = this.props.csettings;
         settings.showHelper = true;
         this.props.setSettings(settings);
