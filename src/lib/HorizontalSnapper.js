@@ -36,7 +36,6 @@ export default function HorizontalSnapper(element, pageSize = 1, snapTime = 30){
             //Not yet snapping, start
             this.snapping = true;
             this.from = this.element.scrollLeft;
-            //console.log({element : this.element, from: this.from});
             window.requestAnimationFrame(snap.bind(this));
         }
     }
@@ -65,11 +64,9 @@ export default function HorizontalSnapper(element, pageSize = 1, snapTime = 30){
         this.timer = window.setTimeout(snap.bind(this), 100);
     }
 
-    //console.log("Binding listeners");
 
     this.element.addEventListener('scroll', onScroll.bind(this));
     this.element.addEventListener('touchstart', onTouch.bind(this));
     this.element.addEventListener('touchend', onTouchStop.bind(this));
 
-    //console.log("Bound!");
 }
