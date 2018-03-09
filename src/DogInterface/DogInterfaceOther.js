@@ -46,7 +46,7 @@ import Message from './Message/Message.js';
             // are attatched to the animation when rendered.
             switch(weatherInfo.weather){
                 case this.checkForWeather("sun"):
-                    weatherGif="https://i.imgur.com/2P8pMyy.gif";
+                    weatherGif="https://imgur.com/UXQq6Ft.gif";
                     classfile="fixedtopsun";
                     break;
                 case this.checkForWeather("thunder"):
@@ -76,11 +76,14 @@ import Message from './Message/Message.js';
                 case this.checkForWeather("clear"):
                     if (!isDay) {
                         weatherGif="https://imgur.com/k24jlE3.png";
+                        classfile="fixedtopmoon";
+                    }else{
+                        weatherGif="https://imgur.com/UXQq6Ft.gif";
+                        classfile="fixedtopsun";
                     }
-                    classfile="fixedtopmoon";
                     break;
                 default:
-                    weatherGif="https://i.imgur.com/2P8pMyy.gif";
+                    weatherGif="https://imgur.com/UXQq6Ft.gif";
                     classfile="fixedtopsun";
                     break;
             }

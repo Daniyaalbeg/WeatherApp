@@ -47,10 +47,13 @@ class Bar extends Component {
                 if (!isDay) {
                     weatherGif="https://imgur.com/k24jlE3.png";
                     classfile="fixedmoon";
+                }else{
+                    weatherGif="https://imgur.com/UXQq6Ft.gif";
+                    classfile="fixedsun";
                 }
                 break;
             case this.checkForWeather("sun"):
-                weatherGif="https://i.imgur.com/2P8pMyy.gif";
+                weatherGif="https://imgur.com/UXQq6Ft.gif";
                 classfile="fixedsun";
                 break;
             case this.checkForWeather("thunder"):

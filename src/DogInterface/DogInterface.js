@@ -62,7 +62,7 @@ class DogInterface extends Component {
       // are attatched to the animation when rendered.
       switch(weatherInfo.weather){
           case this.checkForWeather("sun"):
-              weatherGif="https://i.imgur.com/2P8pMyy.gif";
+              weatherGif="https://imgur.com/UXQq6Ft.gif";
               message="The sun is out, ";
               walkDog = true;
               classfile="fixedtopsun";
@@ -105,9 +105,13 @@ class DogInterface extends Component {
               if (!isDay) {
                   weatherGif="https://imgur.com/k24jlE3.png";
                   walkDog = false;
+                  classfile="fixedtopmoon";
+              }else{
+                  weatherGif="https://imgur.com/UXQq6Ft.gif";
+                  walkDog= true;
+                  classfile="fixedtopsun";
               }
               message="Its a clear "+ (isDay? " day" : " night") +", ";
-              classfile="fixedtopmoon";
               break;
           default:
               weatherGif="https://i.imgur.com/2P8pMyy.gif";

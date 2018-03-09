@@ -12,7 +12,6 @@
 .weatherinfo{
     height: 30%;
     margin:auto;
-    -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
@@ -42,7 +41,6 @@
     width: 40%;
     padding-top: 5%;
     max-width: 300px;
-    -webkit-filter: drop-shadow(10px 10px 0px rgba(0, 0, 0, 0.4));
     filter: drop-shadow(10px 10px 0px rgba(0, 0, 0, 0.4));
 }
 .notfixedtop{
@@ -59,15 +57,13 @@
     width: 40%;
     padding-top: 5%;
     animation: MoveUpDown 2s infinite steps(5);
-    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
      filter: drop-shadow(1px 1px 10px rgba(255, 255, 255, 1));
  }
 .fixedtopsun{
     width: 40%;
     padding-top: 5%;
     animation: MoveUpDown 2s infinite steps(5);
-    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
-     filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+     filter: drop-shadow(0px 0px 10px rgba(255, 240, 200, 1));
  }
 
   @keyframes MoveUpDown {

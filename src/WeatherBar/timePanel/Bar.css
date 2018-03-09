@@ -34,8 +34,7 @@
     bottom: 0;
     color: white;
     font-size: 2.9vh;
-    -webkit-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 1));
-     filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 1));
+    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 1));
 }
 
 .fixed{
@@ -43,7 +42,6 @@
     width:90%;
     max-width: 125px;
     opacity: 0.6;
-    -webkit-filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.5));
     filter: drop-shadow(4px 4px 1px rgba(0, 0, 0, 0.3));
 }
 .overcast{
@@ -62,10 +60,8 @@
     padding-top: 3vh;
     width:80%;
     max-width: 100px;
-    opacity: 0.6;
     animation: MoveUpDown 2s infinite steps(5);
-    -webkit-filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.5));
-     filter: drop-shadow(8px 8px 0px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0px 0px 10px rgba(255, 240, 200, 1));
 }
 .fixedmoon{
     padding-top: 3vh;
@@ -73,8 +69,7 @@
     max-width: 100px;
     opacity: 0.9;
     animation: MoveUpDown 2s infinite steps(5);
-    -webkit-filter: drop-shadow(1px 1px 10px rgba(255, 255, 255, 1));
-     filter: drop-shadow(1px 1px 10px rgba(255, 255, 255, 1));
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 1));
 }
 @keyframes MoveUpDown {
   0% {
