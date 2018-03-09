@@ -32,7 +32,9 @@ import Message from './Message/Message.js';
             var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
             let classfile;
             var isDay = null;
-            let currentTime = new Date().getHours();
+            var date = new Date(0);
+            date.setUTCSeconds(weatherInfo.epoch);
+            let currentTime = date.getHours();
             if (currentTime >= 6 && currentTime < 20) {
                 isDay = true;
             } else {
