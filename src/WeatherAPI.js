@@ -12,6 +12,7 @@ export function UpdateHourly10Day(sdata, callBack){
             return(
                 {
                   debug: item.FCTTIME.pretty,
+                  dhour: item.FCTTIME.hour,
                   time: item.FCTTIME.civil,
                   weather: item.condition,
                   temp: parseInt(item.temp.metric),
@@ -33,7 +34,7 @@ export function UpdateHourly10Day(sdata, callBack){
             }
 
           } else {
-            if(currentdate.getHours() >= 0 && currentdate.getHours() <= 5){
+            if(weatherdata[0].dhour >= 0 && weatherdata[0].dhour <= 5){
               if(i % 2 == 0){
                 datam[daycount].push(weatherdata[i]);
               }
@@ -94,7 +95,7 @@ export function UpdateDay(sdata, callBack){
   return datam;
 }
 
-export function GeoUpdateWeather(sdata, callBack, settings, settingsCallBack){
+export function GeoUpdateWeather(sdata, callBack){
   var fetchurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/geolookup/q/' + sdata.latitude + ',' + sdata.longitude + '.json';
     fetch(fetchurl)
     .then(results => {
@@ -105,15 +106,9 @@ export function GeoUpdateWeather(sdata, callBack, settings, settingsCallBack){
             wuid: data.location.zip + '.' +  data.location.magic + '.' + data.location.wmo
           };
 
-        if(geodata.wuname != null){
-          UpdateDay(geodata, callBack);
-          UpdateHourly10Day(geodata, callBack);
-          settings.wuname = geodata.wuname;;
-          console.log(settings);
-          //settingsCallBack(settings);
+        UpdateDay(geodata, callBack);
+        UpdateHourly10Day(geodata, callBack);
 
-
-        }
     });
   return true;
 }

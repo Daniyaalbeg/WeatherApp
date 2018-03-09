@@ -29,6 +29,8 @@ class Settings extends Component {
             isToggleOn: !prevState.isToggleOn,
             isChecked: !prevState.isChecked,
         }));
+
+        console.log(this.props.csettings);
     }
     //Called when Use my location is disabled.
     getEle(){
@@ -77,9 +79,6 @@ class Settings extends Component {
                 settings.City = this.WUAuto.wuname;
                 settings.wuname = this.WUAuto.wuname;
                 settings.wuid = this.WUAuto.wuid;
-                //console.log(this.WUAuto);
-                //console.log(this.location);
-                //this.props.setLocationCity(this.location);
 
             if(this.location === "") {
               settings.LocationSet = false;

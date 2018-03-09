@@ -72,20 +72,20 @@ class WeatherData extends Component {
           UpdateDay({wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
           UpdateHourly10Day({wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
         } else {
-          GeoUpdateWeather({latitude: this.props.csettings.latitude, longitude: this.props.csettings.longitude}, this.callBack.bind(this), this.props.csettings, this.props.setSettings);
+          GeoUpdateWeather({latitude: this.props.csettings.latitude, longitude: this.props.csettings.longitude}, this.callBack.bind(this));
         }
     }
 
     componentWillUpdate(nextProps){
       if(!nextProps.csettings.GeoEnabled){
         // Settings Changed
-        if(nextProps.csettings.wuname != this.props.csettings.wuname){
+        if(nextProps.csettings.wuname != this.props.csettings.wuname ||	nextProps.csettings.GeoEnabled != this.props.csettings.GeoEnabled){
           UpdateDay({wuname: nextProps.csettings.wuname, wuid: nextProps.csettings.wuid}, this.callBack.bind(this));
           UpdateHourly10Day({wuname: nextProps.csettings.wuname, wuid: nextProps.csettings.wuid}, this.callBack.bind(this));
           }
       } else {
         if(nextProps.csettings.latitude != this.props.csettings.latitude && nextProps.csettings.longitude != this.props.csettings.longitude){
-          GeoUpdateWeather({latitude: nextProps.csettings.latitude, longitude: nextProps.csettings.longitude}, this.callBack.bind(this), this.props.csettings, this.props.setSettings);
+          GeoUpdateWeather({latitude: nextProps.csettings.latitude, longitude: nextProps.csettings.longitude}, this.callBack.bind(this));
         }
       }
     }
