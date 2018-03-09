@@ -32,11 +32,17 @@ class Settings extends Component {
     }
     //Called when Use my location is disabled.
     getEle(){
+        let WUNameTemp;
+        if(this.props.csettings.LocationSet){
+            WUNameTemp = this.props.csettings.wuname;
+        } else {
+            WUNameTemp = 'Enter a location';
+        }
         return(
             <div className="ele">
                 <div className="locationerrormsg">{this.state.locationFound ? "" : this.locationErrorMessage}</div>
                 <div className="userData">
-                    <SearchLocation WUName={this.props.csettings.wuname} updateDetails={this.updateAutoComplete.bind(this)} />
+                    <SearchLocation WUName={WUNameTemp} updateDetails={this.updateAutoComplete.bind(this)} />
                 </div>
             </div>
         );
@@ -165,10 +171,7 @@ class Settings extends Component {
     }
 
     updateAutoComplete(newWUAuto){
-      console.log(newWUAuto);
       this.WUAuto = newWUAuto;
-      console.log(this.WUAuto);
-      //this.WUAuto = {City: this.props.csettings.City, wuid: this.props.csettings.wuid};
     }
 
     componentDidUpdate(){
