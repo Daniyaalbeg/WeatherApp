@@ -18,8 +18,7 @@ class DogInterface extends Component {
             header: "empty",
             message: "empty",
             classfile: null,
-            weatherGif: "",
-            walkDog: true
+            weatherGif: ""
         };
     }
 
@@ -48,7 +47,7 @@ class DogInterface extends Component {
       // This is a transparent image, used as a placeholder for the weather gif.
       var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
       let message = "";
-      var walkDog = this.state.walkDog;
+      var walkDog = true;
       let windSpeed = weatherInfo.wind;
       let classfile;
       var isDay = null;
@@ -101,6 +100,7 @@ class DogInterface extends Component {
           case this.checkForWeather("clear"):
               if (!isDay) {
                   weatherGif="https://imgur.com/k24jlE3.png";
+                  walkDog = false;
               }
               message="Its a clear "+ (isDay? " day " : " night") +", ";
               classfile="fixedtopmoon";
@@ -127,8 +127,13 @@ class DogInterface extends Component {
           message += " the wind... God help us all.";
           walkDog = false;
       }
+      if (currentTime > 6 && currentTime < 23) {
+          walkDog = true;
+      } else {
+          walkDog = false;
+      }
       message += " The high is " + this.props.daysimple.tHigh + ". The low is  " + this.props.daysimple.tLow + ".";
-      let header = this.getNameAndUser(this.props);
+      let header = this.getNameAndUser(walkDog);
       return {message: message, classfile: classfile, weatherGif: weatherGif, header: header};
     }
 
@@ -140,7 +145,7 @@ class DogInterface extends Component {
         this.makeWeatherInfo();
     }
 
-    getNameAndUser() {
+    getNameAndUser(walkDog) {
         var noDog;
         var noUser;
         var header;
@@ -158,7 +163,7 @@ class DogInterface extends Component {
             noUser = false;
             username = this.props.username.substring(0,1).toUpperCase() + this.props.username.substring(1);
         }
-        header = (noUser ? "It is " : username + " it is ") + (this.state.walkDog? "" : " not ") + "a good time to walk "+ (noDog ? "your dog." : dogname+".");
+        header = (noUser ? "It is " : username + " it is ") + (walkDog? "" : " not ") + "a good time to walk "+ (noDog ? "your dog." : dogname+".");
         return header;
     }
 
