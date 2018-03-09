@@ -68,7 +68,10 @@ class WeatherData extends Component {
 
     componentDidMount(){
         var intervalID = setInterval(this.UpdateWeatherEveryX.bind(this), 900000); // Weather will be updated every 15 minutes
-        let helperIntervalID = setInterval(this.disableHelperUI.bind(this), 900000); // Weather will be updated every 15 minutes
+        let helperIntervalID = setInterval(this.disableHelperUI.bind(this), 3000); // Weather will be updated every 15 minutes
+        let settings = this.props.csettings;
+        settings.showHelper = true;
+        this.props.setSettings(settings);
         // Store intervalId in the state so it can be accessed later:
         this.setState({intervalID: intervalID});
         this.setState({helperIntervalID: helperIntervalID});
@@ -84,8 +87,9 @@ class WeatherData extends Component {
     disableHelperUI(){
       let settings = this.props.csettings;
       settings.showHelper = false;
-      clearInterval(this.state.helperIntervalID);
       this.props.setSettings(settings);
+      clearInterval(this.state.helperIntervalID);
+
     }
 
     // Displays the helper GUI if its enabled
@@ -179,7 +183,7 @@ class WeatherData extends Component {
             ///console.log('Today', this.state.daysimple);
             return (
               <div id="dayScroller" className="horizontalSnapper">
-              <div className="sideIndicator">Swipe left for more days</div>
+              {this.returnHelperOverlay()}
                 <div className="day">
                   <div className="doginterface" >
                     <DogInterface weatherInfo={this.state.today} dogname={this.props.csettings.dogname} username={this.props.csettings.username} daysimple={this.state.daysimple[this.state.viewday]}/>

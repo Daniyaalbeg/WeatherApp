@@ -17,7 +17,7 @@ class App extends Component {
             AppName: 'DogWeather',
             Settings: {
               City: null,
-              showHelper: false,
+              showHelper: true,
               LocationSet: false,
               GeoEnabled: false,
               isToggleOn: false,
