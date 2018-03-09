@@ -111,15 +111,9 @@ class Settings extends Component {
           }
         }
 
-        if(document.getElementById("usernamef").value){
-            settings.username = document.getElementById("usernamef").value;
-        }
-        if(document.getElementById("dognamef").value){
-            settings.dogname = document.getElementById("dognamef").value;
-        }
-        if(document.getElementById("dogbreedf").value){
-            settings.dogbreed = document.getElementById("dogbreedf").value;
-        }
+        settings.username = document.getElementById("usernamef").value;
+        settings.dogname = document.getElementById("dognamef").value;
+        settings.dogbreed = document.getElementById("dogbreedf").value;
 
         console.log(settings);
         this.props.setSettings(settings);
@@ -173,53 +167,58 @@ class Settings extends Component {
       //this.WUAuto = {City: this.props.csettings.City, wuid: this.props.csettings.wuid};
     }
 
+    componentDidUpdate(){
+        let username = document.getElementById("usernamef");
+        if(username){
+            if(this.props.csettings.username){
+                username.value = this.props.csettings.username;
+            }
+        }
+        let dogname = document.getElementById("dognamef");
+        if(dogname){
+            if(this.props.csettings.dogname){
+                dogname.value = this.props.csettings.dogname;
+            }
+        }
+        let dogbreed = document.getElementById("dogbreedf");
+        if(dogbreed){
+            if(this.props.csettings.dogbreed){
+                dogbreed.value = this.props.csettings.dogbreed;
+            }
+        }
+    }
 
     render() {
         return (
-            <div className="se">
-                <div className="heading"><p id="title">Settings</p></div>
+            <div class="se">
+                <div class="heading">Settings</div>
                 <form id="settingForm">
-                    <div className="loc">
-                        <div className="location">
-                            <div className="locationTag"><p>Use my location</p></div>
-                            <div className="togg">
-                                <label className="switch">
-                                    <input id="locationSwitch" type="checkbox" onClick={this.handleClick} checked={this.state.isChecked}/>
-                                    <span className="slider round"></span>
-                                </label>
-                            </div>
+                    <div class="location">
+                        <div class="toggle">
+                            <input name="test" id="locationSwitch" type="checkbox" onClick={this.handleClick} checked={this.state.isChecked}/>
+                            <label for="locationSwitch">
+                                Use my location
+                                <span></span>
+                            </label>
                         </div>
-                        <div className="locationInput">{this.state.isToggleOn ? this.getMsg() : this.getEle()}</div>
                     </div>
-                    <div className="userInfo">
-                        <div className="headingTwo"><p>User Info</p></div>
-                        <div className="userData">
-                            <label className="field lablestyle">
-                                <input id="usernamef" className="field__input" placeholder={this.getInputHolder("User name")}/>
-                                <span className="field__label-wrap">
-                                    <span className="field__label">{this.getInputHolder("Eg. Tom")}</span>
-                                </span>
-                            </label>
+                    <div class="paragraph">{this.state.isToggleOn ? this.getMsg() : this.getEle()}</div>
+                    <div class="userInfo">
+                        <div class="headingTwo">User Info</div>
+                        <div class="userData">
+                            <input id="usernamef" placeholder="E.g. Tom" required/>
+                            <label for="usernamef">User name</label>
                         </div>
-                        <div className="userData">
-                            <label className="field lablestyle">
-                                <input id="dognamef" className="field__input" placeholder={this.getInputHolder("Dog name")}/>
-                                <span className="field__label-wrap">
-                                    <span className="field__label">{this.getInputHolder("Eg. Lassie")}</span>
-                                </span>
-                            </label>
+                        <div class="userData">
+                            <input id="dognamef" placeholder="E.g. Lassie" required/>
+                            <label for="dognamef">Dog name</label>
                         </div>
-                        <div className="userData">
-                            <label className="field lablestyle">
-                                <input id="dogbreedf" className="field__input" placeholder={this.getInputHolder("Dog breed")}/>
-                                <span className="field__label-wrap">
-                                    <span className="field__label">{this.getInputHolder("Eg. Bulldog")}</span>
-                                </span>
-                            </label>
+                        <div class="userData">
+                            <input id="dogbreedf" placeholder="E.g. Bulldog" required/>
+                            <label for="dogbreedf">Dog breed</label>
                         </div>
-                        <div className="buttonarea">
-                            <button className="saveDataButton" type="button" onClick={this.saveSettings}>Save Settings</button>
-                            <div className="saveMessage"><p id="saq"></p></div>
+                        <div class="centeredButton">
+                            <button type="button" onClick={this.saveSettings}>Save Settings</button>
                         </div>
                     </div>
                 </form>

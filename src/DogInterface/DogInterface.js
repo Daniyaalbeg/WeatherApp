@@ -156,13 +156,13 @@ class DogInterface extends Component {
         var dogname;
         var username;
         var cityName = this.props.weatherInfo.city.split(",")[1];
-        if (this.props.dogname == null) {
+        if (!this.props.dogname) {
             noDog = true;
         } else {
             noDog = false;
             dogname = this.props.dogname.substring(0,1).toUpperCase() + this.props.dogname.substring(1);
         }
-        if (this.props.username == null) {
+        if (!this.props.username) {
             noUser = true;
         } else {
             noUser = false;
@@ -170,7 +170,7 @@ class DogInterface extends Component {
         } if(cityName == " North Korea"){
             header = "It is always a good time to walk "+ (noDog ? "your dog" : dogname ) +" in Glorious Korea!";
         } else {
-            header = (noUser ? "It is " : username + " it is ") + (walkDog ? "" : " not ") + "a good time to walk " + (noDog ? "your dog." : dogname + ".");
+            header = (noUser ? "It is " : "Hi " + username + ", it's ") + (walkDog ? "" : " not ") + "a good time to walk " + (noDog ? "your dog" : dogname) + " right now.";
         }
         return header;
     }

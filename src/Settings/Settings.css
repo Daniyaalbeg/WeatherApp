@@ -2,269 +2,120 @@
     height: 100%;
     background-color: #FFFAF0;
     overflow: hidden;
+    font-size: 5vw;
+    padding: 5vh;
+    box-sizing: border-box;
+    text-align: left;
 }
-
 .heading{
-    font-size: 10vw;
-    padding-top: 7vh;
+    font-size: 2em;
+    text-align: center;
 }
-@media screen and (min-width: 350px) {
-    .heading{
-        font-size: 36px;
-    }
-}
-
-.loc{
-    width: 75%;
-    max-width: 450px;
-    padding-top: 7vh;
-    min-width: 200px;
-    margin: auto;
-}
-
 .location{
-    margin: auto;
-    display: inline-block;
-    width: 100%;
-    position: relative;
-}
-.locationTag{
-    font-size: 4vw;
+    padding-top: 5vh;
     float: left;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 100%;
 }
-@media screen and (min-width: 600px) {
-    .locationTag{
-        font-size: 24px;
-    }
+.toggle > label{
+    float: left;
+    width: 100%;
 }
-.locationMessage{
-    font-size: 12px;
+.toggle > input{
+    display: none;
 }
-.togg{
+.toggle span{
+    display: inline-block;
+    width: 2.5em;
+    height: 1em;
+    background: #ccc;
     float: right;
+    border-radius: 1em;
+    padding: 0.2em;
+    margin-top: -0.2em;
+    position: relative;
+    transition: all 0.2s;
+    box-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,0.5);
 }
-
-.locationInput{
-    height: 10%;
-    padding-top: 5vh;
-    font-size: 20pt;
-    width: 100%;
-    max-width:100%;
+.toggle span::before{
+    content: "";
+    display: block;
+    width: 1em;
+    height: 1em;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 0.2em;
+    transition: all 0.2s;
+}
+.toggle input:checked ~ * span{
+    background: #3388ff
+}
+.toggle input:checked ~ * span::before{
+    left: 1.7em;
+}
+.paragraph{
+    font-size: 0.7em;
+    padding-top: 12vh;
     margin: auto;
 }
-.locationBox{
-    width: 100%;
-    height: 4vh;
-    font-size: 14pt;
-    background-color: inherit;
-    border-bottom: 1px solid black;
-}
-.locationBox:focus{
-    border-bottom: 2px solid #2196F3;
-    outline: 0;
-    transition: padding-top 0.2s ease,
+.paragraph > .userData{
+    margin: 0;
 }
 
-.locationerrormsg{
-    font-size: 10px;
-    color: red;
-    padding-top: 1vh;
-}
-
-.userInfo{
-    padding-top: 5vh;
-    font-size: 20pt;
-    width: 71%;
-    max-width: 450px;
-    min-width: 200px;
-    margin: auto;
-}
 .headingTwo{
-    font-size: 7vw;
-    padding-bottom: 5vh;
-}
-@media screen and (min-width: 350px) {
-    .headingTwo{
-        font-size: 26px;
-    }
+    padding-top: 10vh;
+    text-align: center;
 }
 .userData{
-    padding-bottom: 5vh;
-}
-
-.buttonarea{
-    padding-top: 1vh;
-}
-.saveDataButton{
-    background-color: #2196F3;
-    color: white;
-    padding: 10px;
-    border-radius: 3px;
-    box-shadow: 2px 2px 5px grey;
-}
-.saveDataButton:active{
-    background-color: #4ba9f4;
-}
-
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 52px;
-  height: 30px;
-  border: 0px;
-}
-.switch input {display:none;}
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-input:checked + .slider {
-  background-color: #2196F3;
-}
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-input:checked + .slider:before {
-    -webkit-transform: translateX(22px);
-    -ms-transform: translateX(22px);
-    transform: translateX(22px);
-}
-.slider.round {
-    border-radius: 34px;
-    box-shadow: 2px 2px 5px grey;
-}
-.slider.round:before {
-    border-radius: 50%;
-}
-
-.field{
-    --uiFieldPaddingTop: var(--fieldPaddingTop, 0px);
-    --uiFieldPaddingRight: var(--fieldPaddingRight, 0px);
-    --uiFieldPaddingBottom: var(--fieldPaddingBottom, 0px);
-    --uiFieldPaddingLeft: var(--fieldPaddingLeft, 0px);
-
-    --uiFieldBorderColor: var(--fieldBorderColor, transpatent);
-    --uiFieldBorderTop: var(--fieldBorderTop, 0px);
-    --uiFieldBorderRight: var(--fieldBorderRight, 0px);
-    --uiFieldBorderBottom: var(--fieldBorderBottom, 0px);
-    --uiFieldBorderLeft: var(--fieldBorderLeft, 0px);
-
-    --uiFieldBgColor: var(--fieldBgColor, transpatent);
-    --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #767676);
-    --uiFieldAnimationDuration: var(--fieldAnimationDuration, .3s);
-    --uiFieldFonstSize: var(--fieldFontSize, 20px);
     position: relative;
-    display: block;
+    margin-top: 5vh;
+    height: 1.2em;
 }
-
-.field__input{
+.userData > input{
+    font-size: inherit;
     width: 100%;
-    box-sizing: border-box;
-    background-color: #FFFAF0;
-    /* for iOS */
-    appearance: none;
-    border-radius: 0;
-    border-style: solid;
-    border-bottom-width: 2px;
-
-    padding-top: var(--uiFieldPaddingTop);
-    padding-right: var(--uiFieldPaddingRight);
-    padding-bottom: var(--uiFieldPaddingBottom);
-    padding-left: var(--uiFieldPaddingLeft);
-
-    font-family: inherit;
-    font-size: 100%;
-    color: inherit;
+    background: none;
+    border-bottom: 0.1em solid black;
+    padding: 0.2em;
 }
-.field__input::-webkit-input-placeholder{
-    color: var(--uiFieldPlaceholderColor);
+.userData input::placeholder{
+    transition: all 0.2s;
     opacity: 0;
 }
-
-.field__input:focus{
-    outline: none;
-    border-color: #0f74c4;
-}
-.field__input:focus::-webkit-input-placeholder{
-    transition: opacity var(--uiFieldAnimationDuration) ease-out var(--uiFieldAnimationDuration);
+.userData input:focus::placeholder{
     opacity: 1;
 }
-.field__input:focus::-moz-placeholder{
-    transition: opacity var(--uiFieldAnimationDuration) ease-out var(--uiFieldAnimationDuration);
-    opacity: 1;
-}
-
-.field__label-wrap{
-    height: 100%;
-    display: block;
-}
-
-.field__label{
+.userData label{
     position: absolute;
-    top: calc(0px + var(--uiFieldPaddingTop) + var(--uiFieldBorderTop));
-    left: calc(0px + var(--uiFieldPaddingLeft) + var(--uiFieldBorderLeft));
+    bottom: 0%;
+    width: 100%;
+    padding: 0.2em;
+    transition: all 0.2s;
     color: grey;
-    pointer-events: none;
-    font-size: .9em;
-
-    transition: top var(--uiFieldAnimationDuration) cubic-bezier(0.9,-0.15, 0.1, 1.15), opacity var(--uiFieldAnimationDuration) ease-out;
-    will-change: top, opacity;
 }
-
-.field__input:not(:placeholder-shown) ~ .field__label-wrap .field__label{
-    opacity: 0;
-    top: calc(0px + var(--uiFieldPaddingTop) + var(--uiFieldBorderTop));
+.userData input:focus ~ label{
+    bottom: 100%;
+    font-size: 0.75em;
+    color: #3388ff;
 }
-
-.field__input:focus ~ .field__label-wrap .field__label{
-    color: #2196F3;
-    opacity: 1;
-    top: calc(-1 * calc(var(--uiFieldPaddingTop) + var(--uiFieldBorderTop) + 15px));
+.userData input:valid ~ label{
+    bottom: 100%;
+    font-size: 0.75em;
+    color: #3388ff;
 }
-
-.lablestyle{
-    --uiFieldBorderBottom: var(--fieldBorderBottom, 20px);
-    --uiFieldPaddingTop: var(--fieldPaddingTop, 8px);
-    --uiFieldPaddingRight: var(--fieldPaddingRight, 15px);
-    --uiFieldPaddingBottom: var(--fieldPaddingBottom, 4px);
-    --uiFieldPaddingLeft: var(--fieldPaddingLeft, 3px);
-}
-
-.lablestyle .field__label-wrap:after{
-    content: "";
-    width: 0;
-    height: var(--uiFieldBorderBottom);
-
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    will-change: width;
-    transition: width var(--uiFieldAnimationDuration) ease-out;
-}
-
-.lablestyle .field__input:focus ~ .field__label-wrap:after{
+.centeredButton{
+    margin-top: 5vh;
     width: 100%;
+    text-align: center;
+}
+button{
+    font-size: 0.8em;
+    padding: 1em;
+    border-radius: 0.5em;
+    background: #3388ff;
+    color: white;
+    box-shadow: 0.1em 0.1em 0.5em rgba(0,0,0,0.5);
+}
+button:active{
+    background: #55aaff;
 }
