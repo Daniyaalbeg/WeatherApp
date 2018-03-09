@@ -108,9 +108,9 @@ export function GeoUpdateWeather(sdata, callBack, settings, settingsCallBack){
         if(geodata.wuname != null){
           UpdateDay(geodata, callBack);
           UpdateHourly10Day(geodata, callBack);
-          settings.wuname = geodata.wuname;
+          settings.wuname = geodata.wuname;;
           console.log(settings);
-          settingsCallBack(settings);
+          //settingsCallBack(settings);
 
 
         }
