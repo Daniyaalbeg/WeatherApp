@@ -62,7 +62,9 @@ After installing the libraries please restart your IDE (Integrated Development E
 
 ## Operation
 
-TO BE FILLED OUT WHEN THE FINAL VERSION OF APP IS MADE, *__WOOF WOOF__*
+When you first start the app you're placed in the setting Screen promoting you to set your location. 
+In the following menu you also Have a choice to set your Name, Dogs Name and breed. 
+
 
 ## Built With
 

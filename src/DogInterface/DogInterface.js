@@ -106,7 +106,7 @@ class DogInterface extends Component {
                   weatherGif="https://imgur.com/k24jlE3.png";
                   walkDog = false;
               }
-              message="Its a clear "+ (isDay? " day " : " night") +", ";
+              message="Its a clear "+ (isDay? " day" : " night") +", ";
               classfile="fixedtopmoon";
               break;
           default:
@@ -155,6 +155,7 @@ class DogInterface extends Component {
         var header;
         var dogname;
         var username;
+        var cityName = this.props.weatherInfo.city.split(",")[1];
         if (this.props.dogname == null) {
             noDog = true;
         } else {
@@ -166,8 +167,11 @@ class DogInterface extends Component {
         } else {
             noUser = false;
             username = this.props.username.substring(0,1).toUpperCase() + this.props.username.substring(1);
+        } if(cityName == " North Korea"){
+            header = "It is always a good time to walk "+ (noDog ? "your dog" : dogname ) +" in Glorious Korea!";
+        } else {
+            header = (noUser ? "It is " : username + " it is ") + (walkDog ? "" : " not ") + "a good time to walk " + (noDog ? "your dog." : dogname + ".");
         }
-        header = (noUser ? "It is " : username + " it is ") + (walkDog? "" : " not ") + "a good time to walk "+ (noDog ? "your dog." : dogname+".");
         return header;
     }
 
