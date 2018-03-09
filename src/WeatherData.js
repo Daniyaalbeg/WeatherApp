@@ -67,9 +67,11 @@ class WeatherData extends Component {
     }
 
     componentDidMount(){
-        var intervalId = setInterval(this.UpdateWeatherEveryX.bind(this), 900000); // Weather will be updated every 15 minutes
+        var intervalID = setInterval(this.UpdateWeatherEveryX.bind(this), 900000); // Weather will be updated every 15 minutes
+        let helperIntervalID = setInterval(this.disableHelperUI.bind(this), 900000); // Weather will be updated every 15 minutes
         // Store intervalId in the state so it can be accessed later:
-        this.setState({intervalId: intervalId});
+        this.setState({intervalID: intervalID});
+        this.setState({helperIntervalID: helperIntervalID});
         if(!this.props.csettings.GeoEnabled){
           UpdateDay({wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
           UpdateHourly10Day({wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
@@ -78,9 +80,25 @@ class WeatherData extends Component {
         }
     }
 
+    // Will disable the UI from displaying
+    disableHelperUI(){
+      let settings = this.props.csettings;
+      settings.showHelper = false;
+      clearInterval(this.state.helperIntervalID);
+      this.props.setSettings(settings);
+    }
+
+    // Displays the helper GUI if its enabled
+    returnHelperOverlay(){
+      if(this.props.csettings.showHelper){
+        return (<div className="sideIndicator">Swipe left for more days</div>);
+      }
+    }
+
     componentWillUnmount() {
     // We are usng intervalId from the state to clear the interval
-    clearInterval(this.state.intervalId);
+    clearInterval(this.state.intervalID);
+    clearInterval(this.state.helperIntervalID);
     // It will clear it when the app is exited.
     }
 
@@ -139,6 +157,7 @@ class WeatherData extends Component {
             daysElems = days.map((day, i)=>{
                 return (
                     <div className="otherDay">
+                      {this.returnHelperOverlay()}
                       <div className="doginterface" >
                         <DogInterfaceOther dogname={this.props.csettings.dogname} username={this.props.csettings.username} daysimple={day}/>
                       </div>

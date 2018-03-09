@@ -17,6 +17,7 @@ class App extends Component {
             AppName: 'DogWeather',
             Settings: {
               City: null,
+              showHelper: false,
               LocationSet: false,
               GeoEnabled: false,
               isToggleOn: false,
@@ -52,6 +53,7 @@ class App extends Component {
 
     //Creates the vertical slider
     componentDidMount(){
+      //this.setState({helperIntervalID: helperIntervalID});
         let elem = document.getElementById("App");
         if(elem){
             if(!this.snapper){
