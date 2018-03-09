@@ -65,8 +65,6 @@ class WeatherData extends Component {
         this.setState(prevState => {
           return {updates: prevState.updates + 1}
         });
-        //console.log(this.state.updates);
-        //console.log(data);
     }
 
     componentDidMount(){
@@ -82,7 +80,6 @@ class WeatherData extends Component {
       if(nextProps.csettings.City){
         // Settings Changed
         if(nextProps.csettings.wuname != this.props.csettings.wuname){
-          //this.setState({updates: 0});
           UpdateDay({wuname: nextProps.csettings.wuname, wuid: nextProps.csettings.wuid}, this.callBack.bind(this));
           UpdateHourly10Day({wuname: nextProps.csettings.wuname, wuid: nextProps.csettings.wuid}, this.callBack.bind(this));
           }
@@ -103,24 +100,20 @@ class WeatherData extends Component {
     }
 
     render(){
-        // console.log(this.state);
         let days = [];
         if(this.state.daysimple.length > 7){
             days = this.state.daysimple.slice(1,7);
-            // console.log(days);
         }
 
         let daysHourly = [];
         if(this.state.hourly.length > 7){
             daysHourly = this.state.hourly.slice(1,7);
-            // console.log(daysHourly);
         }
 
         let daysElems = [];
         if(days.length > 0){
             console.log(days);
             daysElems = days.map((day, i)=>{
-                //console.log({day, i});
                 return (
                     <div className="otherDay">
                       <div className="doginterface" >
@@ -137,7 +130,6 @@ class WeatherData extends Component {
         var element = document.getElementById("data");
         if(element){
             var percentage = Math.round(Math.max(0,Math.min(1,-element.getBoundingClientRect().top/(element.clientHeight/2)))*100);
-            // console.log(Math.round(percentage));
         }
 
         if(this.state.updates > 1 && this.state.today.length != 0){
