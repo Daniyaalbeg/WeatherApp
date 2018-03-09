@@ -1,6 +1,7 @@
 .horizontalSnapper{
     white-space: nowrap;
     overflow-y: hidden;
+    position: relative;
 }
 
 .horizontalSnapper > div{

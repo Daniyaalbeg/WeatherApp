@@ -37,11 +37,24 @@ html{
     font-size: 2vh;
     padding-right: 1em;
     text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.5);
+    animation: sideways 1s infinite steps(5);
 }
 
 .sideIndicator:after{
     content: " ►";
     text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.5);
+}
+
+@keyframes sideways {
+    0%{
+        transform: translateX(0em);
+    }
+    50%{
+        transform: translateX(-0.2em);
+    }
+    100%{
+        transform: translate(0em);
+    }
 }
 
 .doginterface{
@@ -62,6 +75,22 @@ html{
     width: 100vw;
     font-size: 3vh;
     background-color: #FFFAF0;
+}
+
+.indicator span{
+    animation: upDown 2s infinite steps(5);
+}
+
+@keyframes upDown {
+    0%{
+        margin-top: 0em;
+    }
+    50%{
+        margin-top: -0.1em;
+    }
+    100%{
+        margin-top: 0em;
+    }
 }
 
 .settings{

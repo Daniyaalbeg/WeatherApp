@@ -160,6 +160,7 @@ class WeatherData extends Component {
             ///console.log('Today', this.state.daysimple);
             return (
               <div id="dayScroller" className="horizontalSnapper">
+              <div className="sideIndicator">Swipe left for more days</div>
                 <div className="day">
                   <div className="doginterface" >
                     <DogInterface weatherInfo={this.state.today} dogname={this.props.csettings.dogname} username={this.props.csettings.username} daysimple={this.state.daysimple[this.state.viewday]}/>
