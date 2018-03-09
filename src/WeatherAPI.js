@@ -33,7 +33,6 @@ export function UpdateHourly10Day(sdata, callBack){
             }
 
           } else {
-            //console.log(currentdate.getHours());
             if(currentdate.getHours() >= 0 && currentdate.getHours() <= 5){
               if(i % 2 == 0){
                 datam[daycount].push(weatherdata[i]);
@@ -51,9 +50,20 @@ export function UpdateHourly10Day(sdata, callBack){
         }
 
         let today = datam[0].splice(0,1)[0];
-        //console.log(data);
         today.city = sdata.wuname;
-        today.pol = 'High';
+        if(today.temp <= 10){
+            today.pol = 'None';
+        } else if (today.temp > 10 && today.temp <= 15){
+            today.pol = 'Low';
+        } else if (today.temp > 15 && today.temp < 20){
+            today.pol = 'Moderate';
+        } else if (today.temp >= 20 && today.temp < 30){
+            today.pol = 'High';
+        } else if (today.temp <=30 && today.temp < 35){
+            today.pol = 'Moderate';
+        } else if (today.pol > 40){
+            today.pol = 'Low';
+        }
         callBack({today: today, hourly : datam});
     });
   return true;
@@ -85,7 +95,6 @@ export function UpdateDay(sdata, callBack){
 }
 
 export function GeoUpdateWeather(sdata, callBack){
-  var datam = {};
   var fetchurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/geolookup/q/' + sdata.latitude + ',' + sdata.longitude + '.json';
     fetch(fetchurl)
     .then(results => {
