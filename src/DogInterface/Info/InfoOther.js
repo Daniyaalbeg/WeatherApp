@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+import 'moment-timezone';
 import './Info.css';
 
     // This info component is for the vertical slide views for future days
@@ -10,10 +12,8 @@ import './Info.css';
         // The weather information is passed in a prop which is used to render the data.
         render() {
             let weatherInfo = this.props.weatherInfo;
-            var date = new Date(0);
-            date.setUTCSeconds(weatherInfo.epoch);
-            let weekday = date.toLocaleDateString("en-GB",{weekday:'long'});
-            let day = date.getDate().toString();
+            let weekday = this.props.weatherInfo.weekday;
+            let day = this.props.weatherInfo.day.toString();
             let digit = day.slice(-1);
             let dayString = day;
             if(day.length == 2 && day.slice(0,1) != "1"){
@@ -29,7 +29,7 @@ import './Info.css';
             }else{
                 dayString += "th";
             }
-            let month = date.toLocaleDateString("en-GB",{month:'long'});
+            let month = this.props.weatherInfo.month;
             var dateString = weekday + ", " + dayString + " " + month;
             return (
                 <div className="info other">

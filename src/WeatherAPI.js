@@ -72,6 +72,7 @@ export function UpdateHourly10Day(sdata, callBack){
 
 export function UpdateDay(sdata, callBack){
   let dataurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/forecast10day/q/zmw:'+sdata.wuid+'.json';
+  console.log(dataurl);
 
   var datam = {};
     fetch(dataurl)
@@ -86,7 +87,10 @@ export function UpdateDay(sdata, callBack){
                     tHigh: parseInt(item.high.celsius),
                     tLow: parseInt(item.low.celsius),
                     epoch: item.date.epoch,
-                    timezone: item.date.tz_long
+                    timezone: item.date.tz_long,
+                    month: item.date.monthname,
+                    day: item.date.day,
+                    weekday: item.date.weekday
                 }
             )
         })
