@@ -44,7 +44,7 @@ class WeatherData extends Component {
         } else {
             hours = parseInt(time[0]);
         }
-        console.log("HOURS: " + hours);
+        //console.log("HOURS: " + hours);
         return hours;
     }
     removeOld(){
@@ -68,29 +68,29 @@ class WeatherData extends Component {
     }
 
     componentDidMount(){
-        if(this.props.csettings.wuid){
+        if(!this.props.csettings.GeoEnabled){
           UpdateDay({wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
           UpdateHourly10Day({wuname: this.props.csettings.wuname, wuid: this.props.csettings.wuid}, this.callBack.bind(this));
-        } else if(this.props.csettings.GeoEnabled === true) {
-          GeoUpdateWeather({latitude: this.props.csettings.latitude, longitude: this.props.csettings.longitude}, this.callBack.bind(this));
+        } else {
+          GeoUpdateWeather({latitude: this.props.csettings.latitude, longitude: this.props.csettings.longitude}, this.callBack.bind(this), this.props.csettings, this.props.setSettings);
         }
     }
 
     componentWillUpdate(nextProps){
-      if(nextProps.csettings.City){
+      if(!nextProps.csettings.GeoEnabled){
         // Settings Changed
         if(nextProps.csettings.wuname != this.props.csettings.wuname){
           UpdateDay({wuname: nextProps.csettings.wuname, wuid: nextProps.csettings.wuid}, this.callBack.bind(this));
           UpdateHourly10Day({wuname: nextProps.csettings.wuname, wuid: nextProps.csettings.wuid}, this.callBack.bind(this));
           }
-      } else if(nextProps.csettings.GeoEnabled == true) {
+      } else {
         if(nextProps.csettings.latitude != this.props.csettings.latitude && nextProps.csettings.longitude != this.props.csettings.longitude){
-          GeoUpdateWeather({latitude: nextProps.csettings.latitude, longitude: nextProps.csettings.longitude}, this.callBack.bind(this));
+          GeoUpdateWeather({latitude: nextProps.csettings.latitude, longitude: nextProps.csettings.longitude}, this.callBack.bind(this), this.props.csettings, this.props.setSettings);
         }
       }
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps){
         let elem = document.getElementById("dayScroller");
         if(elem){
             if(!this.snapper){
@@ -112,7 +112,6 @@ class WeatherData extends Component {
 
         let daysElems = [];
         if(days.length > 0){
-            console.log(days);
             daysElems = days.map((day, i)=>{
                 return (
                     <div className="otherDay">
@@ -134,7 +133,7 @@ class WeatherData extends Component {
 
         if(this.state.updates > 1 && this.state.today.length != 0){
             this.changeBackground();
-            console.log('Today', this.state.daysimple);
+            ///console.log('Today', this.state.daysimple);
             return (
               <div id="dayScroller" className="horizontalSnapper">
                 <div className="day">

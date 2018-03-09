@@ -94,7 +94,7 @@ export function UpdateDay(sdata, callBack){
   return datam;
 }
 
-export function GeoUpdateWeather(sdata, callBack){
+export function GeoUpdateWeather(sdata, callBack, settings, settingsCallBack){
   var fetchurl = 'http://13.72.104.16/apicache.php?url=http://api.wunderground.com/api/d36721c0718840e5/geolookup/q/' + sdata.latitude + ',' + sdata.longitude + '.json';
     fetch(fetchurl)
     .then(results => {
@@ -108,6 +108,11 @@ export function GeoUpdateWeather(sdata, callBack){
         if(geodata.wuname != null){
           UpdateDay(geodata, callBack);
           UpdateHourly10Day(geodata, callBack);
+          settings.wuname = geodata.wuname;
+          console.log(settings);
+          settingsCallBack(settings);
+
+
         }
     });
   return true;

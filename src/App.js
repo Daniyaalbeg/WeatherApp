@@ -12,7 +12,7 @@ import VerticalSnapper from './lib/VerticalSnapper.js';
 class App extends Component {
     constructor(props){
         super(props);
-        
+
         this.state = {
             AppName: 'DogWeather',
             Settings: {
@@ -95,28 +95,16 @@ class App extends Component {
      //console.log(this.props.coords)
      if(this.state.Settings.LocationSet == true){
        //this.props.isGeolocationAvailable && this.props.isGeolocationEnabled)
-       //Render if no city is selected
-        if(this.state.Settings.City != null){
           return (
             <div className="App" id="App">
-             <WeatherData csettings={this.state.Settings} className="weatherData"/>
+             <WeatherData csettings={this.state.Settings} setSettings={this.setSettings.bind(this)} className="weatherData"/>
              <div className="settings">
                  <Settings csettings={this.state.Settings} setSettings={this.setSettings.bind(this)}/>
              </div>
            </div>
           );
-          //Render if Auto location is enabled,
-        } else if(this.state.Settings.GeoEnabled == true){
-          return (
-            <div className="App" id="App">
-                <WeatherData csettings={this.state.Settings} className="weatherData"/>
-                <div className="settings">
-                    <Settings csettings={this.state.Settings} setSettings={this.setSettings.bind(this)}/>
-                </div>
-            </div>
-          );
 
-        }
+
       } else {
         // Location is not set so set locatoion
         return (

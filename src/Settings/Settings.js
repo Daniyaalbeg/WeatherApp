@@ -92,6 +92,7 @@ class Settings extends Component {
                 settings.LocationSet = true;
                 settings.GeoEnabled = true;
                 settings.City = null;
+                //settings.wuname = null;
                 settings.latitude = this.props.coords.latitude;
                 settings.longitude = this.props.coords.longitude;
               } else {
@@ -133,17 +134,7 @@ class Settings extends Component {
     }
 
     getInputHolder(holder){
-        if(holder=="Location" || holder=="Eg. London"){
-            if(holder=="Eg. London"){
-                if(this.props.csettings.City != null) return this.props.csettings.City;
-                else return "Location";
-            }
-            else if(holder=="Location"){
-                if(this.props.csettings.City != null) return "Location";
-                else return "Eg. London";
-            }
-        }
-        else if(holder=="Eg. Tom" || holder=="User name"){
+        if(holder=="Eg. Tom" || holder=="User name"){
             if(holder=="Eg. Tom"){
                 if(this.props.csettings.username != null) return this.props.csettings.username;
                 else return "User name";
