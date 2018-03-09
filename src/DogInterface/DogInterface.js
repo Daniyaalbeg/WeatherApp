@@ -27,7 +27,7 @@ class DogInterface extends Component {
     checkForWeather(weather){
         if(this.props.weatherInfo.weather.toUpperCase().includes(weather.toUpperCase())) return this.props.weatherInfo.weather;
     }
-
+    // Returns the time int using the formal time string (Eg. 6:00AM returns 6).
     checkTime() {
         let time = this.props.weatherInfo.time.split(":");
         var hours = 0;
@@ -43,6 +43,8 @@ class DogInterface extends Component {
         return hours;
     }
 
+    // Sets the specific information which should be rendered for the weather. This includes
+    // the weather gif, the day, the message for the user, the weather information details.
     makeWeatherInfo(){
       let weatherInfo = this.props.weatherInfo;
       // This is a transparent image, used as a placeholder for the weather gif.
@@ -103,6 +105,7 @@ class DogInterface extends Component {
               classfile="notfixedtop";
               break;
           case this.checkForWeather("clear"):
+                // If the time of day is daytime the moon should not be shown, if clear.
               if (!isDay) {
                   weatherGif="https://imgur.com/k24jlE3.png";
                   walkDog = false;
@@ -112,6 +115,7 @@ class DogInterface extends Component {
                   //walkDog= true;
                   classfile="fixedtopsun";
               }
+              // The message is concatonated to be passed to the Message component.
               message="Its a clear "+ (isDay? " day" : " night") +", ";
               break;
           default:
@@ -142,10 +146,12 @@ class DogInterface extends Component {
           walkDog = false;
       }
 
-      // The current temp should also be taken into account.
+      // The current temp should also be taken into account. If below a certain temp
+      // the user should not walk their dog.
       if(weatherInfo.temp < 0){
           walkDog=false;
       }
+      // The user data is returned using this function, which is then passed to the Message component.
       message += " The high is " + this.props.daysimple.tHigh + ". The low is  " + this.props.daysimple.tLow + ".";
       let header = this.getNameAndUser(walkDog);
       return {message: message, classfile: classfile, weatherGif: weatherGif, header: header};
@@ -159,6 +165,8 @@ class DogInterface extends Component {
         this.makeWeatherInfo();
     }
 
+    // Returns the 1st message for the user, explicitly stating whether or not they
+    // should walk their dog.
     getNameAndUser(walkDog) {
         var noDog;
         var noUser;
@@ -185,6 +193,11 @@ class DogInterface extends Component {
         return header;
     }
 
+    // The render will display the main weather information with the Info component.
+    // The lower body is also rendered, which contains the animation for the weather
+    // at that specific time.
+    // The weather comment is also added which contains the message which has been generated
+    // in the getUserInformation method.
     render() {
         let info = this.makeWeatherInfo();
         return (

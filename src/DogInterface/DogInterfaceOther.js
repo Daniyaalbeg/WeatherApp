@@ -4,6 +4,8 @@ import Info from './Info/InfoOther.js';
 import Message from './Message/Message.js';
 
     // This dog interface is used to show weather for future days via a vertical swipe.
+    // The data displayed differs from the main window, thus a second component for the Info
+    // is used.
 
     class DogInterfaceOther extends Component {
         constructor(props) {
@@ -90,6 +92,8 @@ import Message from './Message/Message.js';
             this.makeWeatherInfo();
         }
 
+        // The render will display the weather information for the future day, an animation
+        // of the weather for that day and the hourly forecast.
         render() {
             let info = this.makeWeatherInfo();
             return (
