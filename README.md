@@ -4,6 +4,19 @@ Unlike other pets, dogs have to be taken for regular walks or their health can d
 This weather application not only shows the weather but also tells the owner a suitable time to take their beloved dog out for a walk.
 
 
+## Table of Contents
+[Getting Started](GUI#getting-started)
+[Prerequisites](GUI#prerequisites)
+[Installing](GUI#installing)
+[Deployment](GUI#deployment)
+[Operation](GUI#operation)
+[Built With](GUI#Built With)
+[Authors](GUI#authors)
+[Screenshot](GUI#screenshot)
+
+
+
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 See deployment for notes on how to deploy the project on a live system.
@@ -57,8 +70,6 @@ TO BE FILLED OUT WHEN THE FINAL VERSION OF APP IS MADE, *__WOOF WOOF__*
 *	Kaamil Jasani – Programmer/ CSS designer
 *	Ian Zakharov –  Main GUI designer/ Programmer
 
-## Live Preview
-[Preview](tree/GUI)
 
 ## Screenshot
 ![Alt text](https://i.imgur.com/bZPiTcC.gif "Test Gif one")
