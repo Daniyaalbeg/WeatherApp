@@ -58,7 +58,7 @@ TO BE FILLED OUT WHEN THE FINAL VERSION OF APP IS MADE, *__WOOF WOOF__*
 *	Ian Zakharov –  Main GUI designer/ Programmer
 
 ## Live Preview
-[Preview](../WeatherApp/tree/GUI)
+[Preview](tree/GUI)
 
 ## Screenshot
 ![Alt text](https://i.imgur.com/bZPiTcC.gif "Test Gif one")
