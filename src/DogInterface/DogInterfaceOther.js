@@ -42,7 +42,7 @@ import Message from './Message/Message.js';
                     classfile="fixedtopsun";
                     break;
                 case this.checkForWeather("thunder"):
-                    weatherGif="https://i.imgur.com/0VD2YQL.gif";
+                    weatherGif="https://imgur.com/anbCBfW.gif";
                     classfile="notfixedtoprain";
                     break;
                 case this.checkForWeather("snow"):
@@ -58,7 +58,7 @@ import Message from './Message/Message.js';
                     classfile="fixedtopsun";
                     break;
                 case this.checkForWeather("rain"):
-                    weatherGif="https://i.imgur.com/0VD2YQL.gif";
+                    weatherGif="https://imgur.com/anbCBfW.gif";
                     classfile="notfixedtoprain";
                     break;
                 case this.checkForWeather("fog"):
