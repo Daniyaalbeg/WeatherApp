@@ -52,7 +52,7 @@ class DogInterface extends Component {
       let classfile;
       var isDay = null;
       let currentTime= this.checkTime();
-      if (currentTime >= 6 && currentTime < 20) {
+      if (currentTime >= 5 && currentTime < 20) {
           isDay = true;
       } else {
           isDay = false;

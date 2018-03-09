@@ -22,9 +22,8 @@ class WeatherData extends Component {
     changeBackground(){
         var currentTime = this.checkTime();
         this.removeOld();
-        console.log(currentTime);
-        if(currentTime >= 5 && currentTime < 6) document.body.classList.add('morning');
-        else if (currentTime >= 6 && currentTime <11) document.body.classList.add('lateMorning');
+        if(currentTime >= 5 && currentTime < 7) document.body.classList.add('morning');
+        else if (currentTime >= 7 && currentTime <11) document.body.classList.add('lateMorning');
         else if(currentTime >= 11 && currentTime < 16) document.body.classList.add('afternoon');
         else if(currentTime >= 16 && currentTime < 17) document.body.classList.add('lateAfternoon');
         else if(currentTime >= 17 && currentTime < 18) document.body.classList.add('evening');

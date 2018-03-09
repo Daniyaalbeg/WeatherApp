@@ -99,14 +99,14 @@ class Settings extends Component {
               }
             } else {
               // Geo Location is not Enabled
-              this.locationErrorMessage = 'You have to enable location to use this feature';
+              this.locationErrorMessage = 'You have to enable location to use this feature.';
               this.setState({locationFound: false});
               this.handleClick();
               return;
               //console.log("Enable Geo Location");
             }
           } else {
-            this.locationErrorMessage = 'GEO Location not possible on device / reset';
+            this.locationErrorMessage = 'GEO Location not possible on device / reset.';
             this.setState({locationFound: false});
             this.handleClick();
             return;
