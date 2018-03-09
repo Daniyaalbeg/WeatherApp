@@ -41,7 +41,7 @@ First let’s install [Node.js](https://nodejs.org/en/) this can be installed fo
 ``https://nodejs.org/en/``
 
 Download and install the latest version of Node.js. NPM (Node package manager) will automatically be installed with Node.js
-After installing Node /w NPM, you can now clone the repository either with git or by downloading it manually.
+After installing Node with NPM, you can now clone the repository either with git or by downloading it manually.
 Open the project with your selected IDE (Integrated Development Environment).
 
 **Before you start running the project two libraries must be installed.**
@@ -60,11 +60,29 @@ After installing the libraries please restart your IDE (Integrated Development E
 ## Deployment
 **Add additional notes about how to deploy this on a live system**
 
+**This needs to be added ASAP**
+
 ## Operation
 
 When you first start the app you're placed in the setting Screen promoting you to set your location. 
 In the following menu you also Have a choice to set your Name, Dogs Name and breed. 
 
+![Alt text](https://i.imgur.com/0XNbTUP.png "Guide Image 1")
+
+After you are happy with the changes click on the Save Settings button this will seamlessly refresh the app and will start desplaying the 
+necessary data. 
+
+![Alt text](https://i.imgur.com/owgOZIg.png "Guide Image 2")
+
+If you swipe the left on the city bar you can see an bi-hourly forecast. 
+
+![Alt text](https://i.imgur.com/rLhQlhY.png "Guide Image 3")
+
+If you want to see next day forecast please swipe left of the dog kennel.
+
+![Alt text](https://i.imgur.com/jScNuCo.png "Guide Image 4")
+
+If you wish to change any your settings at anytime simply swipe up to access the setting panel. 
 
 ## Built With
 
@@ -81,9 +99,9 @@ In the following menu you also Have a choice to set your Name, Dogs Name and bre
 
 
 ## Screenshot
-![Alt text](https://i.imgur.com/bZPiTcC.gif "Test Gif one")
-![Alt text](https://i.imgur.com/wGtQLIX.png "Test Different sizes PRI")
+![Alt text](https://i.imgur.com/owgOZIg.png "Test Gif one")
+![Alt text](https://i.imgur.com/jScNuCo.png "Test Different sizes PRI")
 ![Alt text](https://i.imgur.com/PvprD3L.jpg "Test Different size DUO")
-![Alt text](https://i.imgur.com/5iLb0BG.jpg "Test Different size Tri")
-![Alt text](https://i.imgur.com/mfUULXZ.png "Test Different size TET")
-![Alt text](https://i.imgur.com/4AYRXtw.png "Test Different size PEN")
+![Alt text](https://i.imgur.com/KMFx7NR.png "Test Different size Tri")
+![Alt text](https://i.imgur.com/MTgARKf.png "Test Different size TET")
+
