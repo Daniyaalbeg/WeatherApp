@@ -44,8 +44,8 @@ Download and install the latest version of Node.js. NPM (Node package manager) w
 After installing Node with NPM, you can now clone the repository either with git or by downloading it manually.
 Open the project with your selected IDE (Integrated Development Environment).
 
-**Before you start running the project two libraries must be installed.**
----
+**Before you start running the project two libraries must be installed.** ![alt text](https://emojipedia-us.s3.amazonaws.com/thumbs/120/microsoft/106/heavy-exclamation-mark-symbol_2757.png "!!" )
+
 
 Please go where you have the files for the project and open either terminal if you’re on Linux or Windows Powershell if you’re on windows and type the following commands
 
@@ -58,12 +58,13 @@ Please go where you have the files for the project and open either terminal if y
 After installing the libraries please restart your IDE (Integrated Development Environment) of choice and the project is now ready to be modified to your liking.
 
 ## Deployment
+![alt text](https://emojipedia-us.s3.amazonaws.com/thumbs/120/microsoft/106/heavy-exclamation-mark-symbol_2757.png "!!" )
 **Add additional notes about how to deploy this on a live system**
-
+![alt text](https://emojipedia-us.s3.amazonaws.com/thumbs/120/microsoft/106/heavy-exclamation-mark-symbol_2757.png "!!" )
 **This needs to be added ASAP**
-
+![alt text](https://emojipedia-us.s3.amazonaws.com/thumbs/120/microsoft/106/heavy-exclamation-mark-symbol_2757.png "!!" )
 ## Operation
-
+![alt text](https://emojipedia-us.s3.amazonaws.com/thumbs/120/microsoft/106/heavy-exclamation-mark-symbol_2757.png "!!" )**THIS NEEDS SOME CHANGES IMO** ![alt text](https://emojipedia-us.s3.amazonaws.com/thumbs/120/microsoft/106/heavy-exclamation-mark-symbol_2757.png "!!" )
 When you first start the app you're placed in the setting Screen promoting you to set your location. 
 In the following menu you also Have a choice to set your Name, Dogs Name and breed. 
 
@@ -101,7 +102,6 @@ If you wish to change any your settings at anytime simply swipe up to access the
 ## Screenshot
 ![Alt text](https://i.imgur.com/owgOZIg.png "Test Gif one")
 ![Alt text](https://i.imgur.com/jScNuCo.png "Test Different sizes PRI")
-![Alt text](https://i.imgur.com/PvprD3L.jpg "Test Different size DUO")
 ![Alt text](https://i.imgur.com/KMFx7NR.png "Test Different size Tri")
 ![Alt text](https://i.imgur.com/MTgARKf.png "Test Different size TET")
 
