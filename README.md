@@ -10,20 +10,22 @@ See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 The following software and libraries need to be installed before running the project.
-*	Node.js /w NPM
+*	Node.js with NPM
 *	React-toggle-switch
 *	React-geolocated
 *   React-select
 
 ### Installing
 First let’s install [Node.js](https://nodejs.org/en/) this can be installed form their official website 
+
 ``https://nodejs.org/en/``
 
 Download and install the latest version of Node.js. NPM (Node package manager) will automatically be installed with Node.js
 After installing Node /w NPM, you can now clone the repository either with git or by downloading it manually. 
 Open the project with your selected IDE (Integrated Development Environment).
 
-__*Before you start running the project two libraries must be installed.*__
+**Before you start running the project two libraries must be installed.**
+---
 
 Please go where you have the files for the project and open either terminal if you’re on Linux or Windows Powershell if you’re on windows and type the following commands 
 
@@ -56,7 +58,7 @@ TO BE FILLED OUT WHEN THE FINAL VERSION OF APP IS MADE, *__WOOF WOOF__*
 *	Ian Zakharov –  Main GUI designer/ Programmer 
 
 ## Live Preview
-[Preview](../blob/master/)
+[Preview](../WeatherApp/tree/GUI)
 
 ## Screenshot
 ![Alt text](https://i.imgur.com/bZPiTcC.gif "Test Gif one")
