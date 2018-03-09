@@ -47,8 +47,7 @@
     filter: drop-shadow(4px 4px 1px rgba(0, 0, 0, 0.3));
 }
 .overcast{
-    padding-top: 1.5vh;
-
+    padding-top: 2.7vh;
     animation: MoveUpDown 2s infinite steps(5);
 }
 .cloud{

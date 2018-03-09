@@ -62,7 +62,7 @@ class Bar extends Component {
                 classfile="fixed cloud";
                 break;
             case this.checkForWeather("overcast"):
-                weatherGif="https://i.imgur.com/Tnp4BBN.gif";
+                weatherGif="https://i.imgur.com/pqRqfhu.gif";
                 classfile="fixed overcast";
                 break;
             case this.checkForWeather("rain"):

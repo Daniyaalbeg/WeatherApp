@@ -57,7 +57,7 @@ import Message from './Message/Message.js';
                     classfile="fixedtop";
                     break;
                 case this.checkForWeather("overcast"):
-                    weatherGif="https://i.imgur.com/Tnp4BBN.gif";
+                    weatherGif="https://i.imgur.com/pqRqfhu.gif";
                     classfile="fixedtopsun";
                     break;
                 case this.checkForWeather("rain"):

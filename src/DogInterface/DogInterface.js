@@ -81,7 +81,7 @@ class DogInterface extends Component {
               classfile="fixedtop";
               break;
           case this.checkForWeather("overcast"):
-              weatherGif="https://i.imgur.com/Tnp4BBN.gif";
+              weatherGif="https://i.imgur.com/pqRqfhu.gif";
               message="Its a bit gloomy, ";
               walkDog = true;
               classfile="fixedtop";
