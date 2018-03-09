@@ -22,7 +22,6 @@ import Message from './Message/Message.js';
 
         // Function to check for the weather name in the API data (eg. 'Chance of Rain' will return for the case for rain.)
         checkForWeather(weather){
-            //console.log({m: "checking weather", info: this.props.weatherInfo});
             if(this.props.daysimple.weather.toUpperCase().includes(weather.toUpperCase())) return this.props.daysimple.weather;
         }
 
@@ -86,13 +85,9 @@ import Message from './Message/Message.js';
         }
 
         componentWillUpdate(nextProps, prevState) {
-            //console.log("--------------------------------");
-            //console.log(nextProps.username);
-            //console.log(this.props.username);
             if (nextProps.username != this.props.username || nextProps.dogname != this.props.dogname) {
                 this.setState({header: this.getNameAndUser()});
                 console.log("UPDATING!");
-                //this.state.header = this.getNameAndUser();
             }
         }
 
@@ -120,7 +115,6 @@ import Message from './Message/Message.js';
         }
 
         render() {
-            //console.log(this.props.daysimple);
             return (
                 <div className="di">
                     <div className="weatherinfo"><Info weatherInfo={this.props.daysimple}/></div>
