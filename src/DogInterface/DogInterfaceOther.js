@@ -25,7 +25,7 @@ import Message from './Message/Message.js';
             if(this.props.daysimple.weather.toUpperCase().includes(weather.toUpperCase())) return this.props.daysimple.weather;
         }
 
-        componentWillMount() {
+        makeWeatherInfo() {
             let weatherInfo = this.props.daysimple;
             // This is a transparent image, used as a placeholder for the weather gif.
             var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
@@ -80,47 +80,25 @@ import Message from './Message/Message.js';
                     classfile="fixedtopsun";
                     break;
             }
-            let header = this.getNameAndUser();
-            this.setState({classfile: classfile, weatherGif: weatherGif, header: header});
+            return {classfile: classfile, weatherGif: weatherGif};
         }
 
-        componentWillUpdate(nextProps, prevState) {
-            if (nextProps.username != this.props.username || nextProps.dogname != this.props.dogname) {
-                this.setState({header: this.getNameAndUser()});
-                console.log("UPDATING!");
-            }
+        componentWillMount() {
+            this.makeWeatherInfo()
         }
 
-        //Method to generate custom message to take your dog out or not
-        getNameAndUser() {
-            var noDog;
-            var noUser;
-            var header;
-            var dogname;
-            var username;
-            if (this.props.dogname == null) {
-                noDog = true;
-            } else {
-                noDog = false;
-                dogname = this.props.dogname.substring(0,1).toUpperCase() + this.props.dogname.substring(1);
-            }
-            if (this.props.username == null) {
-                noUser = true;
-            } else {
-                noUser = false;
-                username = this.props.username.substring(0,1).toUpperCase() + this.props.username.substring(1);
-            }
-            header = (noUser ? "It is " : username + " it is ") + (this.state.walkDog? "" : " not ") + "a good time to walk "+ (noDog ? "your dog." : dogname+".");
-            return header;
+        componentWillUpdate() {
+            this.makeWeatherInfo();
         }
 
         render() {
+            let info = this.makeWeatherInfo();
             return (
                 <div className="di">
                     <div className="weatherinfo"><Info weatherInfo={this.props.daysimple}/></div>
                     <div className="lowerbody">
                         <div className="weatheranimation">
-                            <img className={this.state.classfile} src={this.state.weatherGif} alt="Error"/>
+                            <img className={info.classfile} src={info.weatherGif} alt="Error"/>
                         </div>
                     </div>
                 </div>

@@ -136,27 +136,27 @@ class DogInterface extends Component {
       this.makeWeatherInfo();
     }
 
-    componentWillUpdate(nextProps) {
+    componentWillUpdate() {
         this.makeWeatherInfo();
     }
 
-    getNameAndUser(CProps) {
+    getNameAndUser() {
         var noDog;
         var noUser;
         var header;
         var dogname;
         var username;
-        if (CProps.dogname == null) {
+        if (this.props.dogname == null) {
             noDog = true;
         } else {
             noDog = false;
-            dogname = CProps.dogname.substring(0,1).toUpperCase() + CProps.dogname.substring(1);
+            dogname = this.props.dogname.substring(0,1).toUpperCase() + this.props.dogname.substring(1);
         }
-        if (CProps.username == null) {
+        if (this.props.username == null) {
             noUser = true;
         } else {
             noUser = false;
-            username = CProps.username.substring(0,1).toUpperCase() + CProps.username.substring(1);
+            username = this.props.username.substring(0,1).toUpperCase() + this.props.username.substring(1);
         }
         header = (noUser ? "It is " : username + " it is ") + (this.state.walkDog? "" : " not ") + "a good time to walk "+ (noDog ? "your dog." : dogname+".");
         return header;
