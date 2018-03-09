@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Select from 'react-select';
+import {Async} from 'react-select';
 import './react-select.css';
 
 
@@ -7,14 +7,6 @@ class SearchLocation extends Component {
 	constructor(props){
 			super(props);
 			this.state = {value:{name: this.props.WUName}};
-	}
-
-	getInitialState () {
-		return {
-			backspaceRemoves: true,
-			multi: true,
-			creatable: false,
-		};
 	}
 
 	onChange (value) {
@@ -26,12 +18,12 @@ class SearchLocation extends Component {
 		}
 	}
 
-	getUsers (input) {
+	getCities (input) {
 		if (!input) {
 			return Promise.resolve({ options: [] });
 		}
 
-		return fetch(`http://13.72.104.16/test2.php?url=http://autocomplete.wunderground.com/aq?query=${input}`)
+		return fetch(`http://13.72.104.16/apicache.php?url=http://autocomplete.wunderground.com/aq?query=${input}`)
 		.then((response) => response.json())
 		.then((json) => {
 			return { options: json.RESULTS };
@@ -39,26 +31,12 @@ class SearchLocation extends Component {
 
 	}
 
-	toggleBackspaceRemoves () {
-		this.setState({
-			backspaceRemoves: !this.state.backspaceRemoves
-		});
-	}
-
-	toggleCreatable () {
-		this.setState({
-			creatable: !this.state.creatable
-		});
-	}
 
 	render () {
-		const AsyncComponent = this.state.creatable
-			? Select.AsyncCreatable
-			: Select.Async;
-
+		// Filtering Countries and Places wunderground api does not support
 		return (
 			<div>
-				<AsyncComponent value={this.state.value} onChange={this.onChange.bind(this)} valueKey="id" labelKey="name" loadOptions={this.getUsers} backspaceRemoves={this.state.backspaceRemoves} />
+				<Async filterOptions = {(options, filter, currentValues) => { let newOptions = []; for (let i = 0; i < options.length; i++) {if(options[i].ll !== '-9999.000000 -9999.000000'){ newOptions.push(options[i]); }} return newOptions; }} value={this.state.value} onChange={this.onChange.bind(this)} valueKey="id" labelKey="name" loadOptions={this.getCities} backspaceRemoves={true} />
 			</div>
 		);
 	}
