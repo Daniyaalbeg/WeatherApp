@@ -59,10 +59,10 @@ TO BE FILLED OUT WHEN THE FINAL VERSION OF APP IS MADE, *__WOOF WOOF__*
 [Preview](../blob/master/)
 
 ## Screenshot
-![Alt text](https://i.imgur.com/bZPiTcC.gifv "Test Gif one")
+![Alt text](https://i.imgur.com/bZPiTcC.gif "Test Gif one")
 ![Alt text](https://i.imgur.com/wGtQLIX.png "Test Different sizes PRI")
 ![Alt text](https://i.imgur.com/PvprD3L.jpg "Test Different size DUO")
 ![Alt text](https://i.imgur.com/5iLb0BG.jpg "Test Different size Tri")
 ![Alt text](https://i.imgur.com/mfUULXZ.png "Test Different size TET")
-![Alt text](https://i.imgur.com/mfUULXZ.png "Test Different size PEN")
+![Alt text](https://i.imgur.com/4AYRXtw.png "Test Different size PEN")
     
