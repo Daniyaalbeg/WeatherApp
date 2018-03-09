@@ -190,11 +190,11 @@ class Settings extends Component {
 
     render() {
         return (
-            <div class="se">
-                <div class="heading">Settings</div>
+            <div className="se">
+                <div className="heading">Settings</div>
                 <form id="settingForm">
-                    <div class="location">
-                        <div class="toggle">
+                    <div className="location">
+                        <div className="toggle">
                             <input name="test" id="locationSwitch" type="checkbox" onClick={this.handleClick} checked={this.state.isChecked}/>
                             <label for="locationSwitch">
                                 Use my location
@@ -202,22 +202,22 @@ class Settings extends Component {
                             </label>
                         </div>
                     </div>
-                    <div class="paragraph">{this.state.isToggleOn ? this.getMsg() : this.getEle()}</div>
-                    <div class="userInfo">
-                        <div class="headingTwo">User Info</div>
-                        <div class="userData">
+                    <div className="paragraph">{this.state.isToggleOn ? this.getMsg() : this.getEle()}</div>
+                    <div className="userInfo">
+                        <div className="headingTwo">User Info</div>
+                        <div className="userData">
                             <input id="usernamef" placeholder="E.g. Tom" required/>
                             <label for="usernamef">User name</label>
                         </div>
-                        <div class="userData">
+                        <div className="userData">
                             <input id="dognamef" placeholder="E.g. Lassie" required/>
                             <label for="dognamef">Dog name</label>
                         </div>
-                        <div class="userData">
+                        <div className="userData">
                             <input id="dogbreedf" placeholder="E.g. Bulldog" required/>
                             <label for="dogbreedf">Dog breed</label>
                         </div>
-                        <div class="centeredButton">
+                        <div className="centeredButton">
                             <button type="button" onClick={this.saveSettings}>Save Settings</button>
                         </div>
                     </div>

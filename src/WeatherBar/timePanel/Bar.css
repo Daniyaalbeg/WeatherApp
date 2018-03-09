@@ -14,7 +14,6 @@
     width:100%;
     font-size: 1.6vh;
     color: white;
-    -webkit-filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 1));
      filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 1));
 }
 
@@ -41,8 +40,8 @@
     padding-top: 3vh;
     width:90%;
     max-width: 125px;
-    opacity: 0.6;
-    filter: drop-shadow(4px 4px 1px rgba(0, 0, 0, 0.3));
+    opacity: 0.9;
+    filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.4));
 }
 .overcast{
     padding-top: 2.7vh;

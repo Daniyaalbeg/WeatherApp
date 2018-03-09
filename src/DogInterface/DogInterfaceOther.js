@@ -30,15 +30,7 @@ import Message from './Message/Message.js';
             // This is a transparent image, used as a placeholder for the weather gif.
             var weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
             let classfile;
-            var isDay = null;
-            var date = new Date(0);
-            date.setUTCSeconds(weatherInfo.epoch);
-            let currentTime = date.getHours();
-            if (currentTime >= 6 && currentTime < 20) {
-                isDay = true;
-            } else {
-                isDay = false;
-            }
+            var isDay=true;
             // Moon Image: https://i.imgur.com/hG7Z9xh.png
 
             // This switch case is used to display the weather gif animation. The weather is run
@@ -54,7 +46,7 @@ import Message from './Message/Message.js';
                     classfile="notfixedtoprain";
                     break;
                 case this.checkForWeather("snow"):
-                    weatherGif="https://i.imgur.com/l8GPSHU.gif";
+                    weatherGif="https://imgur.com/Nw3NwPU.gif";
                     classfile="notfixedtop";
                     break;
                 case this.checkForWeather("cloud"):
