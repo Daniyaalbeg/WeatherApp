@@ -49,6 +49,10 @@ import Message from './Message/Message.js';
                     weatherGif="https://i.imgur.com/2P8pMyy.gif";
                     classfile="fixedtopsun";
                     break;
+                case this.checkForWeather("thunder"):
+                    weatherGif="https://i.imgur.com/0VD2YQL.gif";
+                    classfile="notfixedtoprain";
+                    break;
                 case this.checkForWeather("snow"):
                     weatherGif="https://i.imgur.com/l8GPSHU.gif";
                     classfile="notfixedtop";

@@ -57,8 +57,6 @@ class DogInterface extends Component {
       } else {
           isDay = false;
       }
-      console.log(isDay);
-      console.log(currentTime);
       // This switch case is used to display the weather gif animation. The weather is run
       // through the switch case so if the weather is present, the correct variables and gif
       // are attatched to the animation when rendered.
@@ -68,6 +66,10 @@ class DogInterface extends Component {
               message="The sun is out, ";
               walkDog = true;
               classfile="fixedtopsun";
+              break;
+          case this.checkForWeather("thunder"):
+              weatherGif="https://i.imgur.com/0VD2YQL.gif";
+              classfile="notfixedtoprain";
               break;
           case this.checkForWeather("snow"):
               weatherGif="https://i.imgur.com/l8GPSHU.gif";
@@ -94,7 +96,7 @@ class DogInterface extends Component {
               classfile="notfixedtop";
               break;
           case this.checkForWeather("fog"):
-              weatherGif="";
+              weatherGif="https://raw.githubusercontent.com/diegocsandrim/sharp-test/master/output1.png";
               message="Its a bit foggy, ";
               walkDog = false;
               classfile="notfixedtop";
