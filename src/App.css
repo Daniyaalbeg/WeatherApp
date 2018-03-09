@@ -78,18 +78,19 @@ html{
 }
 
 .indicator span{
-    animation: upDown 2s infinite steps(5);
+    animation: upDown 1s infinite steps(5);
+    display: inline-block;
 }
 
 @keyframes upDown {
     0%{
-        margin-top: 0em;
+        transform: translateY(0em);
     }
     50%{
-        margin-top: -0.1em;
+        transform: translateY(-0.1em);
     }
     100%{
-        margin-top: 0em;
+        transform: translateY(0em);
     }
 }
 
