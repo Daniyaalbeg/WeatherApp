@@ -33,9 +33,11 @@ class Settings extends Component {
     //Called when Use my location is disabled.
     getEle(){
         return(
-            <div className="userData">
-                <SearchLocation WUName={this.props.csettings.wuname} updateDetails={this.updateAutoComplete.bind(this)} />
+            <div className="ele">
                 <div className="locationerrormsg">{this.state.locationFound ? "" : this.locationErrorMessage}</div>
+                <div className="userData">
+                    <SearchLocation WUName={this.props.csettings.wuname} updateDetails={this.updateAutoComplete.bind(this)} />
+                </div>
             </div>
         );
     }
@@ -99,7 +101,7 @@ class Settings extends Component {
               }
             } else {
               // Geo Location is not Enabled
-              this.locationErrorMessage = 'You have to enable location to use this feature.';
+              this.locationErrorMessage = 'You must allow access to geolocation to use this feature';
               this.setState({locationFound: false});
               this.handleClick();
               return;

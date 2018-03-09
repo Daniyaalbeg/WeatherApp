@@ -18,8 +18,6 @@
 }
 .locationerrormsg{
     color: red;
-    text-align: center;
-    padding-top: .8vh;
 }
 .toggle > label{
     float: left;
