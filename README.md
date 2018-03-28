@@ -93,4 +93,4 @@ If you wish to change any of your settings at anytime simply swipe up to access 
 *	Thomas Bunyan – CSS Designer/Programmer
 *	Daniyaal Beg –  GUI designer/Programmer/ CSS designer
 *	Kaamil Jasani – Programmer/ CSS designer
-*	Ian Zakharov –  Main GUI designer/ Programmer
+*	Ian Zakharov –  GUIain  designer/ Programmer
